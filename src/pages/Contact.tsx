@@ -7,8 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -16,10 +18,9 @@ const Contact = () => {
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Kapcsolat</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('contact.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Készen állunk segíteni AI utazásod minden lépésében. Vedd fel velünk a kapcsolatot 
-              ingyenes konzultációért vagy bármilyen kérdéssel.
+              {t('contact.page.subtitle')}
             </p>
           </div>
 
@@ -27,9 +28,9 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="shadow-elegant">
               <CardHeader>
-                <CardTitle className="text-2xl">Kapcsolatfelvétel</CardTitle>
+                <CardTitle className="text-2xl">{t('contact.form.title')}</CardTitle>
                 <CardDescription>
-                  Töltsd ki az alábbi űrlapot és 24 órán belül felvesszük veled a kapcsolatot.
+                  {t('contact.form.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -81,7 +82,7 @@ const Contact = () => {
                 </div>
                 
                 <Button variant="ai" className="w-full" size="lg">
-                  Üzenet küldése
+                  {t('contact.send')}
                 </Button>
                 
                 <p className="text-sm text-muted-foreground">

@@ -3,8 +3,10 @@ import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Shield, Lock, Eye, FileCheck, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Technology = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -16,14 +18,14 @@ const Technology = () => {
               <Shield className="mr-2 h-4 w-4" />
               Compliance Ready
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Technológia & Megfelelőség</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('technology.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Az Agentize minden AI megoldása a legmagasabb biztonsági és compliance standardok szerint működik.
+              {t('technology.page.subtitle')}
             </p>
           </div>
 
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-12">Mi teszi biztonságossá az Agentize megoldásait?</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">{t('technology.security.title')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">

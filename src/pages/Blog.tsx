@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Blog = () => {
+  const { t } = useLanguage();
   const posts = [
     {
       title: "AI és jog: mire figyelj 2025-ben?",
@@ -66,10 +68,9 @@ const Blog = () => {
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog & Insights</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('blog.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Legfrissebb AI trendek, esettanulmányok, útmutatók és szakértői vélemények 
-              a mesterséges intelligencia világából.
+              {t('blog.page.subtitle')}
             </p>
           </div>
 
@@ -88,7 +89,7 @@ const Blog = () => {
 
           {/* Featured Posts */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Kiemelt cikkek</h2>
+            <h2 className="text-2xl font-bold mb-8">{t('blog.featured')}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {posts.filter(post => post.featured).map((post, index) => (
                 <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group">
@@ -124,7 +125,7 @@ const Blog = () => {
 
           {/* All Posts */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Minden cikk</h2>
+            <h2 className="text-2xl font-bold mb-8">{t('blog.all')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.filter(post => !post.featured).map((post, index) => (
                 <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group">
@@ -158,10 +159,9 @@ const Blog = () => {
 
           {/* Newsletter Signup */}
           <div className="bg-gradient-primary text-white rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Iratkozz fel hírlevelünkre!</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('blog.newsletter.title')}</h2>
             <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Legyél az elsők között, akik értesülnek a legújabb AI trendekről, 
-              esettanulmányokról és az Agentize újdonságairól.
+              {t('blog.newsletter.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
@@ -170,7 +170,7 @@ const Blog = () => {
                 className="flex-1 px-4 py-2 rounded-md text-foreground"
               />
               <Button variant="hero" className="bg-white text-primary hover:bg-white/90">
-                Feliratkozás
+                {t('blog.subscribe')}
               </Button>
             </div>
           </div>

@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Target, Users, Award, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
   const team = [
     {
       name: "Dr. Nagy Péter",
@@ -35,10 +37,9 @@ const About = () => {
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Rólunk</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('about.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Az Agentize csapata a mesterséges intelligencia és üzleti automatizálás szakértőiből áll, 
-              akik hisznek az etikus és átlátható AI fejlesztésben.
+              {t('about.page.subtitle')}
             </p>
           </div>
 
@@ -46,17 +47,14 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 flex items-center">
                 <Target className="mr-3 h-8 w-8 text-primary" />
-                Küldetésünk
+                {t('about.mission.title')}
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Célunk, hogy minden vállalat a saját üzleti folyamataihoz illeszkedő, 
-                etikus, átlátható AI-megoldásokhoz férjen hozzá. Hiszünk abban, hogy a 
-                mesterséges intelligencia akkor teremti a legnagyobb értéket, ha az emberi 
-                kreativitást és döntéshozatalt támogatja, nem helyettesíti.
+                {t('about.mission.desc')}
               </p>
               <div className="bg-gradient-subtle p-6 rounded-xl">
                 <h3 className="font-semibold mb-3 text-lg bg-gradient-primary bg-clip-text text-transparent">
-                  Innováció. Transzparencia. Emberközpontú AI.
+                  {t('about.motto')}
                 </h3>
                 <p className="text-muted-foreground">
                   Ez a három alappillér határozza meg minden tevékenységünket és 
@@ -68,7 +66,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 flex items-center">
                 <Award className="mr-3 h-8 w-8 text-primary" />
-                Értékeink
+                {t('about.values.title')}
               </h2>
               <div className="space-y-4">
                 <Card className="shadow-elegant">
@@ -102,7 +100,7 @@ const About = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
               <Users className="mr-3 h-8 w-8 text-primary" />
-              Csapatunk
+              {t('about.team.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, index) => (

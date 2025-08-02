@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MessageSquare, BarChart3, Megaphone, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Solutions = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -12,9 +14,9 @@ const Solutions = () => {
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Megoldásaink</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('solutions.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Iparág-specifikus AI megoldások, amelyek azonnal értéket teremtenek üzleted számára.
+              {t('solutions.page.subtitle')}
             </p>
           </div>
 
@@ -22,12 +24,11 @@ const Solutions = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <MessageSquare className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Ügyfélszolgálat</CardTitle>
+                <CardTitle className="text-2xl">{t('solutions.customer.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  24/7 automatizált segítségnyújtás – valós időben. Intelligens chatbotok 
-                  és ügynökök, amelyek emberi színvonalon válaszolnak.
+                  {t('solutions.customer.desc')}
                 </CardDescription>
                 <div className="space-y-4 mb-6">
                   <div className="bg-muted p-4 rounded-lg">
@@ -50,12 +51,11 @@ const Solutions = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <BarChart3 className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Adatbányászat és Riportálás</CardTitle>
+                <CardTitle className="text-2xl">{t('solutions.analytics.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  Azonnali, vizuálisan erős riportok, döntéstámogatás a vezetőség számára. 
-                  AI-vezérelt adatelemzés és prediktív analitika.
+                  {t('solutions.analytics.desc')}
                 </CardDescription>
                 <div className="space-y-4 mb-6">
                   <div className="bg-muted p-4 rounded-lg">
@@ -78,12 +78,11 @@ const Solutions = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <Megaphone className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Marketing Automatizáció</CardTitle>
+                <CardTitle className="text-2xl">{t('solutions.marketing.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  Személyre szabott kampányok, tartalomgenerálás és customer journey 
-                  optimalizálás AI segítségével.
+                  {t('solutions.marketing.desc')}
                 </CardDescription>
                 <div className="space-y-4 mb-6">
                   <div className="bg-muted p-4 rounded-lg">

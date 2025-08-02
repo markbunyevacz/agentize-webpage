@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Bot, Settings, GraduationCap, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -12,9 +14,9 @@ const Services = () => {
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Szolgáltatásaink</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('services.page.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Átfogó AI megoldások, amelyek minden üzleti területen segítenek az automatizálásban és hatékonyság növelésében.
+              {t('services.page.subtitle')}
             </p>
           </div>
 
@@ -22,21 +24,19 @@ const Services = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <Bot className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Intelligens Ügynökök</CardTitle>
+                <CardTitle className="text-2xl">{t('services.agents.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  Egyedi AI agentek, amelyek automatizálják az ismétlődő feladatokat, 
-                  összekapcsolják rendszereidet, és proaktívan támogatják az üzletmenetet.
+                  {t('services.agents.desc')}
                 </CardDescription>
                 <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                  <li>• 24/7 automatizált ügyfélszolgálat</li>
-                  <li>• Belső folyamatok optimalizálása</li>
-                  <li>• Rendszerek közötti integráció</li>
-                  <li>• Valós idejű riportálás</li>
+                  {t('services.agents.features').split('\n').map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
                 <Button variant="outline" className="w-full">
-                  Tudj meg többet
+                  {t('common.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -45,12 +45,11 @@ const Services = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <Settings className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Prompt Engineering & Testreszabás</CardTitle>
+                <CardTitle className="text-2xl">{t('services.prompt.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  Folyamatosan fejlesztett, személyre szabható promptok és 
-                  workflow-k bármely felhasználási területre.
+                  {t('services.prompt.desc')}
                 </CardDescription>
                 <ul className="space-y-2 text-sm text-muted-foreground mb-6">
                   <li>• Iparág-specifikus promptok</li>
@@ -59,7 +58,7 @@ const Services = () => {
                   <li>• Teljesítmény monitoring</li>
                 </ul>
                 <Button variant="outline" className="w-full">
-                  Tudj meg többet
+                  {t('common.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -68,12 +67,11 @@ const Services = () => {
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <GraduationCap className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Bevezetési és Oktatási Program</CardTitle>
+                <CardTitle className="text-2xl">{t('services.training.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-6">
-                  Segítünk a cég egészét felkészíteni az AI-alapú munkavégzésre – 
-                  workshop, tréning, tanácsadás.
+                  {t('services.training.desc')}
                 </CardDescription>
                 <ul className="space-y-2 text-sm text-muted-foreground mb-6">
                   <li>• Személyre szabott workshop-ok</li>
@@ -82,7 +80,7 @@ const Services = () => {
                   <li>• Hosszú távú támogatás</li>
                 </ul>
                 <Button variant="outline" className="w-full">
-                  Tudj meg többet
+                  {t('common.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -90,12 +88,12 @@ const Services = () => {
           </div>
 
           <div className="bg-gradient-primary text-white rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Készen állsz az AI forradalomra?</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('common.readyForAI')}</h2>
             <p className="text-lg mb-6 opacity-90">
-              Kezdjük el együtt az utazást a hatékonyabb és intelligensebb üzleti folyamatok felé.
+              {t('common.startJourney')}
             </p>
             <Button variant="hero" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Ingyenes konzultáció
+              {t('common.freeConsultation')}
             </Button>
           </div>
         </div>
