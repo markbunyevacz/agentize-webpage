@@ -2,148 +2,188 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { MessageSquare, BarChart3, Megaphone, ArrowRight } from 'lucide-react';
+import { MessageSquare, BarChart3, Target, CheckCircle, ArrowRight, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Solutions = () => {
   const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       <Navigation />
       
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('solutions.page.title')}</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+              {t('solutions.page.title')}
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               {t('solutions.page.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Platform Features Highlight */}
+          <Card className="bg-gradient-subtle border-2 border-primary/20 mb-16 shadow-elegant">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-6 text-center">{t('platform.features.title')}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <p className="font-medium">{t('platform.multilingual')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <p className="font-medium">{t('platform.complex')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <p className="font-medium">{t('platform.crm')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <p className="font-medium">{t('platform.handoff')}</p>
+                </div>
+              </div>
+              <div className="text-center mt-8 p-4 bg-primary/10 rounded-lg">
+                <p className="text-lg font-semibold text-primary">{t('platform.demo')}</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Solutions Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* Conversational Intelligence */}
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <MessageSquare className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('solutions.customer.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-6">
+                <CardDescription className="text-lg">
                   {t('solutions.customer.desc')}
                 </CardDescription>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-muted p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Főbb funkciók:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Többnyelvű támogatás</li>
-                      <li>• Komplex kérdések kezelése</li>
-                      <li>• CRM integráció</li>
-                      <li>• Emberi átadás ha szükséges</li>
-                    </ul>
-                  </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3">{t('platform.features.title')}</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {t('solutions.customer.features').split('\n').map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <Button variant="ai" className="w-full">
-                  Demó kérése
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <div className="bg-gradient-mocha/10 p-4 rounded-lg">
+                  <p className="text-sm font-medium text-center">{t('solutions.customer.cta')}</p>
+                </div>
               </CardContent>
             </Card>
 
+            {/* Predictive Analytics */}
             <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <BarChart3 className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('solutions.analytics.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-6">
+                <CardDescription className="text-lg">
                   {t('solutions.analytics.desc')}
                 </CardDescription>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-muted p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Mit kapsz:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Valós idejű dashboard-ok</li>
-                      <li>• Prediktív modelling</li>
-                      <li>• Automatikus jelentések</li>
-                      <li>• Trend-elemzés</li>
-                    </ul>
-                  </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3">What you get:</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {t('solutions.analytics.features').split('\n').map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <Button variant="ai" className="w-full">
-                  Példa riportok
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <div className="bg-gradient-mocha/10 p-4 rounded-lg">
+                  <p className="text-sm font-medium text-center">{t('solutions.analytics.cta')}</p>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            {/* Marketing Intelligence */}
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
               <CardHeader>
-                <Megaphone className="h-12 w-12 text-primary mb-4" />
+                <Target className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('solutions.marketing.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-6">
+                <CardDescription className="text-lg">
                   {t('solutions.marketing.desc')}
                 </CardDescription>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-muted p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Szolgáltatások:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Személyre szabott email kampányok</li>
-                      <li>• Dinamikus tartalom generálás</li>
-                      <li>• Lead scoring és nurturing</li>
-                      <li>• A/B testing automatizálás</li>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-3">Services:</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {t('solutions.marketing.features').split('\n').map((feature, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <span>{feature.replace('• ', '')}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+                  <div className="bg-gradient-mocha/10 p-4 rounded-lg flex items-center justify-center">
+                    <p className="text-sm font-medium text-center">{t('solutions.marketing.cta')}</p>
+                  </div>
                 </div>
-                <Button variant="ai" className="w-full">
-                  Kampány tervezés
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
               </CardContent>
             </Card>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <Card className="shadow-elegant">
-              <CardHeader>
-                <CardTitle className="text-xl">Miért válaszd az Agentize megoldásait?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
-                    <span>Gyors implementáció - 2-4 hét alatt élőben</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
-                    <span>Mérhető ROI - átlagosan 300% megtérülés első évben</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
-                    <span>Folyamatos fejlesztés és támogatás</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
-                    <span>GDPR és EU AI Act kompatibilitás</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          {/* Why Choose Agentize */}
+          <Card className="bg-gradient-primary text-white mb-16 shadow-elegant">
+            <CardContent className="p-8 md:p-12">
+              <h2 className="text-3xl font-bold mb-8 text-center">{t('why.title')}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 mx-auto mb-3 opacity-90" />
+                  <p className="font-medium">{t('why.implementation')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 mx-auto mb-3 opacity-90" />
+                  <p className="font-medium">{t('why.roi')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 mx-auto mb-3 opacity-90" />
+                  <p className="font-medium">{t('why.support')}</p>
+                </div>
+                <div className="text-center">
+                  <CheckCircle className="h-8 w-8 mx-auto mb-3 opacity-90" />
+                  <p className="font-medium">{t('why.compliance')}</p>
+                </div>
+                <div className="text-center lg:col-span-2">
+                  <CheckCircle className="h-8 w-8 mx-auto mb-3 opacity-90" />
+                  <p className="font-medium">{t('why.consultation')}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
-            <Card className="bg-gradient-subtle shadow-elegant">
-              <CardHeader>
-                <CardTitle className="text-xl">Ingyenes konzultáció</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Beszéljük meg, hogyan segíthetnek AI megoldásaink az üzleted növelésében. 
-                  30 perces szakértői konzultáció teljesen ingyenesen.
-                </p>
-                <Button variant="ai" className="w-full">
-                  Időpont foglalás
-                </Button>
-              </CardContent>
-            </Card>
+          {/* CTA Section */}
+          <div className="bg-gradient-subtle rounded-2xl p-8 md:p-12 text-center">
+            <Calendar className="h-16 w-16 text-primary mx-auto mb-6" />
+            <h2 className="text-3xl font-bold mb-4">{t('why.booking.title')}</h2>
+            <p className="text-lg mb-8 text-muted-foreground max-w-3xl mx-auto">
+              {t('why.booking.desc')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                {t('common.freeConsultation')}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button variant="outline" size="lg">
+                {t('common.requestDemo')}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

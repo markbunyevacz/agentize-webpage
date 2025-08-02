@@ -216,26 +216,95 @@ const translations: Translations = {
   'services.training.cta1': { en: 'Book a Consultation', hu: 'Kérjen konzultációt' },
   'services.training.cta2': { en: 'Request Demo', hu: 'Bemutatót kérek' },
 
-  // Solutions Page - Outcome-driven positioning
+  // Solutions Page - Updated professional B2B content
   'solutions.page.title': { en: 'Business Outcomes Platform', hu: 'Üzleti Eredmények Platformja' },
   'solutions.page.subtitle': { 
-    en: 'Industry-specific data intelligence capabilities that deliver measurable business value through responsible AI governance.',
-    hu: 'Iparág-specifikus adatintelligencia képességek, amelyek mérhető üzleti értéket nyújtanak felelős AI irányításon keresztül.'
+    en: 'Industry-specific data intelligence capabilities delivering measurable business value through responsible AI governance.',
+    hu: 'Iparág-specifikus adatintelligencia = mérhető üzleti érték felelős AI irányításon keresztül.'
   },
+  
+  // Conversational Intelligence
   'solutions.customer.title': { en: 'Conversational Intelligence Platform', hu: 'Beszélgetési Intelligencia Platform' },
   'solutions.customer.desc': { 
-    en: 'Enterprise-grade conversational AI that drives customer experience excellence through personalized, scalable interactions.',
-    hu: 'Vállalati szintű beszélgetési AI, amely kiváló ügyfélélményt eredményez személyre szabott, skálázható interakciókon keresztül.'
+    en: 'Enterprise-grade conversational AI for exceptional customer experience through personalized, scalable interactions.',
+    hu: 'Vállalati szintű beszélgetési AI = kiváló ügyfélélmény, személyre szabott, skálázható interakciók.'
   },
+  'solutions.customer.features': {
+    en: '• Multilingual conversations\n• Advanced complex case handling\n• CRM integration for seamless data sync\n• Immediate escalation to human agents if needed',
+    hu: '• Többnyelvű beszélgetés\n• Összetett ügyfélkérések gyors kezelése\n• CRM-integráció az ügyféladatok szinkronizálásához\n• Igény esetén azonnali emberi ügyintéző bevonás'
+  },
+  'solutions.customer.cta': { 
+    en: 'Demo: Discover how conversational AI can transform your customer service!',
+    hu: 'Demó kérése: Próbálja ki, hogyan javíthatja a beszélgetési élményt vállalatánál!'
+  },
+  
+  // Predictive Analytics
   'solutions.analytics.title': { en: 'Predictive Analytics Engine', hu: 'Prediktív Analitikai Motor' },
   'solutions.analytics.desc': { 
-    en: 'Advanced business intelligence platform delivering real-time insights, risk management, and data-driven decision support.',
-    hu: 'Fejlett üzleti intelligencia platform, amely valós idejű betekintéseket, kockázatkezelést és adatvezérelt döntéstámogatást nyújt.'
+    en: 'Advanced business intelligence platform for real-time insights, risk management, and data-driven decision support.',
+    hu: 'Fejlett üzleti intelligencia – valós idejű betekintések, kockázatkezelés, adatvezérelt döntéstámogatás.'
   },
+  'solutions.analytics.features': {
+    en: '• Real-time dashboards\n• Predictive modeling & analytics\n• Automated reporting\n• Trend & anomaly analysis',
+    hu: '• Valós idejű dashboard-ok\n• Prediktív modellezés és elemzés\n• Automatikus rendszeres jelentések\n• Trend- és anomáliaelemzés'
+  },
+  'solutions.analytics.cta': {
+    en: 'Sample reports: View live sample dashboards!',
+    hu: 'Példa riportok: Tekintsen meg mintariportokat élőben!'
+  },
+  
+  // Marketing Intelligence
   'solutions.marketing.title': { en: 'Marketing Intelligence Orchestration', hu: 'Marketing Intelligencia Orchestráció' },
   'solutions.marketing.desc': { 
-    en: 'AI-driven marketing platform that optimizes customer journeys, content generation, and campaign performance for measurable ROI.',
-    hu: 'AI-vezérelt marketing platform, amely optimalizálja az ügyfélutakat, tartalomgenerálást és kampányteljesítményt mérhető ROI-ért.'
+    en: 'AI-powered marketing platform to optimize customer journeys, content generation, and campaign performance with measurable ROI.',
+    hu: 'AI-vezérelt marketing platform az ügyfélutak, tartalomgenerálás, kampányok optimalizálására, mérhető megtérüléssel.'
+  },
+  'solutions.marketing.features': {
+    en: '• Personalized email campaigns\n• Dynamic content generation with AI\n• Lead scoring & nurturing\n• Automated A/B testing with instant reporting',
+    hu: '• Személyre szabott email-kampányok\n• Dinamikus, AI-alapú tartalomgenerálás\n• Lead scoring & nurturing\n• Automatizált A/B tesztelés és eredményértékelés'
+  },
+  'solutions.marketing.cta': {
+    en: 'Campaign planning: Book a session with our marketing experts!',
+    hu: 'Kampány tervezés: Kérjen konzultációt marketing szakértőnktől!'
+  },
+  
+  // Platform Features (for homepage)
+  'platform.features.title': { en: 'Key Features:', hu: 'Főbb funkciók:' },
+  'platform.multilingual': { en: 'Multilingual support', hu: 'Többnyelvű támogatás' },
+  'platform.complex': { en: 'Handling complex queries', hu: 'Komplex kérdések kezelése' },
+  'platform.crm': { en: 'CRM integration', hu: 'CRM-integráció' },
+  'platform.handoff': { en: 'Instant human handoff option when required', hu: 'Emberi átadás lehetősége szükség esetén' },
+  'platform.demo': { 
+    en: 'Offer: Request a live demo – experience our platform in action!',
+    hu: 'Ajánlat: Azonnali demó elérhető – tapasztalja meg az élő platformot!'
+  },
+  
+  // Why Choose Agentize
+  'why.title': { en: 'Why choose Agentize Solutions?', hu: 'Miért az Agentize?' },
+  'why.implementation': { 
+    en: 'Fast implementation: Go live in 2–4 weeks',
+    hu: 'Gyors implementáció: 2–4 hét alatt éles rendszer'
+  },
+  'why.roi': { 
+    en: 'Measurable ROI: Average 300% return in the first year',
+    hu: 'Mérhető ROI: Átlagosan 300% megtérülés már az első évben'
+  },
+  'why.support': { 
+    en: 'Continuous development & support: Live support and active improvement',
+    hu: 'Folyamatos fejlesztés és támogatás: Élesben működő support'
+  },
+  'why.compliance': { 
+    en: 'GDPR & EU AI Act compliance: All systems fully compliant with current regulations',
+    hu: 'GDPR/EU AI Act megfelelőség: Minden rendszer megfelel az aktuális jogszabályoknak'
+  },
+  'why.consultation': { 
+    en: 'Free consultation: 30-minute expert session – no obligations',
+    hu: 'Ingyenes konzultáció: 30 perces szakértői egyeztetés – kötelezettség nélkül'
+  },
+  'why.booking.title': { en: 'Book a call:', hu: 'Időpontfoglalás:' },
+  'why.booking.desc': { 
+    en: 'Schedule your expert consultation and discover how our AI solutions can boost your business growth!',
+    hu: 'Foglaljon szakértői konzultációt, és ismerje meg, hogyan támogatjuk üzleti növekedését innovatív AI megoldásokkal!'
   },
 
   // Technology Page
