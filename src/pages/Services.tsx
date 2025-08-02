@@ -20,8 +20,8 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">{/* Agentic AI spans 2 columns */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
+          <div className="grid grid-cols-1 gap-8 mb-16">
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <Bot className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.agents.title')}</CardTitle>
@@ -62,7 +62,7 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <Settings className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.prompt.title')}</CardTitle>
@@ -105,7 +105,7 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <GraduationCap className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.training.title')}</CardTitle>
