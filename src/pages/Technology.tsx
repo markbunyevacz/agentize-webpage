@@ -2,167 +2,181 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Shield, FileCheck, Eye, Users, Database, Lock, CheckCircle, ArrowRight, Calendar } from 'lucide-react';
+import { Shield, FileCheck, Eye, Users, Database, Lock, CheckCircle, ArrowRight, Calendar, Star } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Technology = () => {
   const { t } = useLanguage();
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-              {t('technology.page.title')}
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Technológia & Megfelelőség
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              {t('technology.page.subtitle')}
+              Az Agentize megoldásai több szempontból is a legmagasabb biztonsági követelményeknek felelnek meg, kifejezetten a vállalati szektor, az EU AI Act és a GDPR szabályozások figyelembevételével.
             </p>
           </div>
 
           {/* Security Introduction */}
-          <Card className="bg-gradient-subtle border-2 border-primary/20 mb-16 shadow-elegant">
+          <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
             <CardContent className="p-8 text-center">
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
-              <h2 className="text-2xl font-bold mb-4">{t('technology.security.intro')}</h2>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
+                Mi teszi valóban biztonságossá és jogilag megfelelővé az Agentize platformot:
+              </h2>
             </CardContent>
           </Card>
 
           {/* Security Features Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {/* Privacy by Design */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Shield className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.privacy.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.privacy.desc')}
+                <CardTitle className="text-xl text-foreground">1. Privacy by Design – Adatvédelem alapú tervezés</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Az adatvédelem minden fejlesztési és üzemeltetési fázisban központi szerepet kap.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.privacy.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Minden funkció és folyamat már alapvetően az adatbiztonságot és a felhasználói jogok védelmét szem előtt tartva kerül kialakításra, nem utólagos "foltozással"</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Adatminimalizálás, hozzáférés-szabályozás, titkosítás és anonimizálás beépített alapelvek</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             {/* EU AI Act Compliance */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <FileCheck className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.aiact.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.aiact.desc')}
+                <CardTitle className="text-xl text-foreground">2. EU AI Act Megfelelőség</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Az Agentize teljes mértékben megfelel az Európai Unió Mesterséges Intelligencia Törvényének (AI Act), amely 2025-től kötelező jelleggel szabályozza az AI rendszerek kockázati besorolását és átláthatóságát.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.aiact.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Kiemelt figyelmet kapnak a "limited risk" kategóriába tartozó szolgáltatások (pl. chatbotok), ahol kötelező a felhasználó tájékoztatása, hogy AI-val kommunikál</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Rendszeres megfelelőségi ellenőrzések (compliance auditok) és átlátható tájékoztatók minden ügyfélnél</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             {/* Transparent Decision Logic */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Eye className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.transparency.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.transparency.desc')}
+                <CardTitle className="text-xl text-foreground">3. Átlátható Döntési Logika, Audit Trail</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Minden AI döntési folyamat teljes mértékben követhető és magyarázható (explainable AI, XAI).
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.transparency.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Részletes logging és audit trail minden ügyfélinterakciónál, így bármely döntés vagy művelet utólag visszakereshető és ellenőrizhető</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Megfelelő dokumentáció és auditálási lehetőség akár külső szakértők számára is</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             {/* Regular Audits */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.audits.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.audits.desc')}
+                <CardTitle className="text-xl text-foreground">4. Rendszeres Auditok és Külső Szakértői Vizsgálatok</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Az Agentize technológiai és biztonsági infrastruktúráját folyamatosan auditálják akkreditált, külső szakértők.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.audits.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Akkreditált külső szakértők (pl. ISO 27001, SOC2 auditori, adatbiztonsági tanácsadók) folyamatosan auditálják infrastruktúránkat</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Az eredményekről transzparens jelentés készül, amelyet a partnerek, ügyfelek is megismerhetnek</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             {/* Responsible Data Usage */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Database className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.data.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.data.desc')}
+                <CardTitle className="text-xl text-foreground">5. Felelős Adathasználat és Adattudatosság</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Csak a működéshez feltétlenül szükséges személyes adatok kerülnek feldolgozásra.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.data.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Kizárólag szabályosan, a felhasználók előzetes tájékoztatásával és hozzájárulásával történik adatkezelés</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Lehetőség biztosított az adatkérésre, törlésre, visszavonásra és teljes átláthatóságra</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             {/* Technical Protection */}
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Lock className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl">{t('technology.technical.title')}</CardTitle>
-                <CardDescription className="text-base">
-                  {t('technology.technical.desc')}
+                <CardTitle className="text-xl text-foreground">6. Magas szintű technikai védelem</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Minden adatforgalom titkosított (TLS 1.3, end-to-end encryption).
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {t('technology.technical.features').split('\n').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span>{feature.replace('• ', '')}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Hozzáférés menedzsment (RBAC), többfaktoros hitelesítés, biztonságos felhőinfrastruktúra</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span>Proaktív behatolásvédelem, valós idejű monitoring, automatikus sérülékenységtesztek</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
           </div>
 
           {/* XAI Section */}
-          <Card className="bg-gradient-primary text-white mb-16 shadow-elegant">
+          <Card className="bg-primary text-primary-foreground mb-16 shadow-lg">
             <CardContent className="p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -179,7 +193,7 @@ const Technology = () => {
                   </ul>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 p-8 rounded-xl">
+                  <div className="bg-primary-foreground/10 p-8 rounded-xl">
                     <h4 className="text-xl font-semibold mb-4">Compliance Score</h4>
                     <div className="text-4xl font-bold mb-2">100%</div>
                     <p className="text-sm opacity-80">GDPR & EU AI Act</p>
@@ -190,29 +204,29 @@ const Technology = () => {
           </Card>
 
           {/* Summary Section */}
-          <Card className="bg-gradient-primary text-white mb-16 shadow-elegant">
+          <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
             <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6 text-center">{t('technology.summary.title')}</h2>
-              <p className="text-lg leading-relaxed opacity-95 max-w-4xl mx-auto text-center">
-                {t('technology.summary.desc')}
+              <h2 className="text-3xl font-bold mb-6 text-center text-foreground">Összegzés:</h2>
+              <p className="text-lg leading-relaxed text-muted-foreground max-w-4xl mx-auto text-center">
+                Az Agentize rendszerei ötvözik a legmodernebb technológiai eszközöket és az aktuális szabályozók által előírt legmagasabb megfelelőségi szinteket. A Privacy by Design elve, az EU AI Act követelményeinek való megfelelés, az átlátható döntési logika és a rendszeres, külső auditok együttesen biztosítják, hogy ügyfelei jogilag és technikailag is védve legyenek a teljes AI életciklus alatt.
               </p>
             </CardContent>
           </Card>
 
           {/* CTA Section */}
-          <div className="bg-gradient-subtle rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-background border-2 border-primary/20 rounded-2xl p-8 md:p-12 text-center shadow-lg">
             <Calendar className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-4">{t('technology.cta.title')}</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Vállalati Biztonsági Konzultáció</h2>
             <p className="text-lg mb-8 text-muted-foreground max-w-3xl mx-auto">
-              {t('technology.cta.desc')}
+              Tudjon meg többet átfogó biztonsági keretrendszerünkről és megfelelőségi protokolljainkról. Ütemezzen részletes biztonsági tájékoztatót szakértőinkkel.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                {t('common.freeConsultation')}
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Ingyenes konzultáció
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg">
-                {t('common.requestDemo')}
+                Kérjen demót
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
