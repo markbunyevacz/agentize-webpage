@@ -115,14 +115,19 @@ const translations: Translations = {
     en: 'Comprehensive AI solutions that help with automation and efficiency improvement in all business areas.',
     hu: 'Átfogó AI megoldások, amelyek minden üzleti területen segítenek az automatizálásban és hatékonyság növelésében.'
   },
-  'services.agents.title': { en: 'Agentic AI Systems', hu: 'Ügynöki AI Rendszerek' },
+  'services.agents.title': { en: 'Agentic AI Systems', hu: 'Agentic AI Rendszerek' },
   'services.agents.desc': { 
     en: 'Enterprise-grade agentic AI platform that orchestrates intelligent automation, connects enterprise systems, and drives operational excellence.',
-    hu: 'Vállalati szintű ügynöki AI platform, amely intelligens automatizálást koordinál, vállalati rendszereket kapcsol össze és működési kiválóságot eredményez.'
+    hu: 'Vállalati szintű agentikus AI platform, amely intelligens automatizálással, rendszerösszekapcsolással és folyamati kiválósággal gyorsítja fel az üzleti működést.'
   },
   'services.agents.features': { 
-    en: '• Autonomous process orchestration\n• Enterprise system integration\n• Real-time business intelligence\n• Predictive workflow optimization',
-    hu: '• Autonóm folyamat orchestráció\n• Vállalati rendszer integráció\n• Valós idejű üzleti intelligencia\n• Prediktív munkafolyamat optimalizálás'
+    en: '• Autonomous process orchestration: Seamlessly automate and coordinate business workflows across functions\n• Enterprise system integration: Effortlessly bridge existing business software, databases, and cloud tools\n• Real-time business intelligence: Gain actionable, live insights with predictive analytics\n• Predictive workflow optimization: Leverage AI to anticipate bottlenecks and optimize resources',
+    hu: '• Autonóm folyamat-orchesztráció: Üzleti munkafolyamatok zökkenőmentes automatizálása és koordinációja\n• Vállalati rendszerek integrációja: Meglévő üzleti szoftverek, adatbázisok és felhőszolgáltatások összekötése\n• Valós idejű üzleti intelligencia: Azonnali, cselekvésre kész elemzések és előrejelzések\n• Prediktív workflow-optimalizálás: AI segítségével előre jelezhetőek a szűk keresztmetszetek'
+  },
+  'services.agents.benefits.title': { en: 'Why choose Agentize Agentic AI?', hu: 'Miért az Agentize Agentic AI?' },
+  'services.agents.benefits': {
+    en: '• Enterprise readiness: Built for reliability, scalability, and security at every level\n• Outcome-driven: Focused on accelerating business transformation and measurable ROI\n• Governance & compliance: Designed with robust AI governance and full GDPR/EU AI Act compliance',
+    hu: '• Vállalati felkészültség: Magas szintű megbízhatóság, skálázhatóság és biztonság\n• Eredményorientáltság: Az üzleti transzformáció gyorsítását és mérhető megtérülést helyezi előtérbe\n• Governance & compliance: Szabályozott AI-keretrendszerrel és teljes GDPR/EU AI Act megfelelőséggel'
   },
   'services.prompt.title': { en: 'AI Orchestration Framework', hu: 'AI Orchestrációs Keretrendszer' },
   'services.prompt.desc': { 

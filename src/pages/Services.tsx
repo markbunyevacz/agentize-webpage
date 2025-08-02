@@ -20,8 +20,8 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">{/* Agentic AI spans 2 columns */}
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
               <CardHeader>
                 <Bot className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.agents.title')}</CardTitle>
@@ -30,11 +30,31 @@ const Services = () => {
                 <CardDescription className="text-base mb-6">
                   {t('services.agents.desc')}
                 </CardDescription>
-                <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                  {t('services.agents.features').split('\n').map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
+                
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3 text-lg">Key Capabilities:</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {t('services.agents.features').split('\n').map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3 text-lg">{t('services.agents.benefits.title')}</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {t('services.agents.benefits').split('\n').map((benefit, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{benefit.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <Button variant="outline" className="w-full">
                   {t('common.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" />
