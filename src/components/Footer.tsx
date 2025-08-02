@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-gradient-subtle border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -14,7 +16,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Innováció. Transzparencia. Emberközpontú AI.
+              {t('about.motto')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -28,45 +30,45 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold mb-4">Navigáció</h3>
+            <h3 className="font-semibold mb-4">{t('footer.navigation')}</h3>
             <div className="space-y-2">
               <Link to="/services" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Szolgáltatások
+                {t('nav.services')}
               </Link>
               <Link to="/solutions" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Megoldások
+                {t('nav.solutions')}
               </Link>
               <Link to="/technology" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Technológia
+                {t('nav.technology')}
               </Link>
               <Link to="/about" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Rólunk
+                {t('nav.about')}
               </Link>
             </div>
           </div>
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold mb-4">Források</h3>
+            <h3 className="font-semibold mb-4">{t('footer.resources')}</h3>
             <div className="space-y-2">
               <Link to="/blog" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Blog
+                {t('nav.blog')}
               </Link>
               <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Karrier
+                {t('footer.career')}
               </a>
               <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Jogi nyilatkozat
+                {t('footer.legal')}
               </a>
               <a href="#" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
-                Impresszum
+                {t('footer.imprint')}
               </a>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Kapcsolat</h3>
+            <h3 className="font-semibold mb-4">{t('footer.contact')}</h3>
             <div className="space-y-2">
               <div className="flex items-center text-muted-foreground text-sm">
                 <Mail size={16} className="mr-2" />
@@ -82,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Agentize. Minden jog fenntartva.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

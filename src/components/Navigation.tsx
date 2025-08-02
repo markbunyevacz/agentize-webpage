@@ -1,22 +1,30 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { path: '/', label: 'Főoldal' },
-    { path: '/services', label: 'Szolgáltatások' },
-    { path: '/solutions', label: 'Megoldások' },
-    { path: '/technology', label: 'Technológia' },
-    { path: '/about', label: 'Rólunk' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Kapcsolat' },
+    { path: '/', label: t('nav.home') },
+    { path: '/services', label: t('nav.services') },
+    { path: '/solutions', label: t('nav.solutions') },
+    { path: '/technology', label: t('nav.technology') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/blog', label: t('nav.blog') },
+    { path: '/contact', label: t('nav.contact') },
   ];
 
   return (
@@ -46,8 +54,27 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Language Switcher */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-2">
+                  <Globe size={16} />
+                  {language.toUpperCase()}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLanguage('en')} className={language === 'en' ? 'bg-accent' : ''}>
+                  🇺🇸 English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('hu')} className={language === 'hu' ? 'bg-accent' : ''}>
+                  🇭🇺 Magyar
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <Button variant="ai" size="sm">
-              Próbáld ki demónkat!
+              {t('nav.demo')}
             </Button>
           </div>
 
@@ -81,9 +108,25 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-3 py-2 space-y-2">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="w-full justify-start gap-2">
+                      <Globe size={16} />
+                      {language.toUpperCase()}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-full">
+                    <DropdownMenuItem onClick={() => setLanguage('en')} className={language === 'en' ? 'bg-accent' : ''}>
+                      🇺🇸 English
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setLanguage('hu')} className={language === 'hu' ? 'bg-accent' : ''}>
+                      🇭🇺 Magyar
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <Button variant="ai" size="sm" className="w-full">
-                  Próbáld ki demónkat!
+                  {t('nav.demo')}
                 </Button>
               </div>
             </div>
