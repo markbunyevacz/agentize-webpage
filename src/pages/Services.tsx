@@ -62,25 +62,46 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
               <CardHeader>
                 <Settings className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.prompt.title')}</CardTitle>
+                <CardDescription className="text-lg text-primary/80 mt-2">
+                  {t('services.prompt.subtitle')}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base mb-6">
+                <CardDescription className="text-base mb-6 leading-relaxed">
                   {t('services.prompt.desc')}
                 </CardDescription>
-                <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                  <li>• Iparág-specifikus promptok</li>
-                  <li>• A/B testing és optimalizálás</li>
-                  <li>• Workflow automatizálás</li>
-                  <li>• Teljesítmény monitoring</li>
-                </ul>
-                <Button variant="outline" className="w-full">
-                  {t('common.learnMore')}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-4 text-lg">Key Capabilities:</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {t('services.prompt.features').split('\n').map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-subtle p-4 rounded-lg mb-6">
+                  <p className="text-sm font-medium text-center">
+                    {t('services.prompt.outcome')}
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button variant="ai" className="flex-1">
+                    {t('services.prompt.cta1')}
+                  </Button>
+                  <Button variant="outline" className="flex-1">
+                    {t('services.prompt.cta2')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 

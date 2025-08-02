@@ -129,11 +129,25 @@ const translations: Translations = {
     en: '• Enterprise readiness: Built for reliability, scalability, and security at every level\n• Outcome-driven: Focused on accelerating business transformation and measurable ROI\n• Governance & compliance: Designed with robust AI governance and full GDPR/EU AI Act compliance',
     hu: '• Vállalati felkészültség: Magas szintű megbízhatóság, skálázhatóság és biztonság\n• Eredményorientáltság: Az üzleti transzformáció gyorsítását és mérhető megtérülést helyezi előtérbe\n• Governance & compliance: Szabályozott AI-keretrendszerrel és teljes GDPR/EU AI Act megfelelőséggel'
   },
-  'services.prompt.title': { en: 'AI Orchestration Framework', hu: 'AI Orchestrációs Keretrendszer' },
-  'services.prompt.desc': { 
-    en: 'Advanced AI orchestration capabilities with enterprise governance, continuous optimization, and measurable business outcomes.',
-    hu: 'Fejlett AI orchestrációs képességek vállalati irányítással, folyamatos optimalizálással és mérhető üzleti eredményekkel.'
+  'services.prompt.title': { en: 'AI Orchestration Framework', hu: 'AI Orchestration Framework' },
+  'services.prompt.subtitle': { 
+    en: 'Next-generation orchestration for enterprise AI transformation, governance, and business excellence.',
+    hu: 'Új generációs AI-orchesztráció vállalati transzformációhoz, governance-hez és üzleti kiválósághoz.'
   },
+  'services.prompt.desc': { 
+    en: 'Agentize delivers an enterprise-grade AI orchestration framework that empowers your organization to coordinate, optimize, and govern AI-powered workflows across the entire business. Designed for measurable impact and continuous improvement, the framework ensures industry compliance, operational transparency, and real-time performance monitoring.',
+    hu: 'Az Agentize vállalati szintű AI-orchesztrációs keretrendszere lehetővé teszi, hogy szervezete egységesen koordinálja, optimalizálja és átláthatóan irányítsa az AI-alapú folyamatokat. A keretrendszer mérhető üzleti eredményeket, folyamatos fejlődést és iparági megfelelőséget biztosít valós idejű teljesítménymonitoringgal.'
+  },
+  'services.prompt.features': {
+    en: '• Industry-tailored prompts: Pre-built and customizable prompts for every sector, accelerating deployments\n• A/B testing & optimization: Run controlled experiments to refine AI workflows and maximize business results\n• Automated workflow orchestration: Seamlessly automate business processes end-to-end\n• Performance monitoring: Real-time analytics and automated performance dashboards\n• Enterprise governance: Centralized controls for compliance (GDPR, EU AI Act) and audit trails\n• Continuous improvement: Data-driven insights to enable rapid iteration and sustained ROI',
+    hu: '• Iparág-specifikus promptok: Előre definiált, testre szabható promptok minden szektorra\n• A/B tesztelés és optimalizálás: Kontrollált kísérletek az AI munkafolyamatok finomhangolásához\n• Automatizált workflow orchesztráció: Üzleti folyamatok teljes körű automatizálása\n• Teljesítménymonitoring: Valós idejű elemzés és automatizált dashboardok\n• Vállalati governance: Centralizált compliance (GDPR, EU AI Act) és auditálhatóság\n• Folyamatos fejlődés: Adatalapú visszacsatolás a gyors iterációért és fenntartható megtérülésért'
+  },
+  'services.prompt.outcome': {
+    en: 'Achieve operational excellence and measurable ROI with Agentize\'s AI Orchestration Framework.',
+    hu: 'Érje el az üzleti kiválóságot és mérhető ROI-t az Agentize AI Orchestration Framework segítségével!'
+  },
+  'services.prompt.cta1': { en: 'Book a Consultation', hu: 'Kérjen konzultációt' },
+  'services.prompt.cta2': { en: 'Experience a Live Demo', hu: 'Válassza a bemutatót!' },
   'services.training.title': { en: 'Enterprise AI Transformation', hu: 'Vállalati AI Transzformáció' },
   'services.training.desc': { 
     en: 'Comprehensive transformation partnership for enterprise-wide AI adoption, governance frameworks, and strategic value creation.',
