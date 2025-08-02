@@ -149,10 +149,24 @@ const translations: Translations = {
   'services.prompt.cta1': { en: 'Book a Consultation', hu: 'Kérjen konzultációt' },
   'services.prompt.cta2': { en: 'Experience a Live Demo', hu: 'Válassza a bemutatót!' },
   'services.training.title': { en: 'Enterprise AI Transformation', hu: 'Vállalati AI Transzformáció' },
-  'services.training.desc': { 
-    en: 'Comprehensive transformation partnership for enterprise-wide AI adoption, governance frameworks, and strategic value creation.',
+  'services.training.subtitle': {
+    en: 'Comprehensive transformation partnership for enterprise-scale AI adoption, governance frameworks, and strategic value creation.',
     hu: 'Átfogó transzformációs partnerség vállalati szintű AI bevezetéshez, irányítási keretrendszerekhez és stratégiai értékteremtéshez.'
   },
+  'services.training.desc': { 
+    en: 'Agentize delivers an end-to-end enterprise AI transformation program to support your organization in the strategic, secure, and results-driven implementation of artificial intelligence. Our senior consultants offer a bespoke approach for every leadership and expert level, emphasizing long-term innovation and competitive edge.',
+    hu: 'Az Agentize teljes körű vállalati AI transzformációs programja segíti szervezetét a mesterséges intelligencia stratégiai, biztonságos és eredmény-orientált bevezetésében. Tapasztalt tanácsadóink személyre szabott megközelítést kínálnak minden vezetői és szakértői szintre, kiemelve a hosszú távú innovációt és versenyelőnyt.'
+  },
+  'services.training.features': {
+    en: '• Tailored Workshops & Trainings: Interactive, industry-specific workshops for decision-makers and key stakeholders\n• Executive Training & Strategic Advisory: C-level and mid-management programs to support strategic AI adoption\n• Change Management: Organization-wide services ensuring AI is smoothly integrated and resistance minimized\n• Long-term Support: Continuous professional guidance, audits, feedback loops, and ongoing AI governance',
+    hu: '• Személyre szabott workshopok és tréningek: Interaktív, iparágspecifikus workshopok döntéshozóknak és kulcsembereknek\n• Vezetői tréningek & stratégiai tanácsadás: Felsővezetői és középvezetői szintű képzések az AI stratégiai adaptálásához\n• Change management: Szervezeti átalakulást segítő szolgáltatások a zökkenőmentes AI bevezetésért\n• Hosszú távú támogatás: Folyamatos szakmai támogatás, auditok, visszacsatolási mechanizmusok és AI governance felügyelet'
+  },
+  'services.training.discover': {
+    en: 'Discover our capabilities:',
+    hu: 'Fedezze fel a képességeket:'
+  },
+  'services.training.cta1': { en: 'Book a Consultation', hu: 'Kérjen konzultációt' },
+  'services.training.cta2': { en: 'Request Demo', hu: 'Bemutatót kérek' },
 
   // Solutions Page - Outcome-driven positioning
   'solutions.page.title': { en: 'Business Outcomes Platform', hu: 'Üzleti Eredmények Platformja' },

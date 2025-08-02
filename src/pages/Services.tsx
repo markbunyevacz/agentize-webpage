@@ -105,25 +105,47 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300">
+            <Card className="shadow-elegant hover:shadow-glow transition-all duration-300 lg:col-span-2">
               <CardHeader>
                 <GraduationCap className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-2xl">{t('services.training.title')}</CardTitle>
+                <CardDescription className="text-lg text-primary/80 mt-2">
+                  {t('services.training.subtitle')}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base mb-6">
+                <CardDescription className="text-base mb-6 leading-relaxed">
                   {t('services.training.desc')}
                 </CardDescription>
-                <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                  <li>• Személyre szabott workshop-ok</li>
-                  <li>• Vezetői tréningek</li>
-                  <li>• Change management</li>
-                  <li>• Hosszú távú támogatás</li>
-                </ul>
-                <Button variant="outline" className="w-full">
-                  {t('common.learnMore')}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-4 text-lg">Szolgáltatások:</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    {t('services.training.features').split('\n').map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature.replace('• ', '')}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-mocha/10 p-4 rounded-lg mb-6">
+                  <p className="text-sm font-medium text-center">
+                    {t('services.training.discover')}
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button variant="ai" className="flex-1">
+                    {t('services.training.cta1')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" className="flex-1">
+                    {t('services.training.cta2')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
