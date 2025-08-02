@@ -130,6 +130,33 @@ const translations: Translations = {
   'common.requestDemo': { en: 'Experience Platform Demo', hu: 'Tapasztalja meg a Platform Demót' },
   'common.bookMeeting': { en: 'Schedule Strategic Consultation', hu: 'Ütemezzen Stratégiai Konzultációt' },
 
+  // Services Section (Homepage)
+  'services.title': { en: 'Our Services', hu: 'Szolgáltatásaink' },
+  'services.subtitle': { 
+    en: 'Comprehensive AI solutions that help with automation and efficiency improvement in all business areas.',
+    hu: 'Átfogó AI megoldások, amelyek minden üzleti területen segítenek az automatizálásban és hatékonyság növelésében.'
+  },
+  'services.automation.title': { en: 'AI Automation', hu: 'AI Automatizáció' },
+  'services.automation.desc': { 
+    en: 'Intelligent automation of business processes with advanced AI algorithms.',
+    hu: 'Üzleti folyamatok intelligens automatizálása fejlett AI algoritmusokkal.'
+  },
+  'services.decision.title': { en: 'Decision Support', hu: 'Döntéstámogatás' },
+  'services.decision.desc': { 
+    en: 'Data-driven insights and recommendations for strategic business decisions.',
+    hu: 'Adatvezérelt betekintések és javaslatok stratégiai üzleti döntésekhez.'
+  },
+  'services.security.title': { en: 'Security', hu: 'Biztonság' },
+  'services.security.desc': { 
+    en: 'Enterprise-grade security solutions with AI-powered threat detection.',
+    hu: 'Vállalati szintű biztonsági megoldások AI-alapú fenyegetésészleléssel.'
+  },
+  'services.consulting.title': { en: 'Consulting', hu: 'Tanácsadás' },
+  'services.consulting.desc': { 
+    en: 'Expert guidance for successful AI transformation and implementation.',
+    hu: 'Szakértői útmutatás a sikeres AI transzformációhoz és megvalósításhoz.'
+  },
+
   // Services Page
   'services.page.title': { en: 'Our Services', hu: 'Szolgáltatásaink' },
   'services.page.subtitle': { 
