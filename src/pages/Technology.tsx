@@ -161,6 +161,34 @@ const Technology = () => {
             </Card>
           </div>
 
+          {/* XAI Section */}
+          <Card className="bg-gradient-primary text-white mb-16 shadow-elegant">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Magyarázható AI (XAI)</h3>
+                  <p className="text-lg opacity-90 mb-6">
+                    Minden AI döntésünk transzparens és érthető. Tudni fogod, hogyan és miért 
+                    hozott döntést a rendszer.
+                  </p>
+                  <ul className="space-y-2 opacity-90">
+                    <li>• Döntési fa vizualizáció</li>
+                    <li>• Fontos változók kijelzése</li>
+                    <li>• Természetes nyelvű magyarázatok</li>
+                    <li>• Interaktív dashboard-ok</li>
+                  </ul>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white/10 p-8 rounded-xl">
+                    <h4 className="text-xl font-semibold mb-4">Compliance Score</h4>
+                    <div className="text-4xl font-bold mb-2">100%</div>
+                    <p className="text-sm opacity-80">GDPR & EU AI Act</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Summary Section */}
           <Card className="bg-gradient-primary text-white mb-16 shadow-elegant">
             <CardContent className="p-8 md:p-12">
