@@ -24,42 +24,45 @@ const translations: Translations = {
   'nav.contact': { en: 'Contact', hu: 'Kapcsolat' },
   'nav.demo': { en: 'Try Demo', hu: 'Próbáld ki demónkat!' },
 
-  // Hero Section
+  // Hero Section - Enterprise positioning
   'hero.title': { en: 'Agentize', hu: 'Agentize' },
-  'hero.subtitle': { en: 'AI solutions that accelerate your business future', hu: 'AI megoldások, amelyek felgyorsítják üzleted jövőjét' },
+  'hero.subtitle': { 
+    en: 'Data Intelligence Platform that accelerates business outcomes through agentic AI orchestration', 
+    hu: 'Adatintelligencia platform, amely üzleti eredményeket gyorsít fel ügynöki AI orchestrációval' 
+  },
   'hero.description': { 
-    en: 'Discover Agentize intelligent agents: clear, personalized and secure AI-based automation and decision support systems for every industry.',
-    hu: 'Fedezd fel az Agentize intelligens ügynökeit: világos, személyre szabott és biztonságos AI-alapú automatizálási és döntéstámogató rendszerek minden iparágnak.'
+    en: 'Strategic AI transformation partner delivering intelligent automation, predictive analytics, and enterprise-grade governance for measurable business value.',
+    hu: 'Stratégiai AI transzformációs partner, amely intelligens automatizálást, prediktív analitikát és vállalati szintű irányítást nyújt mérhető üzleti értékért.'
   },
-  'hero.cta.demo': { en: 'Try Our Demo!', hu: 'Próbáld ki demónkat!' },
-  'hero.cta.consult': { en: 'Request Consultation', hu: 'Kérj tanácsadást' },
-  'hero.badge': { en: 'AI-Driven Future', hu: 'AI-vezérelt jövő' },
+  'hero.cta.demo': { en: 'Experience AI Orchestration', hu: 'Tapasztalja meg az AI Orchestrációt' },
+  'hero.cta.consult': { en: 'Strategic Partnership Consultation', hu: 'Stratégiai Partnerség Konzultáció' },
+  'hero.badge': { en: 'Enterprise AI Governance', hu: 'Vállalati AI Irányítás' },
 
-  // Services
-  'services.title': { en: 'Our Main Services', hu: 'Főbb Szolgáltatásaink' },
+  // Services - Enterprise positioning
+  'services.title': { en: 'Enterprise AI Capabilities', hu: 'Vállalati AI Képességek' },
   'services.subtitle': { 
-    en: 'Comprehensive AI solutions that transform your business processes',
-    hu: 'Komprehenzív AI megoldások, amelyek átformálják üzleti folyamataidat'
+    en: 'Comprehensive data intelligence platform delivering measurable business outcomes through responsible AI governance',
+    hu: 'Átfogó adatintelligencia platform, amely mérhető üzleti eredményeket nyújt felelős AI irányításon keresztül'
   },
-  'services.automation.title': { en: 'AI Automation', hu: 'AI Automatizálás' },
+  'services.automation.title': { en: 'Intelligent Process Orchestration', hu: 'Intelligens Folyamat Orchestráció' },
   'services.automation.desc': { 
-    en: 'Automate routine tasks, customer service, and internal processes with Agentize artificial intelligence.',
-    hu: 'Rutinfeladatok, ügyfélszolgálat, belső folyamatok automatizálása Agentize mesterséges intelligenciával.'
+    en: 'Streamline operations through agentic AI systems that optimize workflow automation and drive operational excellence.',
+    hu: 'Optimalizálja működését ügynöki AI rendszerekkel, amelyek automatizálják a munkafolyamatokat és működési kiválóságot eredményeznek.'
   },
-  'services.decision.title': { en: 'AI-based Decision Support', hu: 'AI-alapú döntéstámogatás' },
+  'services.decision.title': { en: 'Predictive Business Intelligence', hu: 'Prediktív Üzleti Intelligencia' },
   'services.decision.desc': { 
-    en: 'Data-driven, fast and objective business decisions – with human oversight.',
-    hu: 'Adatvezérelt, gyors és objektív üzleti döntések – humán felügyelettel.'
+    en: 'Data-driven insights platform enabling faster decision-making through advanced analytics and risk management capabilities.',
+    hu: 'Adatvezérelt betekintés platform, amely gyorsabb döntéshozatalt tesz lehetővé fejlett analitikai és kockázatkezelési képességekkel.'
   },
-  'services.security.title': { en: 'Secure AI Integration', hu: 'Biztonságos AI-integráció' },
+  'services.security.title': { en: 'Enterprise AI Governance', hu: 'Vállalati AI Irányítás' },
   'services.security.desc': { 
-    en: 'Compliance with EU AI Act and GDPR requirements – transparent, auditable AI systems.',
-    hu: 'Megfelelőség az EU AI Act és GDPR elvárásoknak – transzparens, auditálható AI-rendszerek.'
+    en: 'Responsible AI framework ensuring security, scalability, and compliance across your data intelligence infrastructure.',
+    hu: 'Felelős AI keretrendszer, amely biztonságot, skálázhatóságot és megfelelőséget biztosít adatintelligencia infrastruktúrájában.'
   },
-  'services.consulting.title': { en: 'Personalized AI Consulting', hu: 'Személyre szabott AI-tanácsadás' },
+  'services.consulting.title': { en: 'AI Transformation Partnership', hu: 'AI Transzformációs Partnerség' },
   'services.consulting.desc': { 
-    en: 'Enterprise-level AI strategy, implementation roadmap and training.',
-    hu: 'Vállalati szintű AI-stratégia, bevezetési roadmap és oktatás.'
+    en: 'Strategic partnership for enterprise-wide AI adoption, governance frameworks, and measurable business value creation.',
+    hu: 'Stratégiai partnerség vállalati szintű AI bevezetéshez, irányítási keretrendszerekhez és mérhető üzleti értékteremtéshez.'
   },
 
   // Testimonials
@@ -95,16 +98,16 @@ const translations: Translations = {
   'footer.copyright': { en: '© 2024 Agentize. All rights reserved.', hu: '© 2024 Agentize. Minden jog fenntartva.' },
 
   // Common
-  'common.readyForAI': { en: 'Ready for the AI revolution?', hu: 'Készen állsz az AI forradalomra?' },
+  'common.readyForAI': { en: 'Ready for AI transformation?', hu: 'Készen áll az AI transzformációra?' },
   'common.startJourney': { 
-    en: 'Let\'s start the journey together towards more efficient and intelligent business processes.',
-    hu: 'Kezdjük el együtt az utazást a hatékonyabb és intelligensebb üzleti folyamatok felé.'
+    en: 'Partner with us to accelerate business outcomes through enterprise-grade AI orchestration and governance.',
+    hu: 'Partnerségben velünk gyorsítsa fel az üzleti eredményeket vállalati szintű AI orchestráción és irányításon keresztül.'
   },
-  'common.freeConsultation': { en: 'Free Consultation', hu: 'Ingyenes konzultáció' },
-  'common.learnMore': { en: 'Learn More', hu: 'Tudj meg többet' },
-  'common.getStarted': { en: 'Get Started', hu: 'Kezdd el most' },
-  'common.requestDemo': { en: 'Request Demo', hu: 'Demó kérése' },
-  'common.bookMeeting': { en: 'Book Meeting', hu: 'Időpont foglalás' },
+  'common.freeConsultation': { en: 'Strategic Partnership Consultation', hu: 'Stratégiai Partnerség Konzultáció' },
+  'common.learnMore': { en: 'Explore Capabilities', hu: 'Fedezze fel a képességeket' },
+  'common.getStarted': { en: 'Begin Transformation', hu: 'Kezdje el a transzformációt' },
+  'common.requestDemo': { en: 'Experience Platform Demo', hu: 'Tapasztalja meg a Platform Demót' },
+  'common.bookMeeting': { en: 'Schedule Strategic Consultation', hu: 'Ütemezzen Stratégiai Konzultációt' },
 
   // Services Page
   'services.page.title': { en: 'Our Services', hu: 'Szolgáltatásaink' },
@@ -112,46 +115,46 @@ const translations: Translations = {
     en: 'Comprehensive AI solutions that help with automation and efficiency improvement in all business areas.',
     hu: 'Átfogó AI megoldások, amelyek minden üzleti területen segítenek az automatizálásban és hatékonyság növelésében.'
   },
-  'services.agents.title': { en: 'Intelligent Agents', hu: 'Intelligens Ügynökök' },
+  'services.agents.title': { en: 'Agentic AI Systems', hu: 'Ügynöki AI Rendszerek' },
   'services.agents.desc': { 
-    en: 'Custom AI agents that automate repetitive tasks, connect your systems, and proactively support business operations.',
-    hu: 'Egyedi AI agentek, amelyek automatizálják az ismétlődő feladatokat, összekapcsolják rendszereidet, és proaktívan támogatják az üzletmenetet.'
+    en: 'Enterprise-grade agentic AI platform that orchestrates intelligent automation, connects enterprise systems, and drives operational excellence.',
+    hu: 'Vállalati szintű ügynöki AI platform, amely intelligens automatizálást koordinál, vállalati rendszereket kapcsol össze és működési kiválóságot eredményez.'
   },
   'services.agents.features': { 
-    en: '• 24/7 automated customer service\n• Internal process optimization\n• Cross-system integration\n• Real-time reporting',
-    hu: '• 24/7 automatizált ügyfélszolgálat\n• Belső folyamatok optimalizálása\n• Rendszerek közötti integráció\n• Valós idejű riportálás'
+    en: '• Autonomous process orchestration\n• Enterprise system integration\n• Real-time business intelligence\n• Predictive workflow optimization',
+    hu: '• Autonóm folyamat orchestráció\n• Vállalati rendszer integráció\n• Valós idejű üzleti intelligencia\n• Prediktív munkafolyamat optimalizálás'
   },
-  'services.prompt.title': { en: 'Prompt Engineering & Customization', hu: 'Prompt Engineering & Testreszabás' },
+  'services.prompt.title': { en: 'AI Orchestration Framework', hu: 'AI Orchestrációs Keretrendszer' },
   'services.prompt.desc': { 
-    en: 'Continuously developed, customizable prompts and workflows for any use case.',
-    hu: 'Folyamatosan fejlesztett, személyre szabható promptok és workflow-k bármely felhasználási területre.'
+    en: 'Advanced AI orchestration capabilities with enterprise governance, continuous optimization, and measurable business outcomes.',
+    hu: 'Fejlett AI orchestrációs képességek vállalati irányítással, folyamatos optimalizálással és mérhető üzleti eredményekkel.'
   },
-  'services.training.title': { en: 'AI Implementation and Training Program', hu: 'AI Bevezetési és Oktatási Program' },
+  'services.training.title': { en: 'Enterprise AI Transformation', hu: 'Vállalati AI Transzformáció' },
   'services.training.desc': { 
-    en: 'We help prepare the entire company for AI-based work - workshops, training, consulting.',
-    hu: 'Segítünk a cég egészét felkészíteni az AI-alapú munkavégzésre – workshop, tréning, tanácsadás.'
+    en: 'Comprehensive transformation partnership for enterprise-wide AI adoption, governance frameworks, and strategic value creation.',
+    hu: 'Átfogó transzformációs partnerség vállalati szintű AI bevezetéshez, irányítási keretrendszerekhez és stratégiai értékteremtéshez.'
   },
 
-  // Solutions Page
-  'solutions.page.title': { en: 'Our Solutions', hu: 'Megoldásaink' },
+  // Solutions Page - Outcome-driven positioning
+  'solutions.page.title': { en: 'Business Outcomes Platform', hu: 'Üzleti Eredmények Platformja' },
   'solutions.page.subtitle': { 
-    en: 'Industry-specific AI solutions that immediately create value for your business.',
-    hu: 'Iparág-specifikus AI megoldások, amelyek azonnal értéket teremtenek üzleted számára.'
+    en: 'Industry-specific data intelligence capabilities that deliver measurable business value through responsible AI governance.',
+    hu: 'Iparág-specifikus adatintelligencia képességek, amelyek mérhető üzleti értéket nyújtanak felelős AI irányításon keresztül.'
   },
-  'solutions.customer.title': { en: 'AI Customer Service', hu: 'AI Ügyfélszolgálat' },
+  'solutions.customer.title': { en: 'Conversational Intelligence Platform', hu: 'Beszélgetési Intelligencia Platform' },
   'solutions.customer.desc': { 
-    en: '24/7 automated assistance – in real time. Intelligent chatbots and agents that respond at human level.',
-    hu: '24/7 automatizált segítségnyújtás – valós időben. Intelligens chatbotok és ügynökök, amelyek emberi színvonalon válaszolnak.'
+    en: 'Enterprise-grade conversational AI that drives customer experience excellence through personalized, scalable interactions.',
+    hu: 'Vállalati szintű beszélgetési AI, amely kiváló ügyfélélményt eredményez személyre szabott, skálázható interakciókon keresztül.'
   },
-  'solutions.analytics.title': { en: 'Data Mining and Reporting', hu: 'Adatbányászat és Riportálás' },
+  'solutions.analytics.title': { en: 'Predictive Analytics Engine', hu: 'Prediktív Analitikai Motor' },
   'solutions.analytics.desc': { 
-    en: 'Instant, visually powerful reports, decision support for leadership. AI-driven data analysis and predictive analytics.',
-    hu: 'Azonnali, vizuálisan erős riportok, döntéstámogatás a vezetőség számára. AI-vezérelt adatelemzés és prediktív analitika.'
+    en: 'Advanced business intelligence platform delivering real-time insights, risk management, and data-driven decision support.',
+    hu: 'Fejlett üzleti intelligencia platform, amely valós idejű betekintéseket, kockázatkezelést és adatvezérelt döntéstámogatást nyújt.'
   },
-  'solutions.marketing.title': { en: 'AI Marketing Automation', hu: 'AI Marketing Automatizáció' },
+  'solutions.marketing.title': { en: 'Marketing Intelligence Orchestration', hu: 'Marketing Intelligencia Orchestráció' },
   'solutions.marketing.desc': { 
-    en: 'Personalized campaigns, content generation and customer journey optimization with AI.',
-    hu: 'Személyre szabott kampányok, tartalomgenerálás és customer journey optimalizálás AI segítségével.'
+    en: 'AI-driven marketing platform that optimizes customer journeys, content generation, and campaign performance for measurable ROI.',
+    hu: 'AI-vezérelt marketing platform, amely optimalizálja az ügyfélutakat, tartalomgenerálást és kampányteljesítményt mérhető ROI-ért.'
   },
 
   // Technology Page
