@@ -32,7 +32,7 @@ const Index = () => {
             <Zap className="mr-2 h-4 w-4" />
             {t('hero.badge')}
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-float">
+          <h1 className="hero-text mb-6 animate-float text-gradient bg-clip-text">
             {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl mb-4 opacity-90 animate-fade-in">
