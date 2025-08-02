@@ -2,164 +2,162 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Target, Users, Award, Globe } from 'lucide-react';
+import { Brain, Target, Users, Shield, Lightbulb, Eye, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
   const { t } = useLanguage();
-  const team = [
-    {
-      name: "Dr. Nagy Péter",
-      role: "CEO & AI Stratégiai Tanácsadó",
-      description: "15 év tapasztalat mesterséges intelligencia és gépi tanulás területén."
-    },
-    {
-      name: "Kovács Anna",
-      role: "CTO & Lead AI Engineer",
-      description: "Korábbi Google AI fejlesztő, specializáció: NLP és computer vision."
-    },
-    {
-      name: "Dr. Szabó Márton",
-      role: "Adatvédelmi és Compliance Vezető",
-      description: "Jogi és technológiai expertise GDPR és EU AI Act területén."
-    },
-    {
-      name: "Tóth Eszter",
-      role: "Business Development Manager",
-      description: "10+ év üzletfejlesztési tapasztalat technológiai szektorban."
-    }
-  ];
-
+  
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('about.page.title')}</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              {t('about.page.title')}
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               {t('about.page.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h2 className="text-3xl font-bold mb-6 flex items-center">
-                <Target className="mr-3 h-8 w-8 text-primary" />
-                {t('about.mission.title')}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+          {/* Mission Statement */}
+          <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
+            <CardContent className="p-8 md:p-12 text-center">
+              <Brain className="h-16 w-16 text-primary mx-auto mb-6" />
+              <h2 className="text-2xl font-bold mb-6 text-foreground">{t('about.mission.title')}</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                 {t('about.mission.desc')}
               </p>
-              <div className="bg-gradient-subtle p-6 rounded-xl">
-                <h3 className="font-semibold mb-3 text-lg bg-gradient-primary bg-clip-text text-transparent">
-                  {t('about.motto')}
-                </h3>
-                <p className="text-muted-foreground">
-                  Ez a három alappillér határozza meg minden tevékenységünket és 
-                  fejlesztésünket az Agentize-nél.
-                </p>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-3xl font-bold mb-6 flex items-center">
-                <Award className="mr-3 h-8 w-8 text-primary" />
-                {t('about.values.title')}
-              </h2>
-              <div className="space-y-4">
-                <Card className="shadow-elegant">
-                  <CardContent className="p-4">
-                    <h4 className="font-semibold mb-2">Etikus AI fejlesztés</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Minden algoritmusunk fair, átlátható és elszámoltatható.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="shadow-elegant">
-                  <CardContent className="p-4">
-                    <h4 className="font-semibold mb-2">Adatvédelem by design</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Az adatvédelem nem utólagos kiegészítés, hanem alapvető tervezési elv.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="shadow-elegant">
-                  <CardContent className="p-4">
-                    <h4 className="font-semibold mb-2">Folyamatos innováció</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Mindig a legfrissebb AI technológiákat integráljuk megoldásainkba.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
+          {/* Core Values */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
-              <Users className="mr-3 h-8 w-8 text-primary" />
-              {t('about.team.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {team.map((member, index) => (
-                <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300">
-                  <CardHeader className="text-center">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <CardTitle className="text-lg">{member.name}</CardTitle>
-                    <CardDescription className="font-medium text-primary">
-                      {member.role}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground text-center">
-                      {member.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+            <h2 className="text-3xl font-bold text-center mb-12 text-foreground">{t('about.values.title')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Innovation */}
+              <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
+                <CardHeader className="text-center">
+                  <Lightbulb className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <CardTitle className="text-xl text-foreground">Innováció</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center text-muted-foreground">
+                    Folyamatosan kutatjuk és alkalmazzuk a mesterséges intelligencia legújabb technológiáit, hogy ügyfeleink versenyelőnyt szerezzenek.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              {/* Transparency */}
+              <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
+                <CardHeader className="text-center">
+                  <Eye className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <CardTitle className="text-xl text-foreground">Transzparencia</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center text-muted-foreground">
+                    Minden AI-fejlesztésünk átlátható: részletes dokumentációt, audit trail-t és magyarázható AI (XAI) modelleket biztosítunk.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              {/* Human-Centricity */}
+              <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
+                <CardHeader className="text-center">
+                  <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <CardTitle className="text-xl text-foreground">Emberközpontúság</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center text-muted-foreground">
+                    Megoldásaink és szolgáltatásaink célja, hogy az ember és a gép együttműködése hatékonyabb, biztonságosabb és fenntarthatóbb legyen.
+                  </CardDescription>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="shadow-elegant text-center">
+          {/* Who We Are */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <Card className="shadow-lg bg-background">
               <CardHeader>
-                <Globe className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>50+</CardTitle>
-                <CardDescription>Sikeres projekt</CardDescription>
+                <Users className="h-12 w-12 text-primary mb-4" />
+                <CardTitle className="text-2xl text-foreground">Kik vagyunk?</CardTitle>
               </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <p className="text-muted-foreground">Több, mint 15 év szakmai tapasztalat az AI, üzleti informatika és folyamatautomatizálás területén.</p>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <p className="text-muted-foreground">Vállalati ügyfélkiszolgálás (B2B) Magyarországon és nemzetközi szinten.</p>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <p className="text-muted-foreground">Szakértő csapat, elismert AI fejlesztők, adatbiztonsági és compliance tanácsadók, folyamatoptimalizálási specialisták.</p>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
-            <Card className="shadow-elegant text-center">
+
+            <Card className="shadow-lg bg-primary text-primary-foreground">
               <CardHeader>
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>25+</CardTitle>
-                <CardDescription>Elégedett ügyfél</CardDescription>
+                <Target className="h-12 w-12 text-primary-foreground mb-4" />
+                <CardTitle className="text-2xl">Célunk:</CardTitle>
               </CardHeader>
-            </Card>
-            <Card className="shadow-elegant text-center">
-              <CardHeader>
-                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>100%</CardTitle>
-                <CardDescription>GDPR megfelelőség</CardDescription>
-              </CardHeader>
+              <CardContent>
+                <p className="text-lg opacity-90 leading-relaxed">
+                  Hozzájárulni a magyar és európai vállalatok digitális átalakulásához, biztosítva számukra azokat a biztonságos, mérhető eredményt hozó AI eszközöket, amelyek hosszú távon növelik versenyképességüket.
+                </p>
+              </CardContent>
             </Card>
           </div>
 
-          <div className="bg-gradient-primary text-white rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Csatlakozz hozzánk!</h2>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Keresünk tehetséges AI fejlesztőket, adattudósokat és üzleti szakértőket, 
-              akik szeretnének része lenni az AI forradalom élvonalának.
+          {/* Values in Action */}
+          <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
+            <CardContent className="p-8 md:p-12">
+              <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
+                {t('about.intelligent')}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.security')}</h3>
+                  <p className="text-muted-foreground">{t('about.security.desc')}</p>
+                </div>
+                <div className="text-center">
+                  <Brain className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.intelligent')}</h3>
+                  <p className="text-muted-foreground">{t('about.intelligent.desc')}</p>
+                </div>
+                <div className="text-center">
+                  <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.human')}</h3>
+                  <p className="text-muted-foreground">{t('about.human.desc')}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* CTA Section */}
+          <div className="bg-background border-2 border-primary/20 rounded-2xl p-8 md:p-12 text-center shadow-lg">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t('common.readyForAI')}</h2>
+            <p className="text-lg mb-8 text-muted-foreground max-w-3xl mx-auto">
+              {t('common.startJourney')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="bg-white text-primary hover:bg-white/90">
-                Álláslehetőségek
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                {t('common.freeConsultation')}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                Partnerség lehetőségek
+              <Button variant="outline" size="lg">
+                {t('common.learnMore')}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
