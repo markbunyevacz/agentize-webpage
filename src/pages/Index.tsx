@@ -32,15 +32,36 @@ const Index = () => {
             <Zap className="mr-2 h-4 w-4" />
             {t('hero.badge')}
           </Badge>
-          <h1 className="hero-text mb-6 animate-float text-gradient bg-clip-text">
-            {t('hero.title')}
+          
+          <h1 className="text-3xl md:text-4xl font-playfair font-bold mb-4 animate-fade-in">
+            {t('hero.main.title')}
           </h1>
+          
+          <h2 className="hero-text mb-6 animate-float text-gradient bg-clip-text">
+            {t('hero.title')}
+          </h2>
+          
           <p className="text-xl md:text-2xl mb-4 opacity-90 animate-fade-in">
             {t('hero.subtitle')}
           </p>
-          <p className="text-lg mb-8 opacity-80 max-w-2xl mx-auto animate-fade-in">
+          
+          <h3 className="text-lg font-semibold mb-4 text-primary-glow animate-fade-in">
+            {t('hero.strategic.title')}
+          </h3>
+          
+          <p className="text-base mb-6 opacity-80 max-w-3xl mx-auto animate-fade-in leading-relaxed">
             {t('hero.description')}
           </p>
+          
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8 animate-scale-in">
+            <h4 className="text-lg font-semibold mb-3 text-ethereal-blue">
+              {t('hero.experience.title')}
+            </h4>
+            <p className="text-sm opacity-90">
+              {t('hero.experience.desc')}
+            </p>
+          </div>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
             <Button variant="hero" size="lg" className="animate-glow hover-scale">
               {t('hero.cta.demo')}
@@ -137,11 +158,11 @@ const Index = () => {
       {/* About Section */}
       <section className="py-20 bg-gradient-subtle">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6 animate-fade-in">{t('nav.about')}</h2>
+          <h2 className="text-3xl font-bold mb-6 animate-fade-in">{t('about.title')}</h2>
           <h3 className="text-2xl font-semibold mb-4 text-gradient animate-fade-in">
             {t('about.motto')}
           </h3>
-          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
             {t('about.description')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">

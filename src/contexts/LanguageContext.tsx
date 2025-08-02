@@ -25,61 +25,82 @@ const translations: Translations = {
   'nav.demo': { en: 'Try Demo', hu: 'Próbáld ki demónkat!' },
 
   // Hero Section - Enterprise positioning
+  'hero.main.title': { 
+    en: 'Enterprise AI Governance & Data Intelligence', 
+    hu: 'Vállalati AI Irányítás & Adatintelligencia' 
+  },
   'hero.title': { en: 'Agentize', hu: 'Agentize' },
   'hero.subtitle': { 
     en: 'Data Intelligence Platform that accelerates business outcomes through agentic AI orchestration', 
     hu: 'Adatintelligencia platform, amely üzleti eredményeket gyorsít fel ügynöki AI orchestrációval' 
   },
+  'hero.strategic.title': { en: 'Strategic AI Transformation Partner', hu: 'Stratégiai AI transzformációs partner' },
   'hero.description': { 
-    en: 'Strategic AI transformation partner delivering intelligent automation, predictive analytics, and enterprise-grade governance for measurable business value.',
-    hu: 'Stratégiai AI transzformációs partner, amely intelligens automatizálást, prediktív analitikát és vállalati szintű irányítást nyújt mérhető üzleti értékért.'
+    en: 'For digitally evolving enterprises, we deliver intelligent automation, predictive analytics, and enterprise-grade AI governance – all with measurable business value and sustainable competitive advantage. Our services support organizational efficiency, accelerated decision-making, and conscious risk management across all sectors.',
+    hu: 'Digitálisan fejlődő vállalatok számára kínálunk intelligens automatizálást, prediktív analitikát és vállalati szintű AI irányítást – mindezt mérhető üzleti érték és fenntartható versenyelőny mellett. Szolgáltatásaink minden szektorban támogatják a szervezeti hatékonyság növelését, a döntéshozatal felgyorsítását és a kockázatok tudatos kezelését.'
   },
-  'hero.cta.demo': { en: 'Experience AI Orchestration', hu: 'Tapasztalja meg az AI Orchestrációt' },
-  'hero.cta.consult': { en: 'Strategic Partnership Consultation', hu: 'Stratégiai Partnerség Konzultáció' },
+  'hero.experience.title': { 
+    en: 'Experience AI Orchestration', 
+    hu: 'Tapasztalja meg az AI Orchestrációt' 
+  },
+  'hero.experience.desc': {
+    en: 'Experience live how agentic AI systems connect with your existing processes and how continuous optimization is achieved.',
+    hu: 'Kipróbálhatja élőben, hogyan kapcsolódnak össze az ügynöki AI rendszerek a meglévő folyamataival, s miként valósul meg a folyamatos optimalizáció.'
+  },
+  'hero.cta.demo': { en: 'Try the Demo', hu: 'Próbálja ki a demót' },
+  'hero.cta.consult': { en: 'Request Consultation', hu: 'Kérjen konzultációt' },
   'hero.badge': { en: 'Enterprise AI Governance', hu: 'Vállalati AI Irányítás' },
 
-  // Services - Enterprise positioning
-  'services.title': { en: 'Enterprise AI Capabilities', hu: 'Vállalati AI Képességek' },
-  'services.subtitle': { 
-    en: 'Comprehensive data intelligence platform delivering measurable business outcomes through responsible AI governance',
-    hu: 'Átfogó adatintelligencia platform, amely mérhető üzleti eredményeket nyújt felelős AI irányításon keresztül'
+  // Main Capabilities - Homepage
+  'capabilities.title': { en: 'Key Capabilities:', hu: 'Főbb képességek:' },
+  'capabilities.orchestration.title': { 
+    en: 'Intelligent Process Orchestration', 
+    hu: 'Intelligens folyamat orchestráció' 
   },
-  'services.automation.title': { en: 'Intelligent Process Orchestration', hu: 'Intelligens Folyamat Orchestráció' },
-  'services.automation.desc': { 
-    en: 'Streamline operations through agentic AI systems that optimize workflow automation and drive operational excellence.',
-    hu: 'Optimalizálja működését ügynöki AI rendszerekkel, amelyek automatizálják a munkafolyamatokat és működési kiválóságot eredményeznek.'
+  'capabilities.orchestration.desc': { 
+    en: 'Automated, transparent workflow management with agentic AI platform – less manual intervention, greater efficiency.',
+    hu: 'Automatizált, átlátható workflow irányítás ügynöki AI platformmal – kevesebb kézi beavatkozás, nagyobb hatékonyság.'
   },
-  'services.decision.title': { en: 'Predictive Business Intelligence', hu: 'Prediktív Üzleti Intelligencia' },
-  'services.decision.desc': { 
-    en: 'Data-driven insights platform enabling faster decision-making through advanced analytics and risk management capabilities.',
-    hu: 'Adatvezérelt betekintés platform, amely gyorsabb döntéshozatalt tesz lehetővé fejlett analitikai és kockázatkezelési képességekkel.'
+  'capabilities.intelligence.title': { 
+    en: 'Predictive Business Intelligence', 
+    hu: 'Prediktív üzleti intelligencia' 
   },
-  'services.security.title': { en: 'Enterprise AI Governance', hu: 'Vállalati AI Irányítás' },
-  'services.security.desc': { 
-    en: 'Responsible AI framework ensuring security, scalability, and compliance across your data intelligence infrastructure.',
-    hu: 'Felelős AI keretrendszer, amely biztonságot, skálázhatóságot és megfelelőséget biztosít adatintelligencia infrastruktúrájában.'
+  'capabilities.intelligence.desc': { 
+    en: 'Advanced analytics, risk management, and faster decision-making with real-time data processing.',
+    hu: 'Fejlett analitika, kockázatkezelés és gyorsabb döntéshozatal valós idejű adatfeldolgozással.'
   },
-  'services.consulting.title': { en: 'AI Transformation Partnership', hu: 'AI Transzformációs Partnerség' },
-  'services.consulting.desc': { 
-    en: 'Strategic partnership for enterprise-wide AI adoption, governance frameworks, and measurable business value creation.',
-    hu: 'Stratégiai partnerség vállalati szintű AI bevezetéshez, irányítási keretrendszerekhez és mérhető üzleti értékteremtéshez.'
+  'capabilities.governance.title': { 
+    en: 'Enterprise AI Governance and Compliance', 
+    hu: 'Vállalati AI irányítás és compliance' 
+  },
+  'capabilities.governance.desc': { 
+    en: 'Secure, scalable, full GDPR/EU AI Act and audit compliance with high-level transparency and human oversight.',
+    hu: 'Biztonságos, skálázható, teljes GDPR/EU AI Act és audit-megfelelőség, magas szintű átláthatósággal, emberi felügyelettel.'
+  },
+  'capabilities.partnership.title': { 
+    en: 'AI Transformation Partnership', 
+    hu: 'AI transzformációs partnerség' 
+  },
+  'capabilities.partnership.desc': { 
+    en: 'Comprehensive consulting, workshops, training, continuous support – strategic AI implementation for long-term value creation.',
+    hu: 'Átfogó tanácsadás, workshopok, tréningek, folyamatos támogatás – stratégiai AI bevezetés a hosszú távú értékteremtésért.'
   },
 
   // Testimonials
+  'testimonial.title': { en: 'What our clients say?', hu: 'Mit mondanak ügyfeleink?' },
   'testimonial.quote': { 
-    en: 'Thanks to Agentize, we were able to automate 40% of our processes – transparently and risk-free.',
-    hu: 'Az Agentize-nek köszönhetően folyamataink 40%-át sikerült automatizálni – átláthatóan, kockázatmentesen.'
+    en: "Thanks to Agentize, we were able to automate 40% of our processes – transparently and risk-free.",
+    hu: "Az Agentize-nek köszönhetően folyamataink 40%-át sikerült automatizálni – átláthatóan, kockázatmentesen."
   },
   'testimonial.author': { en: 'Andrea Szabó', hu: 'Szabó Andrea' },
   'testimonial.company': { en: 'CEO, FutureTech Ltd.', hu: 'CEO, FutureTech Kft.' },
-  'testimonial.title': { en: 'What our clients say?', hu: 'Mit mondanak ügyfeleink?' },
 
   // About
-  'about.title': { en: 'About Us', hu: 'Rólunk' },
+  'about.title': { en: 'About Us:', hu: 'Rólunk:' },
   'about.motto': { en: 'Innovation. Transparency. Human-centered AI.', hu: 'Innováció. Transzparencia. Emberközpontú AI.' },
   'about.description': { 
-    en: 'The Agentize team believes that artificial intelligence creates value when it prioritizes security, ethics and user experience in every process.',
-    hu: 'Az Agentize csapata hisz abban, hogy a mesterséges intelligencia értéket akkor teremt, ha minden folyamatban a biztonságot, etikusságot és a felhasználói élményt tartja szem előtt.'
+    en: 'The Agentize team believes that artificial intelligence creates value when it prioritizes security, ethical operation, and user experience at the center of every process. All our AI solutions are built on the latest technologies, treating GDPR/EU AI Act compliance as a primary concern, and supporting the augmentation of human work – not replacement.',
+    hu: 'Az Agentize csapata hisz abban, hogy a mesterséges intelligencia akkor teremt értéket, ha a biztonságot, etikus működést és a felhasználói élményt helyezi minden folyamat középpontjába. Minden AI megoldásunk a legújabb technológiákra épül, elsődleges szempontként kezelve a GDPR/EU AI Act megfelelést, és támogatva az emberi munka kiegészítését – nem helyettesítését.'
   },
   'about.intelligent': { en: 'Intelligent solutions', hu: 'Intelligens megoldások' },
   'about.intelligent.desc': { en: 'All our AI solutions are built on the latest technologies', hu: 'Minden AI megoldásunk a legújabb technológiákra épül' },
