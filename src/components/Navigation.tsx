@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import agentizeLogo from '@/assets/agentize-logo.png';
+import agentizeLogo from '@/assets/agentize-logo-new.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
