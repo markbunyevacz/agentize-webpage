@@ -27,44 +27,59 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Load fresh blog content from Perplexity API via CORS proxy
+  // Load fresh blog content from HackerNews API
   useEffect(() => {
     const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        // Use CORS proxy to fetch Perplexity content
-        const proxyUrl = 'https://api.allorigins.win/get?url=';
-        const targetUrl = encodeURIComponent('https://www.perplexity.ai/discover/tech');
+        // Fetch top stories from HackerNews
+        const topStoriesResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+        const storyIds = await topStoriesResponse.json();
         
-        console.log('Attempting to fetch:', `${proxyUrl}${targetUrl}`);
+        // Get first 12 stories
+        const storyPromises = storyIds.slice(0, 12).map(async (id: number) => {
+          const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+          return response.json();
+        });
         
-        const response = await fetch(`${proxyUrl}${targetUrl}`);
-        console.log('Response status:', response.status);
+        const stories = await Promise.all(storyPromises);
         
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Proxy response received, content length:', data.contents?.length);
-          
-          if (data.contents) {
-            const extractedPosts = extractTechNewsFromHTML(data.contents);
-            console.log('Extracted posts count:', extractedPosts.length);
-            
-            if (extractedPosts.length > 0) {
-              setPosts(extractedPosts);
-              console.log('Successfully loaded fresh blog content via CORS proxy');
-              return;
-            }
-          }
+        // Filter and convert to blog posts
+        const techPosts = stories
+          .filter(story => story && story.title && (
+            story.title.toLowerCase().includes('ai') ||
+            story.title.toLowerCase().includes('tech') ||
+            story.title.toLowerCase().includes('google') ||
+            story.title.toLowerCase().includes('openai') ||
+            story.title.toLowerCase().includes('microsoft') ||
+            story.title.toLowerCase().includes('meta') ||
+            story.title.toLowerCase().includes('apple') ||
+            story.title.toLowerCase().includes('programming')
+          ))
+          .slice(0, 8)
+          .map((story, index) => ({
+            title: language === 'hu' ? translateToHungarian(story.title) : story.title,
+            excerpt: language === 'hu' 
+              ? `Friss technológiai hír a HackerNews-ról. ${story.title.substring(0, 80)}...`
+              : `Fresh tech news from HackerNews. ${story.title.substring(0, 80)}...`,
+            category: getHackerNewsCategory(story.title),
+            date: new Date(story.time * 1000).toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US'),
+            readTime: language === 'hu' ? `${3 + Math.floor(Math.random() * 4)} perc` : `${3 + Math.floor(Math.random() * 4)} min`,
+            featured: index < 3,
+            externalLink: story.url || `https://news.ycombinator.com/item?id=${story.id}`
+          }));
+        
+        if (techPosts.length > 0) {
+          setPosts(techPosts);
+          console.log('Successfully loaded fresh blog content from HackerNews');
+        } else {
+          throw new Error('No tech posts found');
         }
-        
-        throw new Error('Failed to extract content from proxy response');
         
       } catch (err) {
         console.error('Error loading blog content:', err);
-        console.log('Using fallback content due to error');
-        // Use real Perplexity content as fallback
         setPosts(getRealPerplexityContent());
         setError('');
       } finally {
@@ -334,6 +349,29 @@ const Blog = () => {
     if (lowerText.includes('browser') || lowerText.includes('web')) return 'Böngésző Tech';
     if (lowerText.includes('security') || lowerText.includes('privacy')) return 'AI Biztonság';
     return 'AI Tech';
+  };
+
+  const getHackerNewsCategory = (title: string): string => {
+    const lowerTitle = title.toLowerCase();
+    if (language === 'hu') {
+      if (lowerTitle.includes('google') || lowerTitle.includes('gemini')) return 'Google AI';
+      if (lowerTitle.includes('openai') || lowerTitle.includes('chatgpt') || lowerTitle.includes('gpt')) return 'OpenAI';
+      if (lowerTitle.includes('meta') || lowerTitle.includes('llama')) return 'Meta AI';
+      if (lowerTitle.includes('microsoft') || lowerTitle.includes('copilot')) return 'Microsoft AI';
+      if (lowerTitle.includes('apple')) return 'Apple AI';
+      if (lowerTitle.includes('ai') || lowerTitle.includes('artificial intelligence')) return 'AI Tech';
+      if (lowerTitle.includes('programming') || lowerTitle.includes('developer')) return 'Fejlesztés';
+      return 'Technológia';
+    } else {
+      if (lowerTitle.includes('google') || lowerTitle.includes('gemini')) return 'Google AI';
+      if (lowerTitle.includes('openai') || lowerTitle.includes('chatgpt') || lowerTitle.includes('gpt')) return 'OpenAI';
+      if (lowerTitle.includes('meta') || lowerTitle.includes('llama')) return 'Meta AI';
+      if (lowerTitle.includes('microsoft') || lowerTitle.includes('copilot')) return 'Microsoft AI';
+      if (lowerTitle.includes('apple')) return 'Apple AI';
+      if (lowerTitle.includes('ai') || lowerTitle.includes('artificial intelligence')) return 'AI Tech';
+      if (lowerTitle.includes('programming') || lowerTitle.includes('developer')) return 'Development';
+      return 'Technology';
+    }
   };
 
   const getFallbackContent = (): BlogPost[] => {
