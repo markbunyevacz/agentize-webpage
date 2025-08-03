@@ -34,31 +34,54 @@ const Blog = () => {
         setLoading(true);
         setError('');
         
-        // Use CORS proxy to fetch Perplexity Discover tech content
-        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        // Try multiple CORS proxy services
+        const proxyServices = [
+          'https://api.allorigins.win/get?url=',
+          'https://corsproxy.io/?',
+          'https://cors-anywhere.herokuapp.com/',
+          'https://api.codetabs.com/v1/proxy?quest='
+        ];
+        
         const perplexityTechUrl = 'https://www.perplexity.ai/discover/tech';
+        let success = false;
         
-        console.log('Fetching fresh tech news from Perplexity Discover...');
-        const response = await fetch(proxyUrl + encodeURIComponent(perplexityTechUrl));
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch Perplexity Discover tech page');
+        for (const proxyUrl of proxyServices) {
+          try {
+            console.log(`Trying proxy: ${proxyUrl}`);
+            const response = await fetch(proxyUrl + encodeURIComponent(perplexityTechUrl), {
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+              }
+            });
+            
+            if (!response.ok) {
+              console.log(`Proxy ${proxyUrl} failed with status: ${response.status}`);
+              continue;
+            }
+            
+            const data = await response.json();
+            const htmlContent = data.contents || data.data || data;
+            
+            if (typeof htmlContent === 'string' && htmlContent.length > 100) {
+              // Extract AI/tech news from HTML
+              const freshNews = extractTechNewsFromHTML(htmlContent);
+              
+              if (freshNews.length > 0) {
+                setPosts(freshNews);
+                setError('');
+                console.log(`Successfully loaded ${freshNews.length} fresh tech articles via ${proxyUrl}`);
+                success = true;
+                break;
+              }
+            }
+          } catch (err) {
+            console.error(`Error with proxy ${proxyUrl}:`, err);
+            continue;
+          }
         }
         
-        const data = await response.json();
-        const htmlContent = data.contents;
-        
-        // Extract AI/tech news from HTML
-        const freshNews = extractTechNewsFromHTML(htmlContent);
-        
-        if (freshNews.length > 0) {
-          setPosts(freshNews);
-          setError('');
-          console.log(`Successfully loaded ${freshNews.length} fresh tech articles`);
-        } else {
-          console.log('No tech news found, using fallback content');
-          setPosts(getFallbackContent());
-          setError('Friss hírek kinyerése sikertelen, statikus tartalmat mutatunk.');
+        if (!success) {
+          throw new Error('All proxy services failed');
         }
         
       } catch (err) {
