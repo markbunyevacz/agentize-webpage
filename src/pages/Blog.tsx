@@ -34,9 +34,18 @@ const Blog = () => {
         setLoading(true);
         setError('');
         
+        console.log('=== STARTING HACKERNEWS FETCH ===');
+        
         // Fetch top stories from HackerNews
         const topStoriesResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+        console.log('Top stories response status:', topStoriesResponse.status);
+        
+        if (!topStoriesResponse.ok) {
+          throw new Error('Failed to fetch top stories');
+        }
+        
         const storyIds = await topStoriesResponse.json();
+        console.log('Got story IDs:', storyIds.length, 'first 5:', storyIds.slice(0, 5));
         
         // Get first 12 stories
         const storyPromises = storyIds.slice(0, 12).map(async (id: number) => {
@@ -45,19 +54,25 @@ const Blog = () => {
         });
         
         const stories = await Promise.all(storyPromises);
+        console.log('Fetched stories:', stories.length, 'first title:', stories[0]?.title);
         
         // Filter and convert to blog posts
         const techPosts = stories
-          .filter(story => story && story.title && (
-            story.title.toLowerCase().includes('ai') ||
-            story.title.toLowerCase().includes('tech') ||
-            story.title.toLowerCase().includes('google') ||
-            story.title.toLowerCase().includes('openai') ||
-            story.title.toLowerCase().includes('microsoft') ||
-            story.title.toLowerCase().includes('meta') ||
-            story.title.toLowerCase().includes('apple') ||
-            story.title.toLowerCase().includes('programming')
-          ))
+          .filter(story => {
+            const isValid = story && story.title;
+            const hasTechKeyword = isValid && (
+              story.title.toLowerCase().includes('ai') ||
+              story.title.toLowerCase().includes('tech') ||
+              story.title.toLowerCase().includes('google') ||
+              story.title.toLowerCase().includes('openai') ||
+              story.title.toLowerCase().includes('microsoft') ||
+              story.title.toLowerCase().includes('meta') ||
+              story.title.toLowerCase().includes('apple') ||
+              story.title.toLowerCase().includes('programming')
+            );
+            console.log('Story filter:', story?.title, '-> valid:', isValid, 'tech:', hasTechKeyword);
+            return isValid && hasTechKeyword;
+          })
           .slice(0, 8)
           .map((story, index) => ({
             title: language === 'hu' ? translateToHungarian(story.title) : story.title,
@@ -71,15 +86,19 @@ const Blog = () => {
             externalLink: story.url || `https://news.ycombinator.com/item?id=${story.id}`
           }));
         
+        console.log('=== FINAL TECH POSTS ===', techPosts.length, techPosts.map(p => p.title));
+        
         if (techPosts.length > 0) {
           setPosts(techPosts);
-          console.log('Successfully loaded fresh blog content from HackerNews');
+          console.log('SUCCESS: Using HackerNews content');
         } else {
+          console.log('ERROR: No tech posts found, using fallback');
           throw new Error('No tech posts found');
         }
         
       } catch (err) {
-        console.error('Error loading blog content:', err);
+        console.error('=== HACKERNEWS FETCH FAILED ===', err);
+        console.log('Using fallback content');
         setPosts(getRealPerplexityContent());
         setError('');
       } finally {
