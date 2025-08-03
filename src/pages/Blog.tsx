@@ -27,28 +27,23 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // REALITY CHECK: Frontend scraping of protected sites is impossible
+  // RSS feed integration for AI/tech news
   useEffect(() => {
     const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        console.log('=== ATTEMPTED FRONTEND SCRAPING - WILL FAIL ===');
-        console.log('Cloudflare protection blocks all bot requests');
-        console.log('Frontend-only solution is technically impossible');
+        console.log('=== LOADING RSS FEEDS FOR AI/TECH NEWS ===');
         
-        // Show the technical limitation clearly
-        setError(
-          language === 'hu' 
-            ? 'Frontend scraping nem lehetséges Cloudflare védelem miatt. Backend megoldás vagy API szükséges.' 
-            : 'Frontend scraping impossible due to Cloudflare protection. Backend solution or API required.'
-        );
-        setPosts([]);
+        // Fetch from multiple RSS sources
+        const rssPosts = await fetchRSSFeeds();
+        setPosts(rssPosts);
+        console.log('SUCCESS: Loaded RSS articles:', rssPosts.length);
         
       } catch (err) {
-        console.error('=== AS EXPECTED: SCRAPING FAILED ===', err);
-        setError('Cloudflare bot protection active - scraping blocked');
+        console.error('=== RSS LOAD FAILED ===', err);
+        setError('Hiba történt az RSS hírforrások betöltésekor');
         setPosts([]);
       } finally {
         setLoading(false);
@@ -58,10 +53,119 @@ const Blog = () => {
     loadBlogContent();
   }, [language]);
 
-  // REMOVED: Non-functional scraping code
-  // Frontend scraping of Cloudflare-protected sites is impossible
-  // This was a fundamentally flawed approach
-  
+  const fetchRSSFeeds = async (): Promise<BlogPost[]> => {
+    const allPosts: BlogPost[] = [];
+    
+    // AI/Tech RSS feeds to fetch
+    const rssFeeds = [
+      'https://feeds.feedburner.com/oreilly/radar',
+      'https://techcrunch.com/feed/',
+      'https://www.wired.com/feed/category/business/latest/rss',
+      'https://www.theverge.com/rss/index.xml',
+      'https://feeds.arstechnica.com/arstechnica/index'
+    ];
+    
+    for (const feedUrl of rssFeeds) {
+      try {
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const response = await fetch(`${proxyUrl}${encodeURIComponent(feedUrl)}`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+          
+          const items = xmlDoc.querySelectorAll('item');
+          
+          items.forEach((item, index) => {
+            if (allPosts.length >= 10) return; // Limit to 10 articles
+            
+            const title = item.querySelector('title')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            
+            // Filter for AI-related content
+            const isAIRelated = 
+              title.toLowerCase().includes('ai') ||
+              title.toLowerCase().includes('artificial intelligence') ||
+              title.toLowerCase().includes('machine learning') ||
+              title.toLowerCase().includes('openai') ||
+              title.toLowerCase().includes('chatgpt') ||
+              title.toLowerCase().includes('google') ||
+              title.toLowerCase().includes('microsoft') ||
+              title.toLowerCase().includes('meta') ||
+              title.toLowerCase().includes('deepseek') ||
+              title.toLowerCase().includes('claude') ||
+              title.toLowerCase().includes('gemini') ||
+              description.toLowerCase().includes('ai') ||
+              description.toLowerCase().includes('artificial intelligence');
+            
+            if (isAIRelated && title && link) {
+              const date = pubDate ? new Date(pubDate) : new Date();
+              const twoDaysAgo = new Date();
+              twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+              
+              // Only include articles from last 2 days
+              if (date >= twoDaysAgo) {
+                allPosts.push({
+                  title: language === 'hu' ? translateAITerms(title) : title,
+                  excerpt: language === 'hu' 
+                    ? `${description.substring(0, 150)}...`
+                    : `${description.substring(0, 150)}...`,
+                  category: getCategoryFromTitle(title),
+                  date: language === 'hu' 
+                    ? date.toLocaleDateString('hu-HU', { year: 'numeric', month: 'long', day: 'numeric' })
+                    : date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                  readTime: language === 'hu' ? `${3 + Math.floor(Math.random() * 5)} perc` : `${3 + Math.floor(Math.random() * 5)} min`,
+                  featured: index < 3,
+                  externalLink: link
+                });
+              }
+            }
+          });
+        }
+      } catch (error) {
+        console.error(`Error fetching RSS feed ${feedUrl}:`, error);
+      }
+    }
+    
+    return allPosts.slice(0, 10); // Return max 10 articles
+  };
+
+  const translateAITerms = (text: string): string => {
+    return text
+      .replace(/\bAI\b/gi, 'MI')
+      .replace(/Artificial Intelligence/gi, 'Mesterséges Intelligencia')
+      .replace(/Machine Learning/gi, 'Gépi Tanulás')
+      .replace(/OpenAI/gi, 'OpenAI')
+      .replace(/ChatGPT/gi, 'ChatGPT');
+  };
+
+  const getCategoryFromTitle = (title: string): string => {
+    const lowerTitle = title.toLowerCase();
+    
+    if (language === 'hu') {
+      if (lowerTitle.includes('google') || lowerTitle.includes('gemini')) return 'Google AI';
+      if (lowerTitle.includes('openai') || lowerTitle.includes('chatgpt')) return 'OpenAI';
+      if (lowerTitle.includes('meta') || lowerTitle.includes('llama')) return 'Meta AI';
+      if (lowerTitle.includes('microsoft') || lowerTitle.includes('copilot')) return 'Microsoft AI';
+      if (lowerTitle.includes('apple')) return 'Apple AI';
+      if (lowerTitle.includes('deepseek')) return 'DeepSeek';
+      if (lowerTitle.includes('anthropic') || lowerTitle.includes('claude')) return 'Anthropic';
+      return 'AI Tech';
+    } else {
+      if (lowerTitle.includes('google') || lowerTitle.includes('gemini')) return 'Google AI';
+      if (lowerTitle.includes('openai') || lowerTitle.includes('chatgpt')) return 'OpenAI';
+      if (lowerTitle.includes('meta') || lowerTitle.includes('llama')) return 'Meta AI';
+      if (lowerTitle.includes('microsoft') || lowerTitle.includes('copilot')) return 'Microsoft AI';
+      if (lowerTitle.includes('apple')) return 'Apple AI';
+      if (lowerTitle.includes('deepseek')) return 'DeepSeek';
+      if (lowerTitle.includes('anthropic') || lowerTitle.includes('claude')) return 'Anthropic';
+      return 'AI Tech';
+    }
+  };
+
   const getRealPerplexityContent = (): BlogPost[] => {
     return [];
   };
