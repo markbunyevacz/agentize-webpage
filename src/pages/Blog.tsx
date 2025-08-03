@@ -60,18 +60,28 @@ const Blog = () => {
         const techPosts = stories
           .filter(story => {
             const isValid = story && story.title;
-            const hasTechKeyword = isValid && (
-              story.title.toLowerCase().includes('ai') ||
-              story.title.toLowerCase().includes('tech') ||
-              story.title.toLowerCase().includes('google') ||
-              story.title.toLowerCase().includes('openai') ||
-              story.title.toLowerCase().includes('microsoft') ||
-              story.title.toLowerCase().includes('meta') ||
-              story.title.toLowerCase().includes('apple') ||
-              story.title.toLowerCase().includes('programming')
+            if (!isValid) return false;
+            
+            const title = story.title.toLowerCase();
+            // Much broader tech criteria
+            const hasTechKeyword = (
+              title.includes('ai') || title.includes('tech') || title.includes('google') ||
+              title.includes('openai') || title.includes('microsoft') || title.includes('meta') ||
+              title.includes('apple') || title.includes('programming') || title.includes('code') ||
+              title.includes('software') || title.includes('developer') || title.includes('computer') ||
+              title.includes('algorithm') || title.includes('data') || title.includes('api') ||
+              title.includes('cloud') || title.includes('database') || title.includes('web') ||
+              title.includes('mobile') || title.includes('app') || title.includes('server') ||
+              title.includes('security') || title.includes('machine') || title.includes('digital') ||
+              title.includes('c++') || title.includes('python') || title.includes('javascript') ||
+              title.includes('react') || title.includes('node') || title.includes('git') ||
+              title.includes('linux') || title.includes('unix') || title.includes('windows') ||
+              title.includes('claude') || title.includes('chatgpt') || title.includes('gemini') ||
+              title.includes('cpu') || title.includes('gpu') || title.includes('ssd') ||
+              title.includes('nas') || title.includes('network') || title.includes('internet')
             );
-            console.log('Story filter:', story?.title, '-> valid:', isValid, 'tech:', hasTechKeyword);
-            return isValid && hasTechKeyword;
+            console.log('Story filter:', story?.title, '-> tech:', hasTechKeyword);
+            return hasTechKeyword;
           })
           .slice(0, 8)
           .map((story, index) => ({
