@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import agentizeLogo from '@/assets/agentize-logo-new.png';
+import agentizeLogo from '@/assets/agentize-logo-original.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,7 +35,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src={agentizeLogo} 
+                src="/lovable-uploads/13fc433e-dece-481e-92cc-bae47b8b16da.png" 
                 alt="Agentize Logo" 
                 className="h-8 w-auto object-contain"
               />
