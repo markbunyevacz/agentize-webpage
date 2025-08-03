@@ -38,25 +38,32 @@ const Blog = () => {
         const proxyUrl = 'https://api.allorigins.win/get?url=';
         const targetUrl = encodeURIComponent('https://www.perplexity.ai/discover/tech');
         
+        console.log('Attempting to fetch:', `${proxyUrl}${targetUrl}`);
+        
         const response = await fetch(`${proxyUrl}${targetUrl}`);
+        console.log('Response status:', response.status);
         
         if (response.ok) {
           const data = await response.json();
-          const htmlContent = data.contents;
-          const extractedPosts = extractTechNewsFromHTML(htmlContent);
+          console.log('Proxy response received, content length:', data.contents?.length);
           
-          if (extractedPosts.length > 0) {
-            setPosts(extractedPosts);
-            console.log('Successfully loaded fresh blog content via CORS proxy');
-          } else {
-            throw new Error('No content extracted');
+          if (data.contents) {
+            const extractedPosts = extractTechNewsFromHTML(data.contents);
+            console.log('Extracted posts count:', extractedPosts.length);
+            
+            if (extractedPosts.length > 0) {
+              setPosts(extractedPosts);
+              console.log('Successfully loaded fresh blog content via CORS proxy');
+              return;
+            }
           }
-        } else {
-          throw new Error('Failed to fetch via CORS proxy');
         }
+        
+        throw new Error('Failed to extract content from proxy response');
         
       } catch (err) {
         console.error('Error loading blog content:', err);
+        console.log('Using fallback content due to error');
         // Use real Perplexity content as fallback
         setPosts(getRealPerplexityContent());
         setError('');
