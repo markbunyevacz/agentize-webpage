@@ -36,47 +36,45 @@ const Contact = () => {
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">Keresztnév *</Label>
-                    <Input id="firstName" placeholder="Kovács" />
+                    <Label htmlFor="firstName">{t('contact.form.firstname')}</Label>
+                    <Input id="firstName" placeholder={t('contact.form.placeholders.firstname')} />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Vezetéknév *</Label>
-                    <Input id="lastName" placeholder="Anna" />
+                    <Label htmlFor="lastName">{t('contact.form.lastname')}</Label>
+                    <Input id="lastName" placeholder={t('contact.form.placeholders.lastname')} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Céges e-mail cím *</Label>
-                  <Input id="email" type="email" placeholder="anna@vallalatom.hu" />
+                  <Label htmlFor="email">{t('contact.form.email')}</Label>
+                  <Input id="email" type="email" placeholder={t('contact.form.placeholders.email')} />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="company">Cég neve *</Label>
-                  <Input id="company" placeholder="Vállalatom Kft." />
+                  <Label htmlFor="company">{t('contact.form.company')}</Label>
+                  <Input id="company" placeholder={t('contact.form.placeholders.company')} />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="interest">Érdeklődés területe *</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Válassz egyet" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="automation">AI Automatizálás</SelectItem>
-                      <SelectItem value="customer-service">AI Ügyfélszolgálat</SelectItem>
-                      <SelectItem value="analytics">Adatelemzés & Riportálás</SelectItem>
-                      <SelectItem value="marketing">Marketing Automatizáció</SelectItem>
-                      <SelectItem value="consulting">AI Tanácsadás</SelectItem>
-                      <SelectItem value="other">Egyéb</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="position">{t('contact.form.position')}</Label>
+                  <Input id="position" placeholder={t('contact.form.placeholders.position')} />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Üzenet</Label>
+                  <Label htmlFor="phone">{t('contact.form.phone')}</Label>
+                  <Input id="phone" type="tel" placeholder="+36 30 123 4567" />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="subject">{t('contact.form.subject')}</Label>
+                  <Input id="subject" placeholder={t('contact.form.placeholders.subject')} />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message">{t('contact.form.message')}</Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Meséld el, hogyan segíthetünk. Milyen kihívásokkal nézel szembe? Milyen célokat szeretnél elérni AI segítségével?"
+                    placeholder={t('contact.form.placeholders.message')}
                     className="min-h-[120px]"
                   />
                 </div>
@@ -97,7 +95,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-xl flex items-center">
                     <Mail className="mr-3 h-6 w-6 text-primary" />
-                    E-mail
+                    {t('contact.email')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -116,7 +114,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-xl flex items-center">
                     <MapPin className="mr-3 h-6 w-6 text-primary" />
-                    Iroda
+                    {t('contact.office')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -132,7 +130,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-xl flex items-center">
                     <Clock className="mr-3 h-6 w-6 text-primary" />
-                    Ügyfélfogadás
+                    {t('contact.hours')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -144,9 +142,9 @@ const Contact = () => {
               </Card>
 
               <div className="bg-gradient-primary text-white rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-3">Ingyenes konzultáció</h3>
+                <h3 className="text-xl font-bold mb-3">{t('contact.consultation.title')}</h3>
                 <p className="opacity-90 mb-4">
-                  Foglalj időpontot 30 perces ingyenes konzultációra AI szakértőinkkel.
+                  {t('contact.consultation.desc')}
                 </p>
                 <Button variant="hero" className="bg-white text-primary hover:bg-white/90">
                   Időpont foglalás

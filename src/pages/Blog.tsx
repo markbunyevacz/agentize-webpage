@@ -8,58 +8,122 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const Blog = () => {
   const { t } = useLanguage();
-  const posts = [
-    {
-      title: "AI és jog: mire figyelj 2025-ben?",
-      excerpt: "Az EU AI Act életbelépésével új kihívások és lehetőségek nyílnak meg a vállalatok előtt. Íme a legfontosabb tudnivalók.",
-      category: "Jog & Compliance",
-      date: "2024. január 15.",
-      readTime: "8 perc",
-      featured: true
-    },
-    {
-      title: "Chatbot VS intelligens agent – mi a különbség?",
-      excerpt: "Sokan összetévesztik a chatbotokat az AI ügynökökkel. Megmutatjuk a kulcsfontosságú különbségeket és mikor melyiket érdemes használni.",
-      category: "Technológia",
-      date: "2024. január 10.",
-      readTime: "5 perc",
-      featured: true
-    },
-    {
-      title: "10 kérdés, amit AI-vásárlás előtt fel kell tenned a szolgáltatónak",
-      excerpt: "Praktikus útmutató vállalati vezetőknek: mire figyelj AI megoldás beszerzésekor, hogy ne érjen kellemetlen meglepetés.",
-      category: "Üzlet",
-      date: "2024. január 8.",
-      readTime: "6 perc",
-      featured: false
-    },
-    {
-      title: "Hogyan változtatja meg az AI a customer service-t?",
-      excerpt: "Valós esettanulmányok és statisztikák az AI-vezérelt ügyfélszolgálat hatásairól. ROI számítások és implementációs tippek.",
-      category: "Ügyfélszolgálat",
-      date: "2024. január 5.",
-      readTime: "7 perc",
-      featured: false
-    },
-    {
-      title: "Prompt engineering alapok kezdőknek",
-      excerpt: "Lépésről lépésre útmutató hatékony AI promptok írásához. Gyakorlati példákkal és do's and don'ts listával.",
-      category: "Technológia",
-      date: "2024. január 3.",
-      readTime: "4 perc",
-      featured: false
-    },
-    {
-      title: "GDPR és AI: mit kell tudni az adatvédelemről?",
-      excerpt: "Részletes áttekintés arról, hogyan fér össze a mesterséges intelligencia használata a GDPR előírásaival.",
-      category: "Jog & Compliance",
-      date: "2024. január 1.",
-      readTime: "9 perc",
-      featured: false
+  const getPosts = () => {
+    if (t('nav.home') === 'Home') { // English
+      return [
+        {
+          title: "AI and Law: What to Watch for in 2025?",
+          excerpt: "With the EU AI Act coming into effect, new challenges and opportunities are opening up for companies. Here are the most important things to know.",
+          category: "Legal & Compliance",
+          date: "January 15, 2024",
+          readTime: "8 min",
+          featured: true
+        },
+        {
+          title: "Chatbot VS Intelligent Agent – What's the Difference?",
+          excerpt: "Many people confuse chatbots with AI agents. We show the key differences and when to use which.",
+          category: "Technology",
+          date: "January 10, 2024",
+          readTime: "5 min",
+          featured: true
+        },
+        {
+          title: "10 Questions to Ask AI Providers Before Purchasing",
+          excerpt: "A practical guide for business leaders: what to look for when purchasing AI solutions to avoid unpleasant surprises.",
+          category: "Business",
+          date: "January 8, 2024",
+          readTime: "6 min",
+          featured: false
+        },
+        {
+          title: "How is AI Changing Customer Service?",
+          excerpt: "Real case studies and statistics on the impact of AI-driven customer service. ROI calculations and implementation tips.",
+          category: "Customer Service",
+          date: "January 5, 2024",
+          readTime: "7 min",
+          featured: false
+        },
+        {
+          title: "Prompt Engineering Basics for Beginners",
+          excerpt: "Step-by-step guide to writing effective AI prompts. With practical examples and do's and don'ts list.",
+          category: "Technology",
+          date: "January 3, 2024",
+          readTime: "4 min",
+          featured: false
+        },
+        {
+          title: "GDPR and AI: What You Need to Know About Data Protection?",
+          excerpt: "Detailed overview of how artificial intelligence use aligns with GDPR requirements.",
+          category: "Legal & Compliance",
+          date: "January 1, 2024",
+          readTime: "9 min",
+          featured: false
+        }
+      ];
+    } else { // Hungarian
+      return [
+        {
+          title: "AI és jog: mire figyelj 2025-ben?",
+          excerpt: "Az EU AI Act életbelépésével új kihívások és lehetőségek nyílnak meg a vállalatok előtt. Íme a legfontosabb tudnivalók.",
+          category: "Jog & Compliance",
+          date: "2024. január 15.",
+          readTime: "8 perc",
+          featured: true
+        },
+        {
+          title: "Chatbot VS intelligens agent – mi a különbség?",
+          excerpt: "Sokan összetévesztik a chatbotokat az AI ügynökökkel. Megmutatjuk a kulcsfontosságú különbségeket és mikor melyiket érdemes használni.",
+          category: "Technológia",
+          date: "2024. január 10.",
+          readTime: "5 perc",
+          featured: true
+        },
+        {
+          title: "10 kérdés, amit AI-vásárlás előtt fel kell tenned a szolgáltatónak",
+          excerpt: "Praktikus útmutató vállalati vezetőknek: mire figyelj AI megoldás beszerzésekor, hogy ne érjen kellemetlen meglepetés.",
+          category: "Üzlet",
+          date: "2024. január 8.",
+          readTime: "6 perc",
+          featured: false
+        },
+        {
+          title: "Hogyan változtatja meg az AI a customer service-t?",
+          excerpt: "Valós esettanulmányok és statisztikák az AI-vezérelt ügyfélszolgálat hatásairól. ROI számítások és implementációs tippek.",
+          category: "Ügyfélszolgálat",
+          date: "2024. január 5.",
+          readTime: "7 perc",
+          featured: false
+        },
+        {
+          title: "Prompt engineering alapok kezdőknek",
+          excerpt: "Lépésről lépésre útmutató hatékony AI promptok írásához. Gyakorlati példákkal és do's and don'ts listával.",
+          category: "Technológia",
+          date: "2024. január 3.",
+          readTime: "4 perc",
+          featured: false
+        },
+        {
+          title: "GDPR és AI: mit kell tudni az adatvédelemről?",
+          excerpt: "Részletes áttekintés arról, hogyan fér össze a mesterséges intelligencia használata a GDPR előírásaival.",
+          category: "Jog & Compliance",
+          date: "2024. január 1.",
+          readTime: "9 perc",
+          featured: false
+        }
+      ];
     }
-  ];
+  };
 
-  const categories = ["Mind", "Technológia", "Jog & Compliance", "Üzlet", "Ügyfélszolgálat"];
+  const getCategories = () => {
+    if (t('nav.home') === 'Home') { // English
+      return ["All", "Technology", "Legal & Compliance", "Business", "Customer Service"];
+    } else { // Hungarian
+      return ["Mind", "Technológia", "Jog & Compliance", "Üzlet", "Ügyfélszolgálat"];
+    }
+  };
+
+  const posts = getPosts();
+  const categories = getCategories();
 
   return (
     <div className="min-h-screen">
@@ -114,7 +178,7 @@ const Blog = () => {
                       {post.excerpt}
                     </CardDescription>
                     <Button variant="ghost" className="p-0 h-auto text-primary hover:text-primary/80">
-                      Tovább olvasom
+                      {t('blog.read.more')}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
@@ -166,7 +230,7 @@ const Blog = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
-                placeholder="E-mail címed"
+                placeholder={t('blog.newsletter.placeholder')}
                 className="flex-1 px-4 py-2 rounded-md text-foreground"
               />
               <Button variant="hero" className="bg-white text-primary hover:bg-white/90">

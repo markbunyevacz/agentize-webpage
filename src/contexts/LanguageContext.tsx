@@ -474,6 +474,25 @@ const translations: Translations = {
     en: 'Book a 30-minute free consultation with our AI experts.',
     hu: 'Foglalj időpontot 30 perces ingyenes konzultációra AI szakértőinkkel.'
   },
+  'contact.form.firstname': { en: 'First Name *', hu: 'Keresztnév *' },
+  'contact.form.lastname': { en: 'Last Name *', hu: 'Vezetéknév *' },
+  'contact.form.email': { en: 'Business Email *', hu: 'Céges e-mail cím *' },
+  'contact.form.company': { en: 'Company *', hu: 'Vállalat neve *' },
+  'contact.form.position': { en: 'Position', hu: 'Pozíció' },
+  'contact.form.phone': { en: 'Phone Number', hu: 'Telefonszám' },
+  'contact.form.subject': { en: 'Subject *', hu: 'Tárgy *' },
+  'contact.form.message': { en: 'Message *', hu: 'Üzenet *' },
+  'contact.form.placeholders.firstname': { en: 'Smith', hu: 'Kovács' },
+  'contact.form.placeholders.lastname': { en: 'Anna', hu: 'Anna' },
+  'contact.form.placeholders.email': { en: 'anna@yourcompany.com', hu: 'anna@vallalatom.hu' },
+  'contact.form.placeholders.company': { en: 'Your Company Ltd.', hu: 'Az Ön Vállalata Kft.' },
+  'contact.form.placeholders.position': { en: 'CEO', hu: 'Ügyvezető' },
+  'contact.form.placeholders.subject': { en: 'AI consultation request', hu: 'AI konzultáció kérése' },
+  'contact.form.placeholders.message': { en: 'Tell us about your project and goals...', hu: 'Írja le projektjét és céljait...' },
+  'services.key.capabilities': { en: 'Key Capabilities:', hu: 'Főbb képességek:' },
+  'services.features': { en: 'Services:', hu: 'Szolgáltatások:' },
+  'blog.read.more': { en: 'Read more', hu: 'Tovább olvasom' },
+  'blog.newsletter.placeholder': { en: 'Your email address', hu: 'E-mail címed' },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

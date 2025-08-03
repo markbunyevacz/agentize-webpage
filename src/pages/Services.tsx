@@ -32,7 +32,7 @@ const Services = () => {
                 </CardDescription>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold mb-3 text-lg">Key Capabilities:</h4>
+                  <h4 className="font-semibold mb-3 text-lg">{t('services.key.capabilities')}</h4>
                   <ul className="space-y-3 text-sm text-muted-foreground">
                     {t('services.agents.features').split('\n').map((feature, index) => (
                       <li key={index} className="flex items-start">
@@ -76,7 +76,7 @@ const Services = () => {
                 </CardDescription>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold mb-4 text-lg">Key Capabilities:</h4>
+                  <h4 className="font-semibold mb-4 text-lg">{t('services.key.capabilities')}</h4>
                   <ul className="space-y-3 text-sm text-muted-foreground">
                     {t('services.prompt.features').split('\n').map((feature, index) => (
                       <li key={index} className="flex items-start">
@@ -119,7 +119,7 @@ const Services = () => {
                 </CardDescription>
                 
                 <div className="mb-6">
-                  <h4 className="font-semibold mb-4 text-lg">Szolgáltatások:</h4>
+                  <h4 className="font-semibold mb-4 text-lg">{t('services.features')}</h4>
                   <ul className="space-y-4 text-sm text-muted-foreground">
                     {t('services.training.features').split('\n').map((feature, index) => (
                       <li key={index} className="flex items-start">
