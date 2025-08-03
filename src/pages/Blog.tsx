@@ -469,12 +469,17 @@ const Blog = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [showContent, setShowContent] = useState(false);
+
   const handlePostClick = (post: BlogPost) => {
-    if (post.externalLink) {
-      window.open(post.externalLink, '_blank');
-    } else if (post.url) {
-      window.location.href = post.url;
-    }
+    setSelectedPost(post);
+    setShowContent(true);
+  };
+
+  const closeContent = () => {
+    setShowContent(false);
+    setSelectedPost(null);
   };
 
   return (
@@ -634,6 +639,98 @@ const Blog = () => {
           )}
         </div>
       </div>
+
+      {/* Content Modal */}
+      {showContent && selectedPost && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-background rounded-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex-1">
+                  <Badge variant="secondary" className="mb-2">
+                    {selectedPost.category}
+                  </Badge>
+                  <h2 className="text-2xl font-bold text-primary mb-2">
+                    {selectedPost.title}
+                  </h2>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {selectedPost.date}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4" />
+                      {selectedPost.readTime}
+                    </div>
+                  </div>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={closeContent}
+                  className="ml-4"
+                >
+                  ✕
+                </Button>
+              </div>
+              
+              <div className="prose prose-sm max-w-none dark:prose-invert">
+                <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                  {selectedPost.excerpt}
+                </p>
+                
+                <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {language === 'hu' ? 'Főbb pontok:' : 'Key Points:'}
+                  </h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    {selectedPost.category.includes('AI') && (
+                      <>
+                        <li>• {language === 'hu' ? 'Legújabb AI technológiai fejlesztések' : 'Latest AI technology developments'}</li>
+                        <li>• {language === 'hu' ? 'Piaci befolyás és trendek elemzése' : 'Market impact and trend analysis'}</li>
+                        <li>• {language === 'hu' ? 'Technikai részletek és lehetőségek' : 'Technical details and opportunities'}</li>
+                      </>
+                    )}
+                    {selectedPost.category.includes('Google') && (
+                      <>
+                        <li>• {language === 'hu' ? 'Google mesterséges intelligencia fejlesztések' : 'Google artificial intelligence developments'}</li>
+                        <li>• {language === 'hu' ? 'Gemini modell újdonságai' : 'Gemini model innovations'}</li>
+                      </>
+                    )}
+                    {selectedPost.category.includes('OpenAI') && (
+                      <>
+                        <li>• {language === 'hu' ? 'OpenAI stratégiai lépések' : 'OpenAI strategic moves'}</li>
+                        <li>• {language === 'hu' ? 'ChatGPT és GPT modellek fejlesztése' : 'ChatGPT and GPT model development'}</li>
+                      </>
+                    )}
+                    <li>• {language === 'hu' ? 'Gyakorlati alkalmazási lehetőségek' : 'Practical application opportunities'}</li>
+                    <li>• {language === 'hu' ? 'Jövőbeli kilátások és előrejelzések' : 'Future outlook and predictions'}</li>
+                  </ul>
+                </div>
+
+                <div className="text-center pt-4 border-t">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {language === 'hu' 
+                      ? 'Ez egy összefoglaló a legfrissebb technológiai hírekről.' 
+                      : 'This is a summary of the latest technology news.'}
+                  </p>
+                  {selectedPost.externalLink && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.open(selectedPost.externalLink, '_blank')}
+                      className="gap-2"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      {language === 'hu' ? 'Eredeti forrás megtekintése' : 'View Original Source'}
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
