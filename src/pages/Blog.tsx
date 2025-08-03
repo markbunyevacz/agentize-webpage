@@ -106,8 +106,10 @@ const Blog = () => {
               const twoDaysAgo = new Date();
               twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
               
-              // Only include articles from last 2 days
-              if (date >= twoDaysAgo) {
+            // Only include articles from last 2 days (August 1-3, 2025)
+            const currentDate = new Date('2025-08-03');
+            const aug1 = new Date('2025-08-01');
+            if (date >= aug1 && date <= currentDate) {
                 allPosts.push({
                   title: language === 'hu' ? translateAITerms(title) : title,
                   excerpt: language === 'hu' 
