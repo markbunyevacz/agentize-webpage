@@ -27,28 +27,32 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Load fresh blog content from Perplexity API
+  // Load fresh blog content from Perplexity API via CORS proxy
   useEffect(() => {
     const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        // Fetch fresh content from Perplexity API
-        const response = await fetch('https://www.perplexity.ai/discover/tech');
+        // Use CORS proxy to fetch Perplexity content
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const targetUrl = encodeURIComponent('https://www.perplexity.ai/discover/tech');
+        
+        const response = await fetch(`${proxyUrl}${targetUrl}`);
         
         if (response.ok) {
-          const htmlContent = await response.text();
+          const data = await response.json();
+          const htmlContent = data.contents;
           const extractedPosts = extractTechNewsFromHTML(htmlContent);
           
           if (extractedPosts.length > 0) {
             setPosts(extractedPosts);
-            console.log('Successfully loaded fresh blog content from Perplexity');
+            console.log('Successfully loaded fresh blog content via CORS proxy');
           } else {
             throw new Error('No content extracted');
           }
         } else {
-          throw new Error('Failed to fetch Perplexity content');
+          throw new Error('Failed to fetch via CORS proxy');
         }
         
       } catch (err) {
