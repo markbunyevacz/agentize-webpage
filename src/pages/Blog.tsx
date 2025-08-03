@@ -40,18 +40,20 @@ const Blog = () => {
         });
 
         if (functionError) {
-          throw functionError;
-        }
-
-        if (data?.news) {
+          console.log('Edge function error:', functionError);
+          setError('Fallback tartalmat mutatunk. Friss hírek betöltése sikertelen.');
+          setPosts(getStaticPosts());
+        } else if (data?.news && data.news.length > 0) {
           setPosts(data.news);
+          setError(''); // Clear any previous errors
         } else {
-          // Fallback to static posts if API fails
+          console.log('No news data received, using fallback');
+          setError('Friss hírek betöltése sikertelen, statikus tartalmat mutatunk.');
           setPosts(getStaticPosts());
         }
       } catch (err) {
-        console.error('Error fetching news:', err);
-        setError('Failed to load fresh news. Showing cached content.');
+        console.log('Error fetching news:', err);
+        setError('Perplexity Discover hírek betöltése sikertelen. Statikus tartalmat mutatunk.');
         setPosts(getStaticPosts());
       } finally {
         setLoading(false);
@@ -169,7 +171,9 @@ const Blog = () => {
           {loading && (
             <div className="text-center py-12">
               <Loader2 className="mx-auto h-8 w-8 animate-spin" />
-              <p className="mt-2 text-muted-foreground">Loading fresh AI news...</p>
+              <p className="mt-2 text-muted-foreground">
+                Friss AI hírek betöltése a Perplexity Discover-ből...
+              </p>
             </div>
           )}
 

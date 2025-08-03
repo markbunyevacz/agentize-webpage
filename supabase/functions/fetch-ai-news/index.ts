@@ -23,81 +23,55 @@ serve(async (req) => {
   try {
     const { language = 'hu' } = await req.json()
     
-    const perplexityApiKey = Deno.env.get('PERPLEXITY_API_KEY')
-    if (!perplexityApiKey) {
-      throw new Error('PERPLEXITY_API_KEY not found in environment variables')
+    const firecrawlApiKey = Deno.env.get('FIRECRAWL_API_KEY')
+    if (!firecrawlApiKey) {
+      console.log('FIRECRAWL_API_KEY not found, using fallback news')
+      const fallbackNews = createFallbackNews(language)
+      return new Response(
+        JSON.stringify({ news: fallbackNews }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
     }
 
-    const currentDate = new Date().toISOString().split('T')[0]
-    const twoDaysAgo = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-
-    const searchQuery = language === 'hu' 
-      ? `Legfrissebb AI hírek és technológiai fejlesztések ${twoDaysAgo} és ${currentDate} között. Keresek: mesterséges intelligencia, ChatGPT, EU AI Act, generatív AI, machine learning, magyar AI fejlesztések. Maximum 2 napja történt hírek.`
-      : `Latest AI news and technology developments between ${twoDaysAgo} and ${currentDate}. Looking for: artificial intelligence, ChatGPT, EU AI Act, generative AI, machine learning, AI trends. News maximum 2 days old.`
-
-    const response = await fetch('https://api.perplexity.ai/chat/completions', {
+    // Scrape Perplexity Discover page for AI news
+    const response = await fetch('https://api.firecrawl.dev/v1/scrape', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${perplexityApiKey}`,
+        'Authorization': `Bearer ${firecrawlApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'llama-3.1-sonar-large-128k-online',
-        messages: [
-          {
-            role: 'system',
-            content: language === 'hu' 
-              ? 'Te egy AI hírek szakértője vagy. Gyűjts össze 6-8 friss AI hírt JSON formátumban. Minden hírnek legyen címe, rövid összefoglalója (2-3 mondat), kategóriája, dátuma, becsült olvasási ideje (perc), és egy "featured" boolean érték. Add meg a forrás URL-jét is. Csak maximum 2 napja megjelent hírek!'
-              : 'You are an AI news expert. Collect 6-8 fresh AI news items in JSON format. Each news should have title, brief summary (2-3 sentences), category, date, estimated reading time (minutes), and a "featured" boolean value. Also provide the source URL. Only news published within the last 2 days!'
-          },
-          {
-            role: 'user',
-            content: searchQuery
-          }
-        ],
-        temperature: 0.2,
-        top_p: 0.9,
-        max_tokens: 2000,
-        return_images: false,
-        return_related_questions: false,
-        search_recency_filter: 'day',
-        frequency_penalty: 1,
-        presence_penalty: 0
+        url: 'https://www.perplexity.ai/discover',
+        formats: ['markdown'],
+        onlyMainContent: true
       }),
     })
 
     if (!response.ok) {
-      throw new Error(`Perplexity API error: ${response.status}`)
+      throw new Error(`Firecrawl API error: ${response.status}`)
     }
 
     const data = await response.json()
-    let newsContent = data.choices[0]?.message?.content || ''
-
-    // Try to extract JSON from the response
     let newsItems: NewsItem[] = []
-    try {
-      // Look for JSON in the response
-      const jsonMatch = newsContent.match(/\[[\s\S]*\]/)
-      if (jsonMatch) {
-        newsItems = JSON.parse(jsonMatch[0])
-      } else {
-        // If no JSON found, create fallback news items
-        newsItems = createFallbackNews(language)
-      }
-    } catch (parseError) {
-      console.error('JSON parse error:', parseError)
+
+    if (data.success && data.data?.markdown) {
+      newsItems = extractAINewsFromPerplexity(data.data.markdown, language)
+    }
+
+    // If no news extracted or empty, use fallback
+    if (newsItems.length === 0) {
       newsItems = createFallbackNews(language)
     }
 
-    // Ensure we have proper structure
+    // Ensure proper structure
     newsItems = newsItems.map((item, index) => ({
       title: item.title || `AI News ${index + 1}`,
-      excerpt: item.excerpt || 'Fresh AI development...',
+      excerpt: item.excerpt || 'Fresh AI development from Perplexity Discover...',
       category: item.category || (language === 'hu' ? 'AI Trendek' : 'AI Trends'),
-      date: item.date || currentDate,
-      readTime: item.readTime || '5 perc',
+      date: item.date || new Date().toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US'),
+      readTime: item.readTime || (language === 'hu' ? '5 perc' : '5 min'),
       featured: index < 3, // First 3 are featured
-      externalLink: item.externalLink || '#'
+      externalLink: item.externalLink || 'https://www.perplexity.ai/discover'
     }))
 
     return new Response(
@@ -126,6 +100,83 @@ serve(async (req) => {
     )
   }
 })
+
+function extractAINewsFromPerplexity(markdown: string, language: string): NewsItem[] {
+  const currentDate = new Date().toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US')
+  const newsItems: NewsItem[] = []
+  
+  // Extract headlines and content using various patterns
+  const patterns = [
+    /#{1,3}\s*(.+?)(?:\n|$)/g, // Headlines
+    /\*\*(.+?)\*\*/g, // Bold text
+    /\[(.+?)\]\((.+?)\)/g, // Links with text
+  ]
+  
+  const headlines = []
+  const links = []
+  
+  // Extract headlines
+  let match
+  while ((match = patterns[0].exec(markdown)) !== null) {
+    const title = match[1].trim()
+    if (title.toLowerCase().includes('ai') || 
+        title.toLowerCase().includes('artificial') ||
+        title.toLowerCase().includes('machine learning') ||
+        title.toLowerCase().includes('technology')) {
+      headlines.push(title)
+    }
+  }
+  
+  // Extract links
+  patterns[2].lastIndex = 0
+  while ((match = patterns[2].exec(markdown)) !== null) {
+    const linkText = match[1].trim()
+    const url = match[2].trim()
+    if (linkText.toLowerCase().includes('ai') || 
+        linkText.toLowerCase().includes('artificial') ||
+        linkText.toLowerCase().includes('technology')) {
+      links.push({ text: linkText, url })
+    }
+  }
+  
+  // Create news items from extracted data
+  for (let i = 0; i < Math.min(6, Math.max(headlines.length, links.length)); i++) {
+    const headline = headlines[i] || `AI Technology Update ${i + 1}`
+    const link = links[i] || { text: headline, url: 'https://www.perplexity.ai/discover' }
+    
+    newsItems.push({
+      title: language === 'hu' ? translateToHungarian(headline) : headline,
+      excerpt: language === 'hu' 
+        ? `Friss fejlesztés a mesterséges intelligencia területén. ${headline.substring(0, 100)}...`
+        : `Fresh development in artificial intelligence. ${headline.substring(0, 100)}...`,
+      category: language === 'hu' ? 'AI Trendek' : 'AI Trends',
+      date: currentDate,
+      readTime: language === 'hu' ? '5 perc' : '5 min',
+      featured: i < 3,
+      externalLink: link.url.startsWith('http') ? link.url : 'https://www.perplexity.ai/discover'
+    })
+  }
+  
+  return newsItems
+}
+
+function translateToHungarian(text: string): string {
+  const translations = {
+    'AI': 'MI',
+    'Artificial Intelligence': 'Mesterséges Intelligencia',
+    'Machine Learning': 'Gépi Tanulás',
+    'Technology': 'Technológia',
+    'Development': 'Fejlesztés',
+    'Innovation': 'Innováció',
+    'Research': 'Kutatás'
+  }
+  
+  let translated = text
+  for (const [eng, hun] of Object.entries(translations)) {
+    translated = translated.replace(new RegExp(eng, 'gi'), hun)
+  }
+  return translated
+}
 
 function createFallbackNews(language: string): NewsItem[] {
   const currentDate = new Date().toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US')
