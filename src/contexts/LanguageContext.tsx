@@ -447,6 +447,7 @@ const translations: Translations = {
   },
   'blog.featured': { en: 'Featured Articles', hu: 'Kiemelt cikkek' },
   'blog.all': { en: 'All Articles', hu: 'Minden cikk' },
+  'blog.search.placeholder': { en: 'Search articles...', hu: 'Keresés a cikkek között...' },
   'blog.newsletter.title': { en: 'Subscribe to our newsletter!', hu: 'Iratkozz fel hírlevelünkre!' },
   'blog.newsletter.desc': { 
     en: 'Be among the first to learn about the latest AI trends, case studies and Agentize news.',

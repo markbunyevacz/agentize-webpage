@@ -1,114 +1,178 @@
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Search, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+interface BlogPost {
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  featured: boolean;
+  url?: string;
+  externalLink?: string;
+}
 
 const Blog = () => {
   const { t } = useLanguage();
-  const getPosts = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const getPosts = (): BlogPost[] => {
     if (t('nav.home') === 'Home') { // English
       return [
         {
-          title: "AI and Law: What to Watch for in 2025?",
-          excerpt: "With the EU AI Act coming into effect, new challenges and opportunities are opening up for companies. Here are the most important things to know.",
-          category: "Legal & Compliance",
-          date: "January 15, 2024",
+          title: "2025's Hottest AI Trends: Multimodal AI and Autonomous Agents",
+          excerpt: "Generative AI is expanding beyond text to work with images, voice, and video. AI agents are now making autonomous decisions in business processes.",
+          category: "AI Trends",
+          date: "January 20, 2025",
           readTime: "8 min",
-          featured: true
+          featured: true,
+          externalLink: "https://honlapmagus.hu/ai-trendek-2025/"
         },
         {
-          title: "Chatbot VS Intelligent Agent – What's the Difference?",
-          excerpt: "Many people confuse chatbots with AI agents. We show the key differences and when to use which.",
-          category: "Technology",
-          date: "January 10, 2024",
-          readTime: "5 min",
-          featured: true
-        },
-        {
-          title: "10 Questions to Ask AI Providers Before Purchasing",
-          excerpt: "A practical guide for business leaders: what to look for when purchasing AI solutions to avoid unpleasant surprises.",
-          category: "Business",
-          date: "January 8, 2024",
-          readTime: "6 min",
-          featured: false
-        },
-        {
-          title: "How is AI Changing Customer Service?",
-          excerpt: "Real case studies and statistics on the impact of AI-driven customer service. ROI calculations and implementation tips.",
-          category: "Customer Service",
-          date: "January 5, 2024",
-          readTime: "7 min",
-          featured: false
-        },
-        {
-          title: "Prompt Engineering Basics for Beginners",
-          excerpt: "Step-by-step guide to writing effective AI prompts. With practical examples and do's and don'ts list.",
-          category: "Technology",
-          date: "January 3, 2024",
-          readTime: "4 min",
-          featured: false
-        },
-        {
-          title: "GDPR and AI: What You Need to Know About Data Protection?",
-          excerpt: "Detailed overview of how artificial intelligence use aligns with GDPR requirements.",
+          title: "EU AI Act 2025: Practical Guide for Hungarian Companies",
+          excerpt: "The EU AI Act is now in effect. What compliance requirements must Hungarian businesses meet? Complete checklist and practical examples.",
           category: "Legal & Compliance",
-          date: "January 1, 2024",
-          readTime: "9 min",
-          featured: false
+          date: "January 18, 2025",
+          readTime: "12 min",
+          featured: true,
+          externalLink: "https://indigo.ai/en/blog/ai-act/"
+        },
+        {
+          title: "AI-Based Hyper-Personalization in Marketing with Real Examples",
+          excerpt: "Real-time customer data analysis and automated content generation. How Netflix and Amazon are taking recommendation systems to the next level.",
+          category: "Marketing AI",
+          date: "January 15, 2025",
+          readTime: "10 min",
+          featured: true,
+          externalLink: "https://www.marketing-mentor.hu/mesterseges-intelligencia/varhato-marketing-ai-trendek-2025-ben/"
+        },
+        {
+          title: "Generative AI in Corporate Practice - Hungarian Case Studies",
+          excerpt: "How are Hungarian SMEs implementing AI solutions in their daily operations? Real examples from administration, customer service and content creation.",
+          category: "Case Studies",
+          date: "January 12, 2025",
+          readTime: "7 min",
+          featured: false,
+          externalLink: "https://blog.skillbot.hu/ai-hirek/5-ai-trend-amire-magyar-vallalkozokent-erdemes-odafigyelned-2025-ben/"
+        },
+        {
+          title: "AI Agents vs. Traditional Automation - When to Use Which?",
+          excerpt: "The key differences between chatbots and intelligent agents. When are autonomous AI systems more effective than traditional rule-based automation?",
+          category: "Technology",
+          date: "January 10, 2025",
+          readTime: "6 min",
+          featured: false,
+          url: "/blog/ai-agents-vs-automation"
+        },
+        {
+          title: "Predictive Analytics in the SME Sector",
+          excerpt: "How can small and medium enterprises leverage AI for forecasting, inventory management, and customer behavior prediction?",
+          category: "SME Solutions",
+          date: "January 8, 2025",
+          readTime: "5 min",
+          featured: false,
+          url: "/blog/predictive-analytics-sme"
+        },
+        {
+          title: "Compliance Checklist: EU AI Act Step by Step",
+          excerpt: "Detailed guide for businesses: risk assessment, documentation requirements, and audit preparation for AI Act compliance.",
+          category: "Legal & Compliance",
+          date: "January 5, 2025",
+          readTime: "15 min",
+          featured: false,
+          externalLink: "https://ogletree.com/insights-resources/blog-posts/eu-ai-act-update-navigating-the-future/"
+        },
+        {
+          title: "AI in Fintech: Fraud Prevention with Real Examples",
+          excerpt: "How are banks using AI for fraud detection? Real examples from Bank of America prototypes and Hungarian fintech companies.",
+          category: "Fintech",
+          date: "January 3, 2025",
+          readTime: "8 min",
+          featured: false,
+          externalLink: "https://fintechzone.hu/fintech-trendek-amik-atirjak-a-bankszakma-jovojet-2025-elso-felevenek-legfontosabb-tanulsagai/"
         }
       ];
     } else { // Hungarian
       return [
         {
-          title: "AI és jog: mire figyelj 2025-ben?",
-          excerpt: "Az EU AI Act életbelépésével új kihívások és lehetőségek nyílnak meg a vállalatok előtt. Íme a legfontosabb tudnivalók.",
-          category: "Jog & Compliance",
-          date: "2024. január 15.",
+          title: "2025 legforróbb AI-trendjei: Multimodális AI és autonóm ügynökök",
+          excerpt: "A generatív AI a szövegen túl képekkel, hanggal és videóval is dolgozik. Az AI-ügynökök már önálló döntéseket hoznak üzleti folyamatokban.",
+          category: "AI Trendek",
+          date: "2025. január 20.",
           readTime: "8 perc",
-          featured: true
+          featured: true,
+          externalLink: "https://honlapmagus.hu/ai-trendek-2025/"
         },
         {
-          title: "Chatbot VS intelligens agent – mi a különbség?",
-          excerpt: "Sokan összetévesztik a chatbotokat az AI ügynökökkel. Megmutatjuk a kulcsfontosságú különbségeket és mikor melyiket érdemes használni.",
-          category: "Technológia",
-          date: "2024. január 10.",
-          readTime: "5 perc",
-          featured: true
-        },
-        {
-          title: "10 kérdés, amit AI-vásárlás előtt fel kell tenned a szolgáltatónak",
-          excerpt: "Praktikus útmutató vállalati vezetőknek: mire figyelj AI megoldás beszerzésekor, hogy ne érjen kellemetlen meglepetés.",
-          category: "Üzlet",
-          date: "2024. január 8.",
-          readTime: "6 perc",
-          featured: false
-        },
-        {
-          title: "Hogyan változtatja meg az AI a customer service-t?",
-          excerpt: "Valós esettanulmányok és statisztikák az AI-vezérelt ügyfélszolgálat hatásairól. ROI számítások és implementációs tippek.",
-          category: "Ügyfélszolgálat",
-          date: "2024. január 5.",
-          readTime: "7 perc",
-          featured: false
-        },
-        {
-          title: "Prompt engineering alapok kezdőknek",
-          excerpt: "Lépésről lépésre útmutató hatékony AI promptok írásához. Gyakorlati példákkal és do's and don'ts listával.",
-          category: "Technológia",
-          date: "2024. január 3.",
-          readTime: "4 perc",
-          featured: false
-        },
-        {
-          title: "GDPR és AI: mit kell tudni az adatvédelemről?",
-          excerpt: "Részletes áttekintés arról, hogyan fér össze a mesterséges intelligencia használata a GDPR előírásaival.",
+          title: "EU AI Act 2025: Gyakorlati útmutató magyar cégeknek",
+          excerpt: "Az EU AI Act már életben van. Milyen megfelelőségi követelményeknek kell megfelelniük a magyar vállalkozásoknak? Teljes checklist és gyakorlati példák.",
           category: "Jog & Compliance",
-          date: "2024. január 1.",
-          readTime: "9 perc",
-          featured: false
+          date: "2025. január 18.",
+          readTime: "12 perc",
+          featured: true,
+          externalLink: "https://indigo.ai/en/blog/ai-act/"
+        },
+        {
+          title: "AI-alapú hiperperszonalizáció a marketingben valós példákkal",
+          excerpt: "Valós idejű ügyféladat-elemzés és automatizált tartalomgenerálás. Hogyan viszik új szintre a Netflix és Amazon az ajánlórendszereket.",
+          category: "Marketing AI",
+          date: "2025. január 15.",
+          readTime: "10 perc",
+          featured: true,
+          externalLink: "https://www.marketing-mentor.hu/mesterseges-intelligencia/varhato-marketing-ai-trendek-2025-ben/"
+        },
+        {
+          title: "Generatív AI a vállalati gyakorlatban - magyar esettanulmányok",
+          excerpt: "Hogyan vezetik be a magyar KKV-k az AI megoldásokat napi működésükbe? Valós példák adminisztrációból, ügyfélszolgálatból és tartalomkészítésből.",
+          category: "Esettanulmányok",
+          date: "2025. január 12.",
+          readTime: "7 perc",
+          featured: false,
+          externalLink: "https://blog.skillbot.hu/ai-hirek/5-ai-trend-amire-magyar-vallalkozokent-erdemes-odafigyelned-2025-ben/"
+        },
+        {
+          title: "AI-ügynökök vs. hagyományos automatizáció - mikor melyiket?",
+          excerpt: "A chatbotok és intelligens ügynökök közötti kulcsfontosságú különbségek. Mikor hatékonyabbak az autonóm AI rendszerek a hagyományos szabályalapú automatizációnál?",
+          category: "Technológia",
+          date: "2025. január 10.",
+          readTime: "6 perc",
+          featured: false,
+          url: "/blog/ai-ugynokök-vs-automatizacio"
+        },
+        {
+          title: "Prediktív analitika a KKV szektorban",
+          excerpt: "Hogyan használhatják ki a kis- és középvállalkozások az AI-t előrejelzésekhez, készletgazdálkodáshoz és ügyféli viselkedés elemzéshez?",
+          category: "KKV Megoldások",
+          date: "2025. január 8.",
+          readTime: "5 perc",
+          featured: false,
+          url: "/blog/prediktiv-analitika-kkv"
+        },
+        {
+          title: "Compliance checklist: EU AI Act lépésről lépésre",
+          excerpt: "Részletes útmutató vállalkozásoknak: kockázatelemzés, dokumentációs követelmények és audit felkészülés az AI Act megfelelőséghez.",
+          category: "Jog & Compliance",
+          date: "2025. január 5.",
+          readTime: "15 perc",
+          featured: false,
+          externalLink: "https://ogletree.com/insights-resources/blog-posts/eu-ai-act-update-navigating-the-future/"
+        },
+        {
+          title: "AI a fintechben: Csalásmegelőzés valós példákon",
+          excerpt: "Hogyan használják a bankok az AI-t csalásdetektálásra? Valós példák a Bank of America prototípusaitól és magyar fintech cégeknél.",
+          category: "Fintech",
+          date: "2025. január 3.",
+          readTime: "8 perc",
+          featured: false,
+          externalLink: "https://fintechzone.hu/fintech-trendek-amik-atirjak-a-bankszakma-jovojet-2025-elso-felevenek-legfontosabb-tanulsagai/"
         }
       ];
     }
@@ -116,14 +180,32 @@ const Blog = () => {
 
   const getCategories = () => {
     if (t('nav.home') === 'Home') { // English
-      return ["All", "Technology", "Legal & Compliance", "Business", "Customer Service"];
+      return ["All", "AI Trends", "Legal & Compliance", "Marketing AI", "Case Studies", "Technology", "SME Solutions", "Fintech"];
     } else { // Hungarian
-      return ["Mind", "Technológia", "Jog & Compliance", "Üzlet", "Ügyfélszolgálat"];
+      return ["Mind", "AI Trendek", "Jog & Compliance", "Marketing AI", "Esettanulmányok", "Technológia", "KKV Megoldások", "Fintech"];
     }
   };
 
   const posts = getPosts();
   const categories = getCategories();
+
+  // Filter posts based on selected category and search term
+  const filteredPosts = posts.filter(post => {
+    const matchesCategory = !selectedCategory || selectedCategory === 'Mind' || selectedCategory === 'All' || post.category === selectedCategory;
+    const matchesSearch = !searchTerm || 
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const handlePostClick = (post: BlogPost) => {
+    if (post.externalLink) {
+      window.open(post.externalLink, '_blank');
+    } else if (post.url) {
+      window.location.href = post.url;
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -138,25 +220,40 @@ const Blog = () => {
             </p>
           </div>
 
-          {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <Badge 
-                key={category} 
-                variant={category === "Mind" ? "default" : "outline"}
-                className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                {category}
-              </Badge>
-            ))}
+          {/* Search and Categories */}
+          <div className="mb-12">
+            {/* Search */}
+            <div className="relative max-w-md mx-auto mb-8">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Input
+                placeholder={t('blog.search.placeholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+
+            {/* Categories */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {categories.map((category) => (
+                <Badge 
+                  key={category} 
+                  variant={selectedCategory === category || (!selectedCategory && (category === "Mind" || category === "All")) ? "default" : "outline"}
+                  className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+                  onClick={() => setSelectedCategory(category === "Mind" || category === "All" ? "" : category)}
+                >
+                  {category}
+                </Badge>
+              ))}
+            </div>
           </div>
 
           {/* Featured Posts */}
           <div className="mb-16">
             <h2 className="text-2xl font-bold mb-8">{t('blog.featured')}</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {posts.filter(post => post.featured).map((post, index) => (
-                <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              {filteredPosts.filter(post => post.featured).map((post, index) => (
+                <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group" onClick={() => handlePostClick(post)}>
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-3">
                       <Badge variant="outline">{post.category}</Badge>
@@ -179,7 +276,11 @@ const Blog = () => {
                     </CardDescription>
                     <Button variant="ghost" className="p-0 h-auto text-primary hover:text-primary/80">
                       {t('blog.read.more')}
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      {post.externalLink ? (
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      ) : (
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      )}
                     </Button>
                   </CardContent>
                 </Card>
@@ -191,8 +292,8 @@ const Blog = () => {
           <div className="mb-16">
             <h2 className="text-2xl font-bold mb-8">{t('blog.all')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.filter(post => !post.featured).map((post, index) => (
-                <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group">
+              {filteredPosts.filter(post => !post.featured).map((post, index) => (
+                <Card key={index} className="shadow-elegant hover:shadow-glow transition-all duration-300 cursor-pointer group" onClick={() => handlePostClick(post)}>
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-3">
                       <Badge variant="outline" className="text-xs">{post.category}</Badge>
@@ -214,6 +315,9 @@ const Blog = () => {
                         <Clock className="mr-1 h-3 w-3" />
                         {post.readTime}
                       </div>
+                      {post.externalLink && (
+                        <ExternalLink className="h-3 w-3 text-muted-foreground" />
+                      )}
                     </div>
                   </CardContent>
                 </Card>
