@@ -334,6 +334,59 @@ const translations: Translations = {
     en: 'Continuous security reviews and compliance checks involving external experts.',
     hu: 'Folyamatos biztonsági felülvizsgálatok és compliance ellenőrzések külső szakértők bevonásával.'
   },
+  'technology.data.title': { en: 'Responsible Data Usage', hu: 'Felelős Adathasználat' },
+  'technology.data.desc': { 
+    en: 'Only essential personal data is processed for operations.',
+    hu: 'Csak a működéshez feltétlenül szükséges személyes adatok kerülnek feldolgozásra.'
+  },
+  'technology.technical.title': { en: 'Technical Protection', hu: 'Technikai Védelem' },
+  'technology.technical.desc': { 
+    en: 'All data traffic is encrypted (TLS 1.3, end-to-end encryption).',
+    hu: 'Minden adatforgalom titkosított (TLS 1.3, end-to-end encryption).'
+  },
+  'technology.xai.title': { en: 'Explainable AI (XAI)', hu: 'Magyarázható AI (XAI)' },
+  'technology.xai.desc': { 
+    en: 'Every AI decision is transparent and understandable. You will know how and why the system made its decision.',
+    hu: 'Minden AI döntésünk transzparens és érthető. Tudni fogod, hogyan és miért hozott döntést a rendszer.'
+  },
+  'technology.xai.capabilities': { en: 'Key capabilities:', hu: 'Főbb képességek:' },
+  'technology.xai.tree': { en: 'Decision Tree Visualization', hu: 'Döntési fa vizualizáció' },
+  'technology.xai.tree.desc': { 
+    en: 'Interactive diagrams showing the logic of individual AI decisions.',
+    hu: 'Interaktív ábrák, amelyek megmutatják az egyes AI döntések logikáját.'
+  },
+  'technology.xai.variables': { en: 'Key Variables Highlighting', hu: 'Fontos változók kijelzése' },
+  'technology.xai.variables.desc': { 
+    en: 'We highlight data points that most influenced the decision.',
+    hu: 'Kiemeljük azokat az adatpontokat, amelyek leginkább befolyásolták a döntést.'
+  },
+  'technology.xai.language': { en: 'Natural Language Explanations', hu: 'Természetes nyelvű magyarázatok' },
+  'technology.xai.language.desc': { 
+    en: 'We provide human-understandable, clear explanations for every AI decision.',
+    hu: 'Minden AI döntéshez emberi érthetőségű, közérthető magyarázatot adunk.'
+  },
+  'technology.xai.dashboard': { en: 'Interactive Dashboards', hu: 'Interaktív dashboardok' },
+  'technology.xai.dashboard.desc': { 
+    en: 'Real-time visual feedback and detailed analysis capabilities behind every decision.',
+    hu: 'Valós idejű, vizuális visszacsatolás és részletes elemzési lehetőség minden döntés mögött.'
+  },
+  'technology.xai.cta': { 
+    en: 'Try our explanatory dashboard live',
+    hu: 'Próbálja ki magyarázó dashboardunkat élőben'
+  },
+  'technology.compliance.score': { en: 'Compliance Score', hu: 'Compliance Score' },
+  'technology.summary.title': { en: 'Summary:', hu: 'Összegzés:' },
+  'technology.summary.desc': { 
+    en: 'Agentize systems combine the most modern technological tools with the highest compliance levels required by current regulations. The principle of Privacy by Design, compliance with EU AI Act requirements, transparent decision logic, and regular external audits together ensure that our clients are legally and technically protected throughout the entire AI lifecycle.',
+    hu: 'Az Agentize rendszerei ötvözik a legmodernebb technológiai eszközöket és az aktuális szabályozók által előírt legmagasabb megfelelőségi szinteket. A Privacy by Design elve, az EU AI Act követelményeinek való megfelelés, az átlátható döntési logika és a rendszeres, külső auditok együttesen biztosítják, hogy ügyfelei jogilag és technikailag is védve legyenek a teljes AI életciklus alatt.'
+  },
+  'technology.cta.title': { en: 'Enterprise Security Consultation', hu: 'Vállalati Biztonsági Konzultáció' },
+  'technology.cta.desc': { 
+    en: 'Learn more about our comprehensive security framework and compliance protocols. Schedule a detailed security briefing with our experts.',
+    hu: 'Tudjon meg többet átfogó biztonsági keretrendszerünkről és megfelelőségi protokolljainkról. Ütemezzen részletes biztonsági tájékoztatót szakértőinkkel.'
+  },
+  'technology.cta.button': { en: 'Free consultation', hu: 'Ingyenes konzultáció' },
+  'technology.cta.demo': { en: 'Request demo', hu: 'Kérjen demót' },
 
   // About Page - Professional B2B content
   'about.page.title': { en: 'About Us', hu: 'Rólunk' },

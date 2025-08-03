@@ -17,10 +17,10 @@ const Technology = () => {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Technológia & Megfelelőség
+              {t('technology.page.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Az Agentize megoldásai több szempontból is a legmagasabb biztonsági követelményeknek felelnek meg, kifejezetten a vállalati szektor, az EU AI Act és a GDPR szabályozások figyelembevételével.
+              {t('technology.page.subtitle')}
             </p>
           </div>
 
@@ -29,7 +29,7 @@ const Technology = () => {
             <CardContent className="p-8 text-center">
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <h2 className="text-2xl font-bold mb-4 text-foreground">
-                Mi teszi valóban biztonságossá és jogilag megfelelővé az Agentize platformot:
+                {t('technology.security.title')}
               </h2>
             </CardContent>
           </Card>
@@ -40,9 +40,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Shield className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">1. Privacy by Design – Adatvédelem alapú tervezés</CardTitle>
+                <CardTitle className="text-xl text-foreground">1. {t('technology.privacy.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Az adatvédelem minden fejlesztési és üzemeltetési fázisban központi szerepet kap.
+                  {t('technology.privacy.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -63,9 +63,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <FileCheck className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">2. EU AI Act Megfelelőség</CardTitle>
+                <CardTitle className="text-xl text-foreground">2. {t('technology.compliance.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Az Agentize teljes mértékben megfelel az Európai Unió Mesterséges Intelligencia Törvényének (AI Act), amely 2025-től kötelező jelleggel szabályozza az AI rendszerek kockázati besorolását és átláthatóságát.
+                  {t('technology.compliance.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -86,9 +86,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Eye className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">3. Átlátható Döntési Logika, Audit Trail</CardTitle>
+                <CardTitle className="text-xl text-foreground">3. {t('technology.transparency.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Minden AI döntési folyamat teljes mértékben követhető és magyarázható (explainable AI, XAI).
+                  {t('technology.transparency.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -109,9 +109,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">4. Rendszeres Auditok és Külső Szakértői Vizsgálatok</CardTitle>
+                <CardTitle className="text-xl text-foreground">4. {t('technology.audits.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Az Agentize technológiai és biztonsági infrastruktúráját folyamatosan auditálják akkreditált, külső szakértők.
+                  {t('technology.audits.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -132,9 +132,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Database className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">5. Felelős Adathasználat és Adattudatosság</CardTitle>
+                <CardTitle className="text-xl text-foreground">5. {t('technology.data.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Csak a működéshez feltétlenül szükséges személyes adatok kerülnek feldolgozásra.
+                  {t('technology.data.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -155,9 +155,9 @@ const Technology = () => {
             <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
               <CardHeader>
                 <Lock className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-xl text-foreground">6. Magas szintű technikai védelem</CardTitle>
+                <CardTitle className="text-xl text-foreground">6. {t('technology.technical.title')}</CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
-                  Minden adatforgalom titkosított (TLS 1.3, end-to-end encryption).
+                  {t('technology.technical.desc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -181,34 +181,33 @@ const Technology = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Main XAI Description */}
                 <div className="lg:col-span-2">
-                  <h3 className="text-3xl font-bold mb-6">Magyarázható AI (XAI)</h3>
+                  <h3 className="text-3xl font-bold mb-6">{t('technology.xai.title')}</h3>
                   <p className="text-lg opacity-90 mb-8">
-                    Minden AI döntésünk transzparens és érthető. Tudni fogod, hogyan és miért 
-                    hozott döntést a rendszer.
+                    {t('technology.xai.desc')}
                   </p>
                   
-                  <h4 className="text-xl font-semibold mb-4">Főbb képességek:</h4>
+                  <h4 className="text-xl font-semibold mb-4">{t('technology.xai.capabilities')}</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">Döntési fa vizualizáció</h5>
-                      <p className="text-sm opacity-80">Interaktív ábrák, amelyek megmutatják az egyes AI döntések logikáját.</p>
+                      <h5 className="font-semibold mb-2">{t('technology.xai.tree')}</h5>
+                      <p className="text-sm opacity-80">{t('technology.xai.tree.desc')}</p>
                     </div>
                     <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">Fontos változók kijelzése</h5>
-                      <p className="text-sm opacity-80">Kiemeljük azokat az adatpontokat, amelyek leginkább befolyásolták a döntést.</p>
+                      <h5 className="font-semibold mb-2">{t('technology.xai.variables')}</h5>
+                      <p className="text-sm opacity-80">{t('technology.xai.variables.desc')}</p>
                     </div>
                     <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">Természetes nyelvű magyarázatok</h5>
-                      <p className="text-sm opacity-80">Minden AI döntéshez emberi érthetőségű, közérthető magyarázatot adunk.</p>
+                      <h5 className="font-semibold mb-2">{t('technology.xai.language')}</h5>
+                      <p className="text-sm opacity-80">{t('technology.xai.language.desc')}</p>
                     </div>
                     <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">Interaktív dashboardok</h5>
-                      <p className="text-sm opacity-80">Valós idejű, vizuális visszacsatolás és részletes elemzési lehetőség minden döntés mögött.</p>
+                      <h5 className="font-semibold mb-2">{t('technology.xai.dashboard')}</h5>
+                      <p className="text-sm opacity-80">{t('technology.xai.dashboard.desc')}</p>
                     </div>
                   </div>
                   
                   <Button variant="secondary" size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                    Próbálja ki magyarázó dashboardunkat élőben
+                    {t('technology.xai.cta')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
@@ -218,7 +217,7 @@ const Technology = () => {
                   <div className="bg-primary-foreground/10 p-8 rounded-xl border border-primary-foreground/20">
                     <div className="flex items-center justify-center mb-4">
                       <Star className="h-8 w-8 text-yellow-400 mr-2" />
-                      <h4 className="text-xl font-semibold">Compliance Score</h4>
+                      <h4 className="text-xl font-semibold">{t('technology.compliance.score')}</h4>
                     </div>
                     <div className="text-5xl font-bold mb-4">100%</div>
                     <div className="space-y-2 mb-6">
@@ -241,9 +240,9 @@ const Technology = () => {
           {/* Summary Section */}
           <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
             <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6 text-center text-foreground">Összegzés:</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center text-foreground">{t('technology.summary.title')}</h2>
               <p className="text-lg leading-relaxed text-muted-foreground max-w-4xl mx-auto text-center">
-                Az Agentize rendszerei ötvözik a legmodernebb technológiai eszközöket és az aktuális szabályozók által előírt legmagasabb megfelelőségi szinteket. A Privacy by Design elve, az EU AI Act követelményeinek való megfelelés, az átlátható döntési logika és a rendszeres, külső auditok együttesen biztosítják, hogy ügyfelei jogilag és technikailag is védve legyenek a teljes AI életciklus alatt.
+                {t('technology.summary.desc')}
               </p>
             </CardContent>
           </Card>
@@ -251,17 +250,17 @@ const Technology = () => {
           {/* CTA Section */}
           <div className="bg-background border-2 border-primary/20 rounded-2xl p-8 md:p-12 text-center shadow-lg">
             <Calendar className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Vállalati Biztonsági Konzultáció</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">{t('technology.cta.title')}</h2>
             <p className="text-lg mb-8 text-muted-foreground max-w-3xl mx-auto">
-              Tudjon meg többet átfogó biztonsági keretrendszerünkről és megfelelőségi protokolljainkról. Ütemezzen részletes biztonsági tájékoztatót szakértőinkkel.
+              {t('technology.cta.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Ingyenes konzultáció
+                {t('technology.cta.button')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg">
-                Kérjen demót
+                {t('technology.cta.demo')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
