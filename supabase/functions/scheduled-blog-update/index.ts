@@ -115,29 +115,49 @@ async function scrapeLatestTechNews(): Promise<BlogPost[]> {
 function extractTechCrunchPosts(html: string): BlogPost[] {
   const posts: BlogPost[] = []
   
-  // Extract headlines using regex patterns
-  const titleRegex = /<h2[^>]*class="[^"]*post-block__title[^"]*"[^>]*>.*?<a[^>]*href="([^"]*)"[^>]*>([^<]+)<\/a>/g
-  const excerptRegex = /<div[^>]*class="[^"]*post-block__content[^"]*"[^>]*>(.*?)<\/div>/gs
+  // Extract article blocks with title, excerpt and url
+  const articleRegex = /<article[^>]*class="[^"]*post-block[^"]*"[^>]*>(.*?)<\/article>/gs
   
   let match
   let index = 0
   
-  while ((match = titleRegex.exec(html)) !== null && index < 10) {
-    const url = match[1]
-    const title = match[2].trim()
+  while ((match = articleRegex.exec(html)) !== null && index < 10) {
+    const articleHtml = match[1]
     
-    if (title && isAIRelated(title)) {
-      posts.push({
-        title,
-        excerpt: `Legfrissebb hírek az AI világából: ${title}`,
-        category: 'AI',
-        date: new Date().toISOString().split('T')[0],
-        readTime: '3 perc',
-        url: url.startsWith('http') ? url : `https://techcrunch.com${url}`,
-        language: 'en'
-      })
-      index++
+    // Extract title and URL
+    const titleMatch = articleHtml.match(/<h2[^>]*class="[^"]*post-block__title[^"]*"[^>]*>.*?<a[^>]*href="([^"]*)"[^>]*>([^<]+)<\/a>/s)
+    if (!titleMatch) continue
+    
+    const url = titleMatch[1]
+    const title = titleMatch[2].trim()
+    
+    if (!title || !isAIRelated(title)) continue
+    
+    // Extract excerpt/first paragraph
+    let excerpt = ''
+    const excerptMatch = articleHtml.match(/<div[^>]*class="[^"]*post-block__content[^"]*"[^>]*>(.*?)<\/div>/s)
+    if (excerptMatch) {
+      excerpt = excerptMatch[1]
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim()
+        .substring(0, 200) + '...' // Limit to 200 chars
     }
+    
+    if (!excerpt) {
+      excerpt = `${title} - Olvassa el a teljes cikket a TechCrunch oldalán.`
+    }
+    
+    posts.push({
+      title,
+      excerpt,
+      category: 'AI',
+      date: new Date().toISOString().split('T')[0],
+      readTime: '3 perc',
+      url: url.startsWith('http') ? url : `https://techcrunch.com${url}`,
+      language: 'en'
+    })
+    index++
   }
   
   return posts
@@ -146,27 +166,51 @@ function extractTechCrunchPosts(html: string): BlogPost[] {
 function extractVentureBeatPosts(html: string): BlogPost[] {
   const posts: BlogPost[] = []
   
-  const titleRegex = /<h2[^>]*class="[^"]*ArticleListing__title[^"]*"[^>]*>.*?<a[^>]*href="([^"]*)"[^>]*>([^<]+)<\/a>/g
+  // Extract article blocks with title, excerpt and url
+  const articleRegex = /<article[^>]*class="[^"]*ArticleListing__item[^"]*"[^>]*>(.*?)<\/article>/gs
   
   let match
   let index = 0
   
-  while ((match = titleRegex.exec(html)) !== null && index < 10) {
-    const url = match[1]
-    const title = match[2].trim()
+  while ((match = articleRegex.exec(html)) !== null && index < 10) {
+    const articleHtml = match[1]
     
-    if (title && isAIRelated(title)) {
-      posts.push({
-        title,
-        excerpt: `VentureBeat AI hírek: ${title}`,
-        category: 'Technology',
-        date: new Date().toISOString().split('T')[0],
-        readTime: '4 perc',
-        url: url.startsWith('http') ? url : `https://venturebeat.com${url}`,
-        language: 'en'
-      })
-      index++
+    // Extract title and URL
+    const titleMatch = articleHtml.match(/<h2[^>]*class="[^"]*ArticleListing__title[^"]*"[^>]*>.*?<a[^>]*href="([^"]*)"[^>]*>([^<]+)<\/a>/s)
+    if (!titleMatch) continue
+    
+    const url = titleMatch[1]
+    const title = titleMatch[2].trim()
+    
+    if (!title || !isAIRelated(title)) continue
+    
+    // Extract excerpt/description
+    let excerpt = ''
+    const excerptMatch = articleHtml.match(/<div[^>]*class="[^"]*ArticleListing__excerpt[^"]*"[^>]*>(.*?)<\/div>/s) ||
+                        articleHtml.match(/<p[^>]*class="[^"]*ArticleListing__description[^"]*"[^>]*>(.*?)<\/p>/s)
+    
+    if (excerptMatch) {
+      excerpt = excerptMatch[1]
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim()
+        .substring(0, 200) + '...' // Limit to 200 chars
     }
+    
+    if (!excerpt) {
+      excerpt = `${title} - Olvassa el a teljes cikket a VentureBeat oldalán.`
+    }
+    
+    posts.push({
+      title,
+      excerpt,
+      category: 'Technology',
+      date: new Date().toISOString().split('T')[0],
+      readTime: '4 perc',
+      url: url.startsWith('http') ? url : `https://venturebeat.com${url}`,
+      language: 'en'
+    })
+    index++
   }
   
   return posts
