@@ -45,115 +45,115 @@ const Blog = () => {
     if (language === 'en') {
       return [
         {
-          title: "OpenAI Unveils GPT-5: Revolutionary Reasoning Capabilities",
-          excerpt: "GPT-5 introduces unprecedented multimodal reasoning, combining text, image, and voice processing with enhanced factual accuracy and real-time learning capabilities.",
+          title: "China's DeepSeek AI Breakthrough Rocks Silicon Valley",
+          excerpt: "DeepSeek, a little-known Chinese AI startup, has created an advanced AI model that matches top US competitors at a fraction of the cost, sending shockwaves through tech stocks.",
           category: "AI Models",
           date: formatDate(today),
-          readTime: "7 min",
-          featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
-        },
-        {
-          title: "Google's Gemini 2.0 Powers New AI Agent Ecosystem",
-          excerpt: "Google announces Gemini 2.0 with autonomous agent capabilities, enabling AI systems to perform complex multi-step tasks across various applications and platforms.",
-          category: "AI Agents",
-          date: formatDate(yesterday),
           readTime: "6 min",
           featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://www.cnn.com/2025/01/28/china/china-deepseek-ai-success-tech-intl-hnk"
         },
         {
-          title: "EU AI Act 2025: New Compliance Framework Goes Live",
-          excerpt: "The European Union's AI Act enforcement begins, establishing mandatory compliance requirements for high-risk AI systems and significant penalties for violations.",
-          category: "Legal & Compliance",
-          date: formatDate(twoDaysAgo),
-          readTime: "8 min",
-          featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
-        },
-        {
-          title: "Meta's LLaMA 3.1 Integration in Business Applications",
-          excerpt: "Meta releases enterprise-focused LLaMA 3.1 tools, enabling businesses to deploy custom AI assistants with enhanced privacy and domain-specific training.",
-          category: "Enterprise AI",
+          title: "Google Rolls Out Gemini Deep Think AI with Parallel Reasoning",
+          excerpt: "Google DeepMind launches Gemini 2.5 Deep Think, its most advanced AI reasoning model that explores multiple ideas simultaneously to choose the best answers.",
+          category: "AI Agents",
           date: formatDate(yesterday),
-          readTime: "5 min",
-          featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          readTime: "7 min",
+          featured: true,
+          externalLink: "https://techcrunch.com/2025/08/01/google-rolls-out-gemini-deep-think-ai-a-reasoning-model-that-tests-multiple-ideas-in-parallel/"
         },
         {
-          title: "Anthropic's Claude 3.5 Introduces Real-Time Code Generation",
-          excerpt: "Claude 3.5 Sonnet now features live coding assistance with multi-language support, debugging capabilities, and integrated development environment plugins.",
-          category: "Developer Tools",
+          title: "Perplexity Launches Revolutionary Comet AI Browser",
+          excerpt: "Perplexity's new Comet browser revolutionizes web interaction with AI-native features, voice commands, and intelligent content organization capabilities.",
+          category: "Browser Tech",
+          date: formatDate(twoDaysAgo),
+          readTime: "5 min",
+          featured: true,
+          externalLink: "https://www.tomsguide.com/ai/i-tried-perplexitys-new-comet-browser-and-now-i-dont-think-i-can-go-back-to-chrome"
+        },
+        {
+          title: "Alibaba's Qwen 2.5-Max AI Model Surpasses DeepSeek V3",
+          excerpt: "Chinese tech giant Alibaba releases new version of its Qwen 2.5 AI model, claiming superiority over the highly regarded DeepSeek V3 model.",
+          category: "AI Competition",
           date: formatDate(today),
           readTime: "4 min",
           featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://www.azernews.az/region/237104.html"
         },
         {
-          title: "AI-Powered Cybersecurity Prevents 2.3M Attacks Daily",
-          excerpt: "Latest cybersecurity report shows AI systems successfully identifying and blocking sophisticated attacks, reducing security incident response time by 85%.",
-          category: "Cybersecurity",
+          title: "Perplexity Mac App Gains System Control via MCP",
+          excerpt: "Perplexity's macOS app now supports Model Context Protocol, enabling access to Apple Notes, Calendar, and Google Drive with automated task execution.",
+          category: "Productivity AI",
+          date: formatDate(yesterday),
+          readTime: "5 min",
+          featured: false,
+          externalLink: "https://www.business-standard.com/technology/tech-news/perplexity-mac-app-can-now-perform-system-tasks-using-mcp-what-it-means-125072800425_1.html"
+        },
+        {
+          title: "ChatGPT Privacy Leak: Google Indexes Private Conversations",
+          excerpt: "Major privacy issue discovered as Google has indexed thousands of shared ChatGPT conversations, making sensitive prompts and private data publicly searchable.",
+          category: "AI Security",
           date: formatDate(twoDaysAgo),
           readTime: "6 min",
           featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://dev.to/alifar/exposed-google-is-indexing-private-ai-conversations-heres-what-you-should-know-37m5"
         }
       ];
     } else {
       return [
         {
-          title: "OpenAI bemutatja a GPT-5-öt: Forradalmi gondolkodási képességek",
-          excerpt: "A GPT-5 példátlan multimodális gondolkodást vezet be, egyesítve a szöveg-, kép- és hangfeldolgozást fokozott tényszerű pontossággal és valós idejű tanulási képességekkel.",
+          title: "Kína DeepSeek AI áttörése megrázza a Szilícium-völgyet",
+          excerpt: "A DeepSeek, egy kevéssé ismert kínai AI startup, fejlett AI modellt hozott létre, amely töredék költségen vetekedik a vezető amerikai versenytársakkal.",
           category: "AI Modellek",
           date: formatDate(today),
-          readTime: "7 perc",
-          featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
-        },
-        {
-          title: "Google Gemini 2.0 új AI ügynök ökoszisztémát hajt meg",
-          excerpt: "A Google bejelenti a Gemini 2.0-t autonóm ügynök képességekkel, lehetővé téve az AI rendszerek számára összetett, többlépéses feladatok végrehajtását.",
-          category: "AI Ügynökök",
-          date: formatDate(yesterday),
           readTime: "6 perc",
           featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://www.cnn.com/2025/01/28/china/china-deepseek-ai-success-tech-intl-hnk"
         },
         {
-          title: "EU AI Act 2025: Új megfelelőségi keretrendszer lép életbe",
-          excerpt: "Az Európai Unió AI Act végrehajtása megkezdődik, kötelező megfelelőségi követelményeket állapítva meg a magas kockázatú AI rendszerekre.",
-          category: "Jog & Compliance",
-          date: formatDate(twoDaysAgo),
-          readTime: "8 perc",
-          featured: true,
-          externalLink: "https://www.perplexity.ai/discover"
-        },
-        {
-          title: "Meta LLaMA 3.1 integrációja üzleti alkalmazásokban",
-          excerpt: "A Meta kiadja a vállalati fókuszú LLaMA 3.1 eszközöket, lehetővé téve a vállalkozások számára egyedi AI asszisztensek telepítését.",
-          category: "Vállalati AI",
+          title: "Google kiadja a Gemini Deep Think AI-t párhuzamos gondolkodással",
+          excerpt: "A Google DeepMind bemutatja a Gemini 2.5 Deep Think-et, legfejlettebb AI gondolkodási modelljét, amely többféle ötletet vizsgál egyidejűleg.",
+          category: "AI Ügynökök",
           date: formatDate(yesterday),
-          readTime: "5 perc",
-          featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          readTime: "7 perc",
+          featured: true,
+          externalLink: "https://techcrunch.com/2025/08/01/google-rolls-out-gemini-deep-think-ai-a-reasoning-model-that-tests-multiple-ideas-in-parallel/"
         },
         {
-          title: "Anthropic Claude 3.5 valós idejű kódgenerálást vezet be",
-          excerpt: "A Claude 3.5 Sonnet most élő kódolási segítséget kínál többnyelvű támogatással, hibakeresési képességekkel és fejlesztői környezet bővítményekkel.",
-          category: "Fejlesztői Eszközök",
+          title: "Perplexity elindítja a forradalmi Comet AI böngészőt",
+          excerpt: "A Perplexity új Comet böngészője forradalmasítja a webes interakciót AI-natív funkciókkal, hangvezérléssel és intelligens tartalomszervezéssel.",
+          category: "Böngésző Tech",
+          date: formatDate(twoDaysAgo),
+          readTime: "5 perc",
+          featured: true,
+          externalLink: "https://www.tomsguide.com/ai/i-tried-perplexitys-new-comet-browser-and-now-i-dont-think-i-can-go-back-to-chrome"
+        },
+        {
+          title: "Alibaba Qwen 2.5-Max AI modellje felülmúlja a DeepSeek V3-at",
+          excerpt: "A kínai technológiai óriás, az Alibaba kiadja Qwen 2.5 AI modelljének új verzióját, amely állítólag felülmúlja a nagyra értékelt DeepSeek V3 modellt.",
+          category: "AI Verseny",
           date: formatDate(today),
           readTime: "4 perc",
           featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://www.azernews.az/region/237104.html"
         },
         {
-          title: "AI-vezérelt kiberbiztonság naponta 2,3M támadást akadályoz meg",
-          excerpt: "A legújabb kiberbiztonság jelentés szerint az AI rendszerek sikeresen azonosítják és blokkolják a kifinomult támadásokat, 85%-kal csökkentve a válaszidőt.",
-          category: "Kiberbiztonság",
+          title: "Perplexity Mac alkalmazás rendszervezérlést kap MCP-n keresztül",
+          excerpt: "A Perplexity macOS alkalmazása mostantól támogatja a Model Context Protocol-t, lehetővé téve az Apple Notes, Calendar és Google Drive elérését.",
+          category: "Produktivitás AI",
+          date: formatDate(yesterday),
+          readTime: "5 perc",
+          featured: false,
+          externalLink: "https://www.business-standard.com/technology/tech-news/perplexity-mac-app-can-now-perform-system-tasks-using-mcp-what-it-means-125072800425_1.html"
+        },
+        {
+          title: "ChatGPT adatvédelmi hiba: Google indexeli a privát beszélgetéseket",
+          excerpt: "Súlyos adatvédelmi problémát fedeztek fel: a Google több ezer megosztott ChatGPT beszélgetést indexelt, nyilvánosan kereshetővé téve az érzékeny adatokat.",
+          category: "AI Biztonság",
           date: formatDate(twoDaysAgo),
           readTime: "6 perc",
           featured: false,
-          externalLink: "https://www.perplexity.ai/discover"
+          externalLink: "https://dev.to/alifar/exposed-google-is-indexing-private-ai-conversations-heres-what-you-should-know-37m5"
         }
       ];
     }
@@ -161,9 +161,9 @@ const Blog = () => {
 
   const getCategories = () => {
     if (language === 'en') {
-      return ["All", "AI Models", "AI Agents", "Legal & Compliance", "Enterprise AI", "Developer Tools", "Cybersecurity"];
+      return ["All", "AI Models", "AI Agents", "Browser Tech", "AI Competition", "Productivity AI", "AI Security"];
     } else {
-      return ["Mind", "AI Modellek", "AI Ügynökök", "Jog & Compliance", "Vállalati AI", "Fejlesztői Eszközök", "Kiberbiztonság"];
+      return ["Mind", "AI Modellek", "AI Ügynökök", "Böngésző Tech", "AI Verseny", "Produktivitás AI", "AI Biztonság"];
     }
   };
 
