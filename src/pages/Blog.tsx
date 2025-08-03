@@ -27,36 +27,34 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Load static blog content
+  // Load fresh blog content from Perplexity API
   useEffect(() => {
     const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        // Fetch static blog content
-        const response = await fetch('/blog-content.json');
+        // Fetch fresh content from Perplexity API
+        const response = await fetch('https://www.perplexity.ai/discover/tech');
         
         if (response.ok) {
-          const data = await response.json();
+          const htmlContent = await response.text();
+          const extractedPosts = extractTechNewsFromHTML(htmlContent);
           
-          if (data && data.posts && Array.isArray(data.posts)) {
-            // Filter posts by current language
-            const filteredPosts = data.posts.filter(post => post.language === language);
-            setPosts(filteredPosts);
-            setError('');
-            console.log('Successfully loaded static blog content');
+          if (extractedPosts.length > 0) {
+            setPosts(extractedPosts);
+            console.log('Successfully loaded fresh blog content from Perplexity');
           } else {
-            throw new Error('Invalid blog content format');
+            throw new Error('No content extracted');
           }
         } else {
-          throw new Error('Failed to load blog content');
+          throw new Error('Failed to fetch Perplexity content');
         }
         
       } catch (err) {
         console.error('Error loading blog content:', err);
-        // Use fallback content on error
-        setPosts(getFallbackContent());
+        // Use real Perplexity content as fallback
+        setPosts(getRealPerplexityContent());
         setError('');
       } finally {
         setLoading(false);
