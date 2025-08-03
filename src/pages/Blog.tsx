@@ -679,7 +679,64 @@ const Blog = () => {
                   {selectedPost.excerpt}
                 </p>
                 
-                <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                {/* Article Image */}
+                <div className="mb-6">
+                  <img 
+                    src={`https://picsum.photos/800/400?random=${selectedPost.title.length}`}
+                    alt={selectedPost.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                </div>
+
+                {/* Full Article Content */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {language === 'hu' ? 'Áttörés a technológiai szektorban' : 'Breakthrough in Technology Sector'}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {language === 'hu' 
+                        ? 'Az új fejlesztések jelentős hatással vannak az iparágra. A technológiai újítások nemcsak a jelenlegi folyamatokat javítják, hanem új lehetőségeket is teremtenek a jövőbeli alkalmazások számára. A szakértők szerint ez a fejlődés alapvetően megváltoztathatja a piac működését.'
+                        : 'The new developments have a significant impact on the industry. Technological innovations not only improve current processes but also create new opportunities for future applications. Experts believe this development could fundamentally change how the market operates.'
+                      }
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {language === 'hu' ? 'Piaci reakciók és elemzések' : 'Market Reactions and Analysis'}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {language === 'hu'
+                        ? 'A bejelentést követően a piaci szereplők vegyes reakciókat mutattak. Míg egyes befektetők optimisták a jövőbeli kilátásokat illetően, mások óvatosabb megközelítést választanak. Az elemzők szerint ez a technológiai váltás hosszú távon pozitív hatással lesz a teljes szektorra.'
+                        : 'Following the announcement, market players showed mixed reactions. While some investors are optimistic about future prospects, others choose a more cautious approach. Analysts believe this technological shift will have a positive long-term impact on the entire sector.'
+                      }
+                    </p>
+                    
+                    {/* Second Image */}
+                    <div className="mb-4">
+                      <img 
+                        src={`https://picsum.photos/600/300?random=${selectedPost.category.length}`}
+                        alt="Market analysis"
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {language === 'hu' ? 'Technikai részletek és implementáció' : 'Technical Details and Implementation'}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {language === 'hu'
+                        ? 'A technológia megvalósítása több fázisban történik. Az első szakaszban a fejlesztők az alapvető infrastruktúrát építik ki, majd ezt követi a tesztelési és optimalizálási periódus. A végső implementáció várhatóan jelentős teljesítményjavulást fog eredményezni.'
+                        : 'The technology implementation happens in multiple phases. In the first stage, developers build the basic infrastructure, followed by testing and optimization periods. The final implementation is expected to result in significant performance improvements.'
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-muted/30 rounded-lg p-6 mb-6 mt-8">
                   <h3 className="text-lg font-semibold mb-4">
                     {language === 'hu' ? 'Főbb pontok:' : 'Key Points:'}
                   </h3>
@@ -705,6 +762,8 @@ const Blog = () => {
                     )}
                     <li>• {language === 'hu' ? 'Gyakorlati alkalmazási lehetőségek' : 'Practical application opportunities'}</li>
                     <li>• {language === 'hu' ? 'Jövőbeli kilátások és előrejelzések' : 'Future outlook and predictions'}</li>
+                    <li>• {language === 'hu' ? 'Implementációs stratégiák' : 'Implementation strategies'}</li>
+                    <li>• {language === 'hu' ? 'Iparági hatások értékelése' : 'Industry impact assessment'}</li>
                   </ul>
                 </div>
 
