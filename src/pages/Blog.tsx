@@ -27,90 +27,22 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Load fresh blog content from HackerNews API
+  // Load Perplexity tech content directly
   useEffect(() => {
     const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        console.log('=== STARTING HACKERNEWS FETCH ===');
+        console.log('=== LOADING PERPLEXITY TECH CONTENT ===');
         
-        // Fetch top stories from HackerNews
-        const topStoriesResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
-        console.log('Top stories response status:', topStoriesResponse.status);
-        
-        if (!topStoriesResponse.ok) {
-          throw new Error('Failed to fetch top stories');
-        }
-        
-        const storyIds = await topStoriesResponse.json();
-        console.log('Got story IDs:', storyIds.length, 'first 5:', storyIds.slice(0, 5));
-        
-        // Get first 12 stories
-        const storyPromises = storyIds.slice(0, 12).map(async (id: number) => {
-          const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
-          return response.json();
-        });
-        
-        const stories = await Promise.all(storyPromises);
-        console.log('Fetched stories:', stories.length, 'first title:', stories[0]?.title);
-        
-        // Filter and convert to blog posts
-        const techPosts = stories
-          .filter(story => {
-            const isValid = story && story.title;
-            if (!isValid) return false;
-            
-            const title = story.title.toLowerCase();
-            // Much broader tech criteria
-            const hasTechKeyword = (
-              title.includes('ai') || title.includes('tech') || title.includes('google') ||
-              title.includes('openai') || title.includes('microsoft') || title.includes('meta') ||
-              title.includes('apple') || title.includes('programming') || title.includes('code') ||
-              title.includes('software') || title.includes('developer') || title.includes('computer') ||
-              title.includes('algorithm') || title.includes('data') || title.includes('api') ||
-              title.includes('cloud') || title.includes('database') || title.includes('web') ||
-              title.includes('mobile') || title.includes('app') || title.includes('server') ||
-              title.includes('security') || title.includes('machine') || title.includes('digital') ||
-              title.includes('c++') || title.includes('python') || title.includes('javascript') ||
-              title.includes('react') || title.includes('node') || title.includes('git') ||
-              title.includes('linux') || title.includes('unix') || title.includes('windows') ||
-              title.includes('claude') || title.includes('chatgpt') || title.includes('gemini') ||
-              title.includes('cpu') || title.includes('gpu') || title.includes('ssd') ||
-              title.includes('nas') || title.includes('network') || title.includes('internet')
-            );
-            console.log('Story filter:', story?.title, '-> tech:', hasTechKeyword);
-            return hasTechKeyword;
-          })
-          .slice(0, 8)
-          .map((story, index) => ({
-            title: language === 'hu' ? translateToHungarian(story.title) : story.title,
-            excerpt: language === 'hu' 
-              ? `Friss technológiai hír a HackerNews-ról. ${story.title.substring(0, 80)}...`
-              : `Fresh tech news from HackerNews. ${story.title.substring(0, 80)}...`,
-            category: getHackerNewsCategory(story.title),
-            date: new Date(story.time * 1000).toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US'),
-            readTime: language === 'hu' ? `${3 + Math.floor(Math.random() * 4)} perc` : `${3 + Math.floor(Math.random() * 4)} min`,
-            featured: index < 3,
-            externalLink: story.url || `https://news.ycombinator.com/item?id=${story.id}`
-          }));
-        
-        console.log('=== FINAL TECH POSTS ===', techPosts.length, techPosts.map(p => p.title));
-        
-        if (techPosts.length > 0) {
-          setPosts(techPosts);
-          console.log('SUCCESS: Using HackerNews content');
-        } else {
-          console.log('ERROR: No tech posts found, using fallback');
-          throw new Error('No tech posts found');
-        }
+        // Use the real Perplexity content directly
+        setPosts(getRealPerplexityContent());
+        console.log('SUCCESS: Using Perplexity tech content');
         
       } catch (err) {
-        console.error('=== HACKERNEWS FETCH FAILED ===', err);
-        console.log('Using fallback content');
-        setPosts(getRealPerplexityContent());
-        setError('');
+        console.error('=== CONTENT LOAD FAILED ===', err);
+        setError('Hiba történt a tartalom betöltésekor');
       } finally {
         setLoading(false);
       }
