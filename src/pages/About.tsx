@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Brain, Target, Users, Shield, Lightbulb, Eye, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PageContainer, PageHeader, FeatureCard, CTASection } from '@/components/PageComponents';
+import { useNavigation } from '@/hooks/useNavigation';
 
 const About = () => {
   const { t } = useLanguage();
+  const { openCalendlyBooking, navigateToServices } = useNavigation();
   
   
   return (

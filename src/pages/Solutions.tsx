@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { MessageSquare, BarChart3, Target, CheckCircle, ArrowRight, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PageContainer, PageHeader, FeatureCard, CTASection } from '@/components/PageComponents';
+import { useNavigation } from '@/hooks/useNavigation';
 
 const Solutions = () => {
   const { t } = useLanguage();
+  const { openCalendlyBooking, openExternalDemo } = useNavigation();
   
   return (
     <PageContainer>
@@ -125,11 +127,21 @@ const Solutions = () => {
           {t('why.booking.desc')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" variant="linkedin" className="hover-scale animate-agentize-pulse">
+          <Button 
+            size="lg" 
+            variant="linkedin" 
+            className="hover-scale animate-agentize-pulse"
+            onClick={openCalendlyBooking}
+          >
             {t('common.freeConsultation')}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button variant="outline" size="lg" className="hover-scale">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="hover-scale"
+            onClick={openExternalDemo}
+          >
             {t('common.requestDemo')}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

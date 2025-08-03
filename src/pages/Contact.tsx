@@ -9,9 +9,11 @@ import Footer from '@/components/Footer';
 import { LinkedInScraper } from '@/components/LinkedInScraper';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigation } from '@/hooks/useNavigation';
 
 const Contact = () => {
   const { t } = useLanguage();
+  const { openCalendlyBooking } = useNavigation();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -147,7 +149,11 @@ const Contact = () => {
                 <p className="opacity-90 mb-4">
                   {t('contact.consultation.desc')}
                 </p>
-                <Button variant="hero" className="bg-white text-primary hover:bg-white/90">
+                <Button 
+                  variant="hero" 
+                  className="bg-white text-primary hover:bg-white/90"
+                  onClick={openCalendlyBooking}
+                >
                   Időpont foglalás
                 </Button>
               </div>

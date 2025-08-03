@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigation } from '@/hooks/useNavigation';
 
 interface PageHeaderProps {
   title: string;
@@ -42,6 +42,8 @@ export const CTASection = ({
   secondaryButton,
   variant = 'default' 
 }: CTASectionProps) => {
+  const { openCalendlyBooking, navigateToServices } = useNavigation();
+  
   return (
     <div className={`rounded-2xl p-8 md:p-12 text-center shadow-elegant ${
       variant === 'gradient' 
@@ -63,6 +65,7 @@ export const CTASection = ({
           variant={variant === 'gradient' ? 'hero' : 'linkedin'} 
           size="lg" 
           className="hover-scale animate-agentize-pulse"
+          onClick={openCalendlyBooking}
         >
           {primaryButton}
         </Button>
@@ -71,6 +74,7 @@ export const CTASection = ({
             variant={variant === 'gradient' ? 'secondary' : 'outline'} 
             size="lg"
             className="hover-scale"
+            onClick={navigateToServices}
           >
             {secondaryButton}
           </Button>

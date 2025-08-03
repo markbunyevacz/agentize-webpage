@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { ArrowRight, CheckCircle, Zap, Shield, Users, Brain } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigation } from '@/hooks/useNavigation';
 import heroBackground from '@/assets/hero-bg.jpg';
 import automationIcon from '@/assets/automation-icon.jpg';
 import decisionIcon from '@/assets/decision-icon.jpg';
@@ -13,6 +14,7 @@ import consultingIcon from '@/assets/consulting-icon.jpg';
 
 const Index = () => {
   const { t } = useLanguage();
+  const { openExternalDemo, openCalendlyBooking } = useNavigation();
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -63,11 +65,21 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-            <Button variant="linkedin" size="lg" className="animate-glow hover-scale">
+            <Button 
+              variant="linkedin" 
+              size="lg" 
+              className="animate-glow hover-scale"
+              onClick={openExternalDemo}
+            >
               {t('hero.cta.demo')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" className="glass-effect text-white hover:bg-white/20">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="glass-effect text-white hover:bg-white/20"
+              onClick={openCalendlyBooking}
+            >
               {t('hero.cta.consult')}
             </Button>
           </div>

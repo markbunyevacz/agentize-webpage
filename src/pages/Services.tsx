@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Bot, Settings, GraduationCap, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { PageContainer, PageHeader, FeatureCard, CTASection } from '@/components/PageComponents';
+import { useNavigation } from '@/hooks/useNavigation';
 
 const Services = () => {
   const { t } = useLanguage();
+  const { navigateToSolutions, openCalendlyBooking } = useNavigation();
   return (
     <PageContainer>
       <PageHeader 
@@ -48,7 +50,11 @@ const Services = () => {
               </ul>
             </div>
 
-            <Button variant="linkedin" className="w-full hover-scale">
+            <Button 
+              variant="linkedin" 
+              className="w-full hover-scale"
+              onClick={navigateToSolutions}
+            >
               {t('common.learnMore')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -87,10 +93,18 @@ const Services = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="linkedin" className="flex-1 hover-scale">
+              <Button 
+                variant="linkedin" 
+                className="flex-1 hover-scale"
+                onClick={openCalendlyBooking}
+              >
                 {t('services.prompt.cta1')}
               </Button>
-              <Button variant="outline" className="flex-1 hover-scale">
+              <Button 
+                variant="outline" 
+                className="flex-1 hover-scale"
+                onClick={navigateToSolutions}
+              >
                 {t('services.prompt.cta2')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -130,11 +144,19 @@ const Services = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="linkedin" className="flex-1 hover-scale">
+              <Button 
+                variant="linkedin" 
+                className="flex-1 hover-scale"
+                onClick={openCalendlyBooking}
+              >
                 {t('services.training.cta1')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="flex-1 hover-scale">
+              <Button 
+                variant="outline" 
+                className="flex-1 hover-scale"
+                onClick={navigateToSolutions}
+              >
                 {t('services.training.cta2')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
