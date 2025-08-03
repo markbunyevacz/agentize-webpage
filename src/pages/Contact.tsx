@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { LinkedInScraper } from '@/components/LinkedInScraper';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -178,6 +179,11 @@ const Contact = () => {
               </Card>
             </div>
           </div>
+        </div>
+        
+        {/* LinkedIn Profile Scraper */}
+        <div className="max-w-4xl mx-auto">
+          <LinkedInScraper />
         </div>
       </div>
 
