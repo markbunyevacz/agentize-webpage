@@ -63,7 +63,7 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-            <Button variant="hero" size="lg" className="animate-glow hover-scale">
+            <Button variant="linkedin" size="lg" className="animate-glow hover-scale">
               {t('hero.cta.demo')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

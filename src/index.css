@@ -17,14 +17,14 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* 2025 Mocha Mousse + Ethereal Blues */
-    --primary: 210 84% 60%;
+    /* LinkedIn/Agentize Brand Colors */
+    --primary: 210 100% 38%; /* LinkedIn Blue #0A66C2 */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 100% 75%;
-    --mocha: 25 30% 50%;
-    --mocha-light: 25 40% 70%;
-    --ethereal-blue: 210 100% 85%;
-    --metallic: 200 20% 60%;
+    --primary-glow: 210 100% 50%; /* Lighter LinkedIn Blue */
+    --primary-variant: 210 100% 25%; /* Darker LinkedIn Blue */
+    --linkedin-blue: 210 100% 38%;
+    --linkedin-light: 210 100% 55%;
+    --agentize-accent: 200 85% 45%;
 
     --secondary: 25 20% 92%;
     --secondary-foreground: 25 30% 20%;
@@ -40,20 +40,21 @@ All colors MUST be HSL.
 
     --border: 25 20% 88%;
     --input: 25 20% 88%;
-    --ring: 210 84% 60%;
+    --ring: 210 100% 38%;
 
-    /* Modern gradient schemes */
-    --gradient-primary: linear-gradient(135deg, hsl(210 84% 60%), hsl(220 100% 75%));
-    --gradient-mocha: linear-gradient(135deg, hsl(25 30% 50%), hsl(25 40% 70%));
-    --gradient-ethereal: linear-gradient(180deg, hsl(210 100% 85%), hsl(220 100% 90%));
-    --gradient-hero: linear-gradient(135deg, hsl(210 84% 60%), hsl(25 30% 50%), hsl(220 100% 75%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(25 15% 95%));
+    /* LinkedIn/Agentize gradient schemes */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 38%), hsl(210 100% 50%));
+    --gradient-linkedin: linear-gradient(135deg, hsl(210 100% 38%), hsl(200 85% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 38%), hsl(200 85% 45%), hsl(210 100% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 95%));
+    --gradient-agentize: linear-gradient(135deg, hsl(210 100% 38%), hsl(200 85% 45%));
     
-    /* Enhanced shadows with depth */
-    --shadow-glow: 0 0 40px hsl(210 84% 60% / 0.3);
-    --shadow-elegant: 0 20px 40px -10px hsl(210 84% 60% / 0.15);
-    --shadow-depth: 0 25px 50px -12px hsl(25 30% 50% / 0.25);
-    --shadow-floating: 0 32px 64px -12px hsl(210 84% 60% / 0.2);
+    /* LinkedIn branded shadows */
+    --shadow-glow: 0 0 40px hsl(210 100% 38% / 0.3);
+    --shadow-elegant: 0 20px 40px -10px hsl(210 100% 38% / 0.15);
+    --shadow-linkedin: 0 8px 24px -8px rgba(10, 102, 194, 0.25);
+    --shadow-depth: 0 25px 50px -12px hsl(210 100% 38% / 0.25);
+    --shadow-floating: 0 32px 64px -12px hsl(210 100% 38% / 0.2);
 
     --radius: 0.75rem;
 
@@ -192,7 +193,37 @@ All colors MUST be HSL.
     grid-template-rows: 1fr auto;
   }
   
+  
   .organic-shape {
     clip-path: ellipse(80% 60% at 30% 40%);
+  }
+  
+  /* LinkedIn/Agentize specific animations */
+  .animate-linkedin-fade {
+    animation: linkedinFade 0.8s ease-out;
+  }
+  
+  .animate-agentize-pulse {
+    animation: agentizePulse 2s infinite;
+  }
+  
+  @keyframes linkedinFade {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes agentizePulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--linkedin-blue) / 0.2); 
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--linkedin-blue) / 0.4); 
+    }
   }
 }
