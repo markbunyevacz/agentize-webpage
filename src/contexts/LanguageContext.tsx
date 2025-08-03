@@ -107,7 +107,7 @@ const translations: Translations = {
   'about.security': { en: 'Security first', hu: 'Biztonság első' },
   'about.security.desc': { en: 'GDPR and EU AI Act compatible systems', hu: 'GDPR és EU AI Act kompatibilis rendszerek' },
   'about.human': { en: 'Human-centered', hu: 'Emberközpontú' },
-  'about.human.desc': { en: 'AI complements, not replaces human work', hu: 'Az AI kiegészíti, nem helyettesíti az emberi munkát' },
+  
 
   // Footer
   'footer.navigation': { en: 'Navigation', hu: 'Navigáció' },
