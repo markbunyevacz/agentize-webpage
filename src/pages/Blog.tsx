@@ -28,40 +28,115 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Fetch fresh news from Perplexity API
+  // Fetch fresh news from Perplexity Discover
   useEffect(() => {
-    const fetchFreshNews = async () => {
+    const fetchPerplexityNews = async () => {
       try {
         setLoading(true);
         setError('');
         
-        const { data, error: functionError } = await supabase.functions.invoke('fetch-ai-news', {
-          body: { language }
-        });
-
-        if (functionError) {
-          console.log('Edge function error:', functionError);
-          setError('Fallback tartalmat mutatunk. Friss hírek betöltése sikertelen.');
-          setPosts(getStaticPosts());
-        } else if (data?.news && data.news.length > 0) {
-          setPosts(data.news);
-          setError(''); // Clear any previous errors
-        } else {
-          console.log('No news data received, using fallback');
-          setError('Friss hírek betöltése sikertelen, statikus tartalmat mutatunk.');
-          setPosts(getStaticPosts());
+        // Use a CORS proxy to fetch Perplexity Discover content
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const perplexityUrl = 'https://www.perplexity.ai/discover';
+        
+        const response = await fetch(proxyUrl + encodeURIComponent(perplexityUrl));
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch Perplexity Discover');
         }
+        
+        const data = await response.json();
+        const htmlContent = data.contents;
+        
+        // Extract AI-related news from the HTML content
+        const aiNews = extractAINewsFromHTML(htmlContent);
+        
+        if (aiNews.length > 0) {
+          setPosts(aiNews);
+          setError('');
+        } else {
+          throw new Error('No AI news found');
+        }
+        
       } catch (err) {
-        console.log('Error fetching news:', err);
-        setError('Perplexity Discover hírek betöltése sikertelen. Statikus tartalmat mutatunk.');
+        console.log('Error fetching Perplexity news:', err);
+        setError('Perplexity Discover elérése sikertelen. Statikus tartalmat mutatunk.');
         setPosts(getStaticPosts());
       } finally {
         setLoading(false);
       }
     };
 
-    fetchFreshNews();
+    fetchPerplexityNews();
   }, [language]);
+
+  const extractAINewsFromHTML = (htmlContent: string): BlogPost[] => {
+    const currentDate = new Date().toLocaleDateString(language === 'hu' ? 'hu-HU' : 'en-US');
+    const newsItems: BlogPost[] = [];
+    
+    try {
+      // Create a DOM parser to extract content
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+      
+      // Look for article titles, headlines, or links that might contain AI content
+      const headings = doc.querySelectorAll('h1, h2, h3, h4, a[href*="ai"], a[href*="artificial"], a[href*="tech"]');
+      const articles = doc.querySelectorAll('article, .article, [class*="card"], [class*="post"]');
+      
+      let extractedCount = 0;
+      const maxItems = 6;
+      
+      // Extract from headings first
+      headings.forEach((element) => {
+        if (extractedCount >= maxItems) return;
+        
+        const text = element.textContent?.trim() || '';
+        if (text.length > 10 && (
+          text.toLowerCase().includes('ai') ||
+          text.toLowerCase().includes('artificial') ||
+          text.toLowerCase().includes('machine learning') ||
+          text.toLowerCase().includes('technology') ||
+          text.toLowerCase().includes('tech')
+        )) {
+          newsItems.push({
+            title: language === 'hu' ? translateToHungarian(text) : text,
+            excerpt: language === 'hu' 
+              ? `Friss fejlesztés a mesterséges intelligencia területén. ${text.substring(0, 80)}...`
+              : `Fresh development in artificial intelligence. ${text.substring(0, 80)}...`,
+            category: language === 'hu' ? 'AI Trendek' : 'AI Trends',
+            date: currentDate,
+            readTime: language === 'hu' ? '5 perc' : '5 min',
+            featured: extractedCount < 3,
+            externalLink: 'https://www.perplexity.ai/discover'
+          });
+          extractedCount++;
+        }
+      });
+      
+    } catch (error) {
+      console.log('Error parsing HTML:', error);
+    }
+    
+    return newsItems;
+  };
+
+  const translateToHungarian = (text: string): string => {
+    const translations: { [key: string]: string } = {
+      'AI': 'MI',
+      'Artificial Intelligence': 'Mesterséges Intelligencia',
+      'Machine Learning': 'Gépi Tanulás',
+      'Technology': 'Technológia',
+      'Development': 'Fejlesztés',
+      'Innovation': 'Innováció',
+      'Research': 'Kutatás'
+    };
+    
+    let translated = text;
+    for (const [eng, hun] of Object.entries(translations)) {
+      translated = translated.replace(new RegExp(eng, 'gi'), hun);
+    }
+    return translated;
+  };
 
   const getStaticPosts = (): BlogPost[] => {
     if (language === 'en') { // English
