@@ -1,0 +1,92 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Az AI-alapú automatizálás jövője",
+      "excerpt": "Fedezze fel, hogyan alakítja át az AI-automatizálás a modern üzleti folyamatokat és milyen lehetőségeket kínál a vállalatok számára.",
+      "category": "AI & Automatizálás",
+      "date": "2024-01-15",
+      "readTime": 5,
+      "featured": true,
+      "language": "hu",
+      "content": "Az AI-alapú automatizálás forradalmasítja a modern üzleti környezetet..."
+    },
+    {
+      "id": "2", 
+      "title": "Intelligens ügyfélszolgálat chatbotok segítségével",
+      "excerpt": "Tudja meg, hogyan javíthatja ügyfélszolgálatát AI-chatbotokkal és növelheti az ügyfélelégedettséget.",
+      "category": "Ügyfélszolgálat",
+      "date": "2024-01-10",
+      "readTime": 4,
+      "featured": false,
+      "language": "hu",
+      "content": "Az AI-chatbotok új szintre emelik az ügyfélszolgálatot..."
+    },
+    {
+      "id": "3",
+      "title": "Adatelemzés és üzleti intelligencia",
+      "excerpt": "Ismerje meg, hogyan segíthet az AI az adatok elemzésében és a megalapozott üzleti döntések meghozatalában.",
+      "category": "Adatelemzés", 
+      "date": "2024-01-05",
+      "readTime": 6,
+      "featured": true,
+      "language": "hu",
+      "content": "Az AI-alapú adatelemzés új perspektívákat nyit..."
+    },
+    {
+      "id": "4",
+      "title": "The Future of AI-Driven Automation",
+      "excerpt": "Explore how AI automation is transforming modern business processes and what opportunities it offers for companies.",
+      "category": "AI & Automation",
+      "date": "2024-01-15", 
+      "readTime": 5,
+      "featured": true,
+      "language": "en",
+      "content": "AI-driven automation is revolutionizing the modern business environment..."
+    },
+    {
+      "id": "5",
+      "title": "Smart Customer Service with Chatbots",
+      "excerpt": "Learn how to improve your customer service with AI chatbots and increase customer satisfaction.",
+      "category": "Customer Service",
+      "date": "2024-01-10",
+      "readTime": 4,
+      "featured": false,
+      "language": "en", 
+      "content": "AI chatbots are taking customer service to the next level..."
+    },
+    {
+      "id": "6",
+      "title": "Data Analytics and Business Intelligence",
+      "excerpt": "Discover how AI can help with data analysis and making informed business decisions.",
+      "category": "Data Analytics",
+      "date": "2024-01-05",
+      "readTime": 6,
+      "featured": true,
+      "language": "en",
+      "content": "AI-powered data analytics opens new perspectives..."
+    },
+    {
+      "id": "7",
+      "title": "Testreszabott AI megoldások kis- és középvállalkozások számára",
+      "excerpt": "Megmutatjuk, hogyan implementálhatnak a KKV-k költséghatékony AI megoldásokat üzleti növekedésük támogatására.",
+      "category": "AI & Automatizálás",
+      "date": "2024-01-20",
+      "readTime": 7,
+      "featured": false,
+      "language": "hu",
+      "content": "A kis- és középvállalkozások is profitálhatnak az AI nyújtotta lehetőségekből..."
+    },
+    {
+      "id": "8",
+      "title": "Custom AI Solutions for SMEs",
+      "excerpt": "We show how SMEs can implement cost-effective AI solutions to support their business growth.",
+      "category": "AI & Automation", 
+      "date": "2024-01-20",
+      "readTime": 7,
+      "featured": false,
+      "language": "en",
+      "content": "Small and medium enterprises can also benefit from AI opportunities..."
+    }
+  ]
+}

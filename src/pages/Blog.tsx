@@ -27,36 +27,43 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Fetch fresh tech news from Perplexity Discover every time
+  // Load static blog content
   useEffect(() => {
-    const fetchFreshTechNews = async () => {
+    const loadBlogContent = async () => {
       try {
         setLoading(true);
         setError('');
         
-        // Fetch fresh content from Perplexity Discover tech
-        const response = await fetch('/lovable-uploads/perplexity-tech-content.json');
+        // Fetch static blog content
+        const response = await fetch('/blog-content.json');
         
         if (response.ok) {
           const data = await response.json();
-          setPosts(data.posts);
-          setError('');
-          console.log('Successfully loaded fresh tech articles from Perplexity');
+          
+          if (data && data.posts && Array.isArray(data.posts)) {
+            // Filter posts by current language
+            const filteredPosts = data.posts.filter(post => post.language === language);
+            setPosts(filteredPosts);
+            setError('');
+            console.log('Successfully loaded static blog content');
+          } else {
+            throw new Error('Invalid blog content format');
+          }
         } else {
-          throw new Error('Failed to load tech content');
+          throw new Error('Failed to load blog content');
         }
         
       } catch (err) {
-        console.error('Error loading tech news:', err);
-        // Use real fresh content from Perplexity Discover
-        setPosts(getRealPerplexityContent());
+        console.error('Error loading blog content:', err);
+        // Use fallback content on error
+        setPosts(getFallbackContent());
         setError('');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchFreshTechNews();
+    loadBlogContent();
   }, [language]);
 
   const getRealPerplexityContent = (): BlogPost[] => {
