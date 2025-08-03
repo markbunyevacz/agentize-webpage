@@ -335,19 +335,51 @@ const translations: Translations = {
     hu: 'Folyamatos biztonsági felülvizsgálatok és compliance ellenőrzések külső szakértők bevonásával.'
   },
 
-  // About Page
+  // About Page - Professional B2B content
   'about.page.title': { en: 'About Us', hu: 'Rólunk' },
   'about.page.subtitle': { 
-    en: 'The Agentize team consists of artificial intelligence and business automation experts who believe in ethical and transparent AI development.',
-    hu: 'Az Agentize csapata a mesterséges intelligencia és üzleti automatizálás szakértőiből áll, akik hisznek az etikus és átlátható AI fejlesztésben.'
+    en: 'The Agentize team consists of experts in artificial intelligence and business automation, committed to developing ethical, transparent, and business value-driven AI technologies.',
+    hu: 'Az Agentize csapata a mesterséges intelligencia és üzleti automatizálás szakértőiből áll, akik elkötelezettek az etikus, átlátható és üzleti értéket teremtő AI-technológiák fejlesztése mellett.'
   },
   'about.mission.title': { en: 'Our Mission', hu: 'Küldetésünk' },
-  'about.mission.desc': { 
-    en: 'Our goal is for every company to have access to ethical, transparent AI solutions tailored to their own business processes.',
-    hu: 'Célunk, hogy minden vállalat a saját üzleti folyamataihoz illeszkedő, etikus, átlátható AI-megoldásokhoz férjen hozzá.'
+  'about.mission.desc': {
+    en: 'Our mission is to make AI solutions accessible and operational for every company, enabling seamless integration with their unique business processes – all while upholding the highest ethical standards, full transparency, and a human-centered approach.',
+    hu: 'Küldetésünk, hogy minden vállalat számára elérhetővé és működtethetővé tegyük azokat az AI-megoldásokat, amelyek hatékonyan illeszkednek egyedi üzleti folyamataikhoz – mindezt a legmagasabb etikai normák, teljes transzparencia és emberközpontú szemlélet mentén.'
   },
-  'about.values.title': { en: 'Our Values', hu: 'Értékeink' },
-  'about.team.title': { en: 'Our Team', hu: 'Csapatunk' },
+  'about.values.title': { en: 'Our Core Values:', hu: 'Alapelveink:' },
+  'about.innovation.title': { en: 'Innovation', hu: 'Innováció' },
+  'about.innovation.desc': {
+    en: 'We continuously research and apply the latest advances in AI to deliver a measurable competitive advantage for our clients.',
+    hu: 'Folyamatosan kutatjuk és alkalmazzuk a mesterséges intelligencia legújabb technológiáit, hogy ügyfeleink versenyelőnyt szerezzenek.'
+  },
+  'about.transparency.title': { en: 'Transparency', hu: 'Transzparencia' },
+  'about.transparency.desc': {
+    en: 'Every AI solution we build is explainable and fully documented, delivering comprehensive audit trails and leveraging explainable AI (XAI) models.',
+    hu: 'Minden AI-fejlesztésünk átlátható: részletes dokumentációt, audit trail-t és magyarázható AI (XAI) modelleket biztosítunk.'
+  },
+  'about.human.title': { en: 'Human-Centricity', hu: 'Emberközpontúság' },
+  'about.human.desc': {
+    en: 'Our products and services empower the synergy between people and intelligent machines, always supporting human oversight, control, and decision-making.',
+    hu: 'Megoldásaink és szolgáltatásaink célja, hogy az ember és a gép együttműködése hatékonyabb, biztonságosabb és fenntarthatóbb legyen – a humán döntéshozást és kontrollt mindig támogatjuk.'
+  },
+  'about.team.title': { en: 'Who are we?', hu: 'Kik vagyunk?' },
+  'about.experience': {
+    en: '15+ years of combined experience in AI, business IT, and process automation.',
+    hu: 'Több, mint 15 év szakmai tapasztalat az AI, üzleti informatika és folyamatautomatizálás területén.'
+  },
+  'about.clients': {
+    en: 'Serving corporate (B2B) clients in Hungary and internationally.',
+    hu: 'Vállalati ügyfélkiszolgálás (B2B) Magyarországon és nemzetközi szinten.'
+  },
+  'about.expertise': {
+    en: 'A team of recognized AI developers, data security & compliance advisors, and process optimization specialists.',
+    hu: 'Szakértő csapat, elismert AI fejlesztők, adatbiztonsági és compliance tanácsadók, folyamatoptimalizálási specialisták.'
+  },
+  'about.goal.title': { en: 'Our Goal:', hu: 'Célunk:' },
+  'about.goal.desc': {
+    en: 'To empower Hungarian and European enterprises in their digital transformation by providing secure, measurable AI technologies that sustainably boost competitiveness.',
+    hu: 'Hozzájárulni a magyar és európai vállalatok digitális átalakulásához, biztosítva számukra azokat a biztonságos, mérhető eredményt hozó AI eszközöket, amelyek hosszú távon növelik versenyképességüket.'
+  },
   'about.join.title': { en: 'Join Us!', hu: 'Csatlakozz hozzánk!' },
   'about.join.desc': { 
     en: 'We are looking for talented AI developers, data scientists and business experts who want to be part of the forefront of the AI revolution.',

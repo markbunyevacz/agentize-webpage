@@ -43,11 +43,11 @@ const About = () => {
               <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
                 <CardHeader className="text-center">
                   <Lightbulb className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-xl text-foreground">Innováció</CardTitle>
+                  <CardTitle className="text-xl text-foreground">{t('about.innovation.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-center text-muted-foreground">
-                    Folyamatosan kutatjuk és alkalmazzuk a mesterséges intelligencia legújabb technológiáit, hogy ügyfeleink versenyelőnyt szerezzenek.
+                    {t('about.innovation.desc')}
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -56,11 +56,11 @@ const About = () => {
               <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
                 <CardHeader className="text-center">
                   <Eye className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-xl text-foreground">Transzparencia</CardTitle>
+                  <CardTitle className="text-xl text-foreground">{t('about.transparency.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-center text-muted-foreground">
-                    Minden AI-fejlesztésünk átlátható: részletes dokumentációt, audit trail-t és magyarázható AI (XAI) modelleket biztosítunk.
+                    {t('about.transparency.desc')}
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -69,37 +69,37 @@ const About = () => {
               <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-background">
                 <CardHeader className="text-center">
                   <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-xl text-foreground">Emberközpontúság</CardTitle>
+                  <CardTitle className="text-xl text-foreground">{t('about.human.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-center text-muted-foreground">
-                    Megoldásaink és szolgáltatásaink célja, hogy az ember és a gép együttműködése hatékonyabb, biztonságosabb és fenntarthatóbb legyen.
+                    {t('about.human.desc')}
                   </CardDescription>
                 </CardContent>
               </Card>
             </div>
           </div>
 
-          {/* Who We Are */}
+          {/* Who We Are & Goal */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <Card className="shadow-lg bg-background">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl text-foreground">Kik vagyunk?</CardTitle>
+                <CardTitle className="text-2xl text-foreground">{t('about.team.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-muted-foreground">Több, mint 15 év szakmai tapasztalat az AI, üzleti informatika és folyamatautomatizálás területén.</p>
+                    <p className="text-muted-foreground">{t('about.experience')}</p>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-muted-foreground">Vállalati ügyfélkiszolgálás (B2B) Magyarországon és nemzetközi szinten.</p>
+                    <p className="text-muted-foreground">{t('about.clients')}</p>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-muted-foreground">Szakértő csapat, elismert AI fejlesztők, adatbiztonsági és compliance tanácsadók, folyamatoptimalizálási specialisták.</p>
+                    <p className="text-muted-foreground">{t('about.expertise')}</p>
                   </div>
                 </div>
               </CardContent>
@@ -108,41 +108,40 @@ const About = () => {
             <Card className="shadow-lg bg-primary text-primary-foreground">
               <CardHeader>
                 <Target className="h-12 w-12 text-primary-foreground mb-4" />
-                <CardTitle className="text-2xl">Célunk:</CardTitle>
+                <CardTitle className="text-2xl">{t('about.goal.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-lg opacity-90 leading-relaxed">
-                  Hozzájárulni a magyar és európai vállalatok digitális átalakulásához, biztosítva számukra azokat a biztonságos, mérhető eredményt hozó AI eszközöket, amelyek hosszú távon növelik versenyképességüket.
+                  {t('about.goal.desc')}
                 </p>
               </CardContent>
             </Card>
           </div>
 
-          {/* Values in Action */}
-          <Card className="bg-background border-2 border-primary/20 mb-16 shadow-lg">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
-                {t('about.intelligent')}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.security')}</h3>
-                  <p className="text-muted-foreground">{t('about.security.desc')}</p>
-                </div>
-                <div className="text-center">
-                  <Brain className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.intelligent')}</h3>
-                  <p className="text-muted-foreground">{t('about.intelligent.desc')}</p>
-                </div>
-                <div className="text-center">
-                  <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">{t('about.human')}</h3>
-                  <p className="text-muted-foreground">{t('about.human.desc')}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Statistics/Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <Card className="shadow-lg text-center bg-background">
+              <CardHeader>
+                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-3xl font-bold text-foreground">100%</CardTitle>
+                <CardDescription className="text-muted-foreground">GDPR & EU AI Act Megfelelőség</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="shadow-lg text-center bg-background">
+              <CardHeader>
+                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-3xl font-bold text-foreground">15+</CardTitle>
+                <CardDescription className="text-muted-foreground">Év Szakmai Tapasztalat</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="shadow-lg text-center bg-background">
+              <CardHeader>
+                <Brain className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-3xl font-bold text-foreground">B2B</CardTitle>
+                <CardDescription className="text-muted-foreground">Vállalati Ügyfélkör</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
 
           {/* CTA Section */}
           <div className="bg-background border-2 border-primary/20 rounded-2xl p-8 md:p-12 text-center shadow-lg">
