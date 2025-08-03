@@ -26,8 +26,6 @@ const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-  const [articleContent, setArticleContent] = useState<string>('');
-  const [contentLoading, setContentLoading] = useState<boolean>(false);
 
   // Fetch fresh tech news from Perplexity Discover every time
   useEffect(() => {
@@ -474,97 +472,14 @@ const Blog = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [showContent, setShowContent] = useState(false);
 
-  const fetchArticleContent = async (url: string) => {
-    try {
-      setContentLoading(true);
-      
-      // Use a CORS proxy to fetch the content
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-      const response = await fetch(proxyUrl);
-      
-      if (response.ok) {
-        const html = await response.text();
-        
-        // Parse the HTML and extract the main content
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        
-        // Remove scripts, styles, and unwanted elements
-        const elementsToRemove = doc.querySelectorAll('script, style, nav, header, footer, .nav, .header, .footer, .sidebar, .menu, .advertisement, .ads');
-        elementsToRemove.forEach(el => el.remove());
-        
-        // Find the main content area
-        const contentSelectors = [
-          'main',
-          'article', 
-          '[role="main"]',
-          '.content',
-          '.article-content',
-          '.post-content',
-          '.entry-content',
-          '.main-content',
-          '#content',
-          '#main',
-          '.article-body'
-        ];
-        
-        let mainContent = null;
-        for (const selector of contentSelectors) {
-          mainContent = doc.querySelector(selector);
-          if (mainContent && mainContent.textContent && mainContent.textContent.trim().length > 200) {
-            break;
-          }
-        }
-        
-        if (!mainContent) {
-          // Fallback: find the largest content block
-          const allDivs = Array.from(doc.querySelectorAll('div, section'));
-          mainContent = allDivs.reduce((largest, current) => {
-            const currentText = current.textContent?.trim() || '';
-            const largestText = largest?.textContent?.trim() || '';
-            return currentText.length > largestText.length ? current : largest;
-          });
-        }
-        
-        if (mainContent) {
-          // Clean up the content
-          const cleanContent = mainContent.innerHTML
-            .replace(/<script[^>]*>.*?<\/script>/gis, '')
-            .replace(/<style[^>]*>.*?<\/style>/gis, '')
-            .replace(/style="[^"]*"/gi, '')
-            .replace(/class="[^"]*"/gi, '')
-            .replace(/id="[^"]*"/gi, '')
-            .replace(/<iframe[^>]*>.*?<\/iframe>/gis, '');
-          
-          setArticleContent(cleanContent);
-        } else {
-          setArticleContent('<p>Unable to load article content.</p>');
-        }
-      } else {
-        setArticleContent('<p>Failed to fetch article content.</p>');
-      }
-    } catch (error) {
-      console.error('Error fetching article:', error);
-      setArticleContent('<p>Error loading article content.</p>');
-    } finally {
-      setContentLoading(false);
-    }
-  };
-
   const handlePostClick = (post: BlogPost) => {
     setSelectedPost(post);
     setShowContent(true);
-    setArticleContent('');
-    
-    if (post.externalLink) {
-      fetchArticleContent(post.externalLink);
-    }
   };
 
   const closeContent = () => {
     setShowContent(false);
     setSelectedPost(null);
-    setArticleContent('');
   };
 
   return (
@@ -759,33 +674,57 @@ const Blog = () => {
                 </Button>
               </div>
               
-              <div className="prose prose-lg max-w-none dark:prose-invert">
-                {contentLoading ? (
-                  <div className="text-center py-8">
-                    <Loader2 className="mx-auto h-8 w-8 animate-spin mb-4" />
-                    <p className="text-muted-foreground">
-                      {language === 'hu' ? 'Cikk betöltése...' : 'Loading article...'}
-                    </p>
-                  </div>
-                ) : articleContent ? (
-                  <div 
-                    dangerouslySetInnerHTML={{ __html: articleContent }}
-                    className="article-content"
-                  />
-                ) : (
-                  <div className="text-center py-8">
-                    <p className="text-muted-foreground">
-                      {language === 'hu' ? 'Cikk tartalom nem elérhető' : 'Article content unavailable'}
-                    </p>
-                  </div>
-                )}
+              <div className="prose prose-sm max-w-none dark:prose-invert">
+                <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                  {selectedPost.excerpt}
+                </p>
+                
+                <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {language === 'hu' ? 'Főbb pontok:' : 'Key Points:'}
+                  </h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    {selectedPost.category.includes('AI') && (
+                      <>
+                        <li>• {language === 'hu' ? 'Legújabb AI technológiai fejlesztések' : 'Latest AI technology developments'}</li>
+                        <li>• {language === 'hu' ? 'Piaci befolyás és trendek elemzése' : 'Market impact and trend analysis'}</li>
+                        <li>• {language === 'hu' ? 'Technikai részletek és lehetőségek' : 'Technical details and opportunities'}</li>
+                      </>
+                    )}
+                    {selectedPost.category.includes('Google') && (
+                      <>
+                        <li>• {language === 'hu' ? 'Google mesterséges intelligencia fejlesztések' : 'Google artificial intelligence developments'}</li>
+                        <li>• {language === 'hu' ? 'Gemini modell újdonságai' : 'Gemini model innovations'}</li>
+                      </>
+                    )}
+                    {selectedPost.category.includes('OpenAI') && (
+                      <>
+                        <li>• {language === 'hu' ? 'OpenAI stratégiai lépések' : 'OpenAI strategic moves'}</li>
+                        <li>• {language === 'hu' ? 'ChatGPT és GPT modellek fejlesztése' : 'ChatGPT and GPT model development'}</li>
+                      </>
+                    )}
+                    <li>• {language === 'hu' ? 'Gyakorlati alkalmazási lehetőségek' : 'Practical application opportunities'}</li>
+                    <li>• {language === 'hu' ? 'Jövőbeli kilátások és előrejelzések' : 'Future outlook and predictions'}</li>
+                  </ul>
+                </div>
 
-                <div className="text-center pt-4 border-t mt-8">
+                <div className="text-center pt-4 border-t">
                   <p className="text-sm text-muted-foreground mb-4">
                     {language === 'hu' 
-                      ? 'Teljes cikk tartalom betöltve.' 
-                      : 'Full article content loaded.'}
+                      ? 'Ez egy összefoglaló a legfrissebb technológiai hírekről.' 
+                      : 'This is a summary of the latest technology news.'}
                   </p>
+                  {selectedPost.externalLink && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.open(selectedPost.externalLink, '_blank')}
+                      className="gap-2"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      {language === 'hu' ? 'Eredeti cikk megtekintése' : 'View Original Article'}
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
