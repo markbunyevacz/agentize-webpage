@@ -402,27 +402,27 @@ const translations: Translations = {
   'about.values.title': { en: 'Our Core Values:', hu: 'Alapelveink:' },
   'about.innovation.title': { en: 'Innovation', hu: 'Innováció' },
   'about.innovation.desc': {
-    en: 'We continuously research and apply the latest advances in AI to deliver a measurable competitive advantage for our clients.',
-    hu: 'Folyamatosan kutatjuk és alkalmazzuk a mesterséges intelligencia legújabb technológiáit, hogy ügyfeleink versenyelőnyt szerezzenek.'
+    en: 'We continuously research and deploy cutting-edge AI technologies that deliver measurable competitive advantages, transforming how businesses operate in the digital age.',
+    hu: 'Folyamatosan kutatjuk és alkalmazzuk a legújabb AI technológiákat, amelyek mérhető versenyelőnyt biztosítanak és átalakítják a vállalatok működését a digitális korszakban.'
   },
   'about.transparency.title': { en: 'Transparency', hu: 'Transzparencia' },
   'about.transparency.desc': {
-    en: 'Every AI solution we build is explainable and fully documented, delivering comprehensive audit trails and leveraging explainable AI (XAI) models.',
-    hu: 'Minden AI-fejlesztésünk átlátható: részletes dokumentációt, audit trail-t és magyarázható AI (XAI) modelleket biztosítunk.'
+    en: 'Every AI solution we build is explainable, fully auditable, and documented with comprehensive trails, leveraging explainable AI (XAI) models for complete business confidence.',
+    hu: 'Minden AI-fejlesztésünk átlátható, teljes mértékben auditálható és részletesen dokumentált, magyarázható AI (XAI) modelleket használva a teljes üzleti bizalom érdekében.'
   },
   'about.human.title': { en: 'Human-Centricity', hu: 'Emberközpontúság' },
   'about.human.desc': {
-    en: 'Our products and services empower the synergy between people and intelligent machines, always supporting human oversight, control, and decision-making.',
-    hu: 'Megoldásaink és szolgáltatásaink célja, hogy az ember és a gép együttműködése hatékonyabb, biztonságosabb és fenntarthatóbb legyen – a humán döntéshozást és kontrollt mindig támogatjuk.'
+    en: 'Our solutions amplify human potential by creating powerful synergies between people and intelligent machines, always ensuring human oversight, control, and decision-making authority.',
+    hu: 'Megoldásaink az emberi potenciált erősítik fel az ember és az intelligens gépek közötti erőteljes szinergiák megteremtésével, mindig biztosítva a humán felügyeletet, kontrollt és döntéshozatali jogkört.'
   },
   'about.team.title': { en: 'Who are we?', hu: 'Kik vagyunk?' },
   'about.experience': {
-    en: '15+ years of combined experience in AI, business IT, and process automation.',
-    hu: 'Több, mint 15 év szakmai tapasztalat az AI, üzleti informatika és folyamatautomatizálás területén.'
+    en: '15+ years of combined experience in AI, enterprise automation, and digital transformation — delivering breakthrough results for forward-thinking businesses.',
+    hu: 'Több, mint 15 év összesített tapasztalat AI, vállalati automatizálás és digitális transzformáció területén — áttörő eredményeket nyújtva jövőorientált vállalatok számára.'
   },
   'about.clients': {
-    en: 'Serving corporate (B2B) clients in Hungary and internationally.',
-    hu: 'Vállalati ügyfélkiszolgálás (B2B) Magyarországon és nemzetközi szinten.'
+    en: 'Serving enterprise clients across Hungary and Europe with mission-critical AI solutions that drive measurable business impact.',
+    hu: 'Vállalati ügyfelek kiszolgálása Magyarországon és Európában olyan üzletmenet-kritikus AI megoldásokkal, amelyek mérhető üzleti hatást generálnak.'
   },
   'about.expertise': {
     en: 'A team of recognized AI developers, data security & compliance advisors, and process optimization specialists.',
@@ -430,8 +430,8 @@ const translations: Translations = {
   },
   'about.goal.title': { en: 'Our Goal:', hu: 'Célunk:' },
   'about.goal.desc': {
-    en: 'To empower Hungarian and European enterprises in their digital transformation by providing secure, measurable AI technologies that sustainably boost competitiveness.',
-    hu: 'Hozzájárulni a magyar és európai vállalatok digitális átalakulásához, biztosítva számukra azokat a biztonságos, mérhető eredményt hozó AI eszközöket, amelyek hosszú távon növelik versenyképességüket.'
+    en: 'To accelerate the digital transformation of Hungarian and European enterprises by providing secure, scalable AI technologies that sustainably boost competitiveness and drive exponential growth.',
+    hu: 'A magyar és európai vállalatok digitális transzformációjának felgyorsítása biztonságos, skálázható AI technológiákkal, amelyek fenntarthatóan növelik a versenyképességet és exponenciális növekedést generálnak.'
   },
   'about.join.title': { en: 'Join Us!', hu: 'Csatlakozz hozzánk!' },
   'about.join.desc': { 
