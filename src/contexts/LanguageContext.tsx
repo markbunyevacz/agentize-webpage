@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface LanguageContextType {
   language: 'en' | 'hu';
@@ -499,6 +499,7 @@ const translations: Translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  console.log('LanguageProvider rendering');
   const [language, setLanguage] = useState<'en' | 'hu'>('hu');
 
   const t = (key: string): string => {
@@ -513,8 +514,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useLanguage = () => {
+  console.log('useLanguage called, context:', useContext(LanguageContext));
   const context = useContext(LanguageContext);
   if (context === undefined) {
+    console.error('useLanguage called outside LanguageProvider!');
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
