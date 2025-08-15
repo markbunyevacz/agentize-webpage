@@ -442,6 +442,60 @@ const translations: Translations = {
     hu: 'Az Agentize AI platform teljes mértékben megfelel az európai adatvédelmi és AI jogszabályoknak – garantált adatbiztonság, auditálhatóság, felhasználói jogok érvényesítése.'
   },
 
+  // Contact Page - Additional translations
+  'contact.form.gdpr': { 
+    en: '* Required fields. We handle your data in accordance with GDPR regulations.',
+    hu: '* Kötelező mezők. Adataidat a GDPR előírásainak megfelelően kezeljük.'
+  },
+  'contact.email.general': { 
+    en: 'General inquiries:',
+    hu: 'Általános megkeresés:'
+  },
+  'contact.email.sales': { 
+    en: 'Sales:',
+    hu: 'Értékesítés:'
+  },
+  'contact.office.address': { 
+    en: 'Budapest, Hungary\n1051 Budapest, Váci utca 47.\n3rd floor',
+    hu: 'Budapest, Magyarország\n1051 Budapest, Váci utca 47.\n3. emelet'
+  },
+  'contact.hours.schedule': { 
+    en: 'Monday - Friday: 9:00 - 18:00\nWeekends: By appointment',
+    hu: 'Hétfő - Péntek: 9:00 - 18:00\nHétvége: Előzetes egyeztetés alapján'
+  },
+  'contact.booking.button': { 
+    en: 'Book Appointment',
+    hu: 'Időpont foglalás'
+  },
+  'contact.faq.title': { 
+    en: 'FAQ - Frequently Asked Questions',
+    hu: 'GYIK - Gyakori kérdések'
+  },
+  'contact.faq.implementation.q': { 
+    en: 'How long does it take to implement an AI solution?',
+    hu: 'Mennyi idő alatt implementálható egy AI megoldás?'
+  },
+  'contact.faq.implementation.a': { 
+    en: 'Usually 2-6 weeks, depending on project complexity.',
+    hu: 'Általában 2-6 hét, a projekt komplexitásától függően.'
+  },
+  'contact.faq.gdpr.q': { 
+    en: 'Is the system GDPR compatible?',
+    hu: 'GDPR kompatibilis a rendszer?'
+  },
+  'contact.faq.gdpr.a': { 
+    en: 'Yes, all our solutions are 100% GDPR and EU AI Act compatible.',
+    hu: 'Igen, minden megoldásunk 100%-ban GDPR és EU AI Act kompatibilis.'
+  },
+  'contact.faq.support.q': { 
+    en: 'What support do you provide after implementation?',
+    hu: 'Milyen támogatást nyújtotok implementáció után?'
+  },
+  'contact.faq.support.a': { 
+    en: '24/7 technical support, regular updates and continuous optimization.',
+    hu: '24/7 technikai támogatás, rendszeres frissítések és folyamatos optimalizálás.'
+  },
+
   // About Page - Professional B2B content
   'about.page.title': { en: 'About Us', hu: 'Rólunk' },
   'about.page.subtitle': { 

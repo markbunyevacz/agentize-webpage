@@ -87,7 +87,7 @@ const Contact = () => {
                 </Button>
                 
                 <p className="text-sm text-muted-foreground">
-                  * Kötelező mezők. Adataidat a GDPR előírásainak megfelelően kezeljük.
+                  {t('contact.form.gdpr')}
                 </p>
               </CardContent>
             </Card>
@@ -102,11 +102,11 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">Általános megkeresés:</p>
+                  <p className="text-muted-foreground mb-2">{t('contact.email.general')}</p>
                   <a href="mailto:info@agentize.eu" className="text-primary hover:underline font-medium">
                     info@agentize.eu
                   </a>
-                  <p className="text-muted-foreground mb-2 mt-4">Értékesítés:</p>
+                  <p className="text-muted-foreground mb-2 mt-4">{t('contact.email.sales')}</p>
                   <a href="mailto:sales@agentize.eu" className="text-primary hover:underline font-medium">
                     sales@agentize.eu
                   </a>
@@ -121,10 +121,8 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Budapest, Magyarország<br />
-                    1051 Budapest, Váci utca 47.<br />
-                    3. emelet
+                  <p className="text-muted-foreground" style={{ whiteSpace: 'pre-line' }}>
+                    {t('contact.office.address')}
                   </p>
                 </CardContent>
               </Card>
@@ -137,9 +135,8 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Hétfő - Péntek: 9:00 - 18:00<br />
-                    Hétvége: Előzetes egyeztetés alapján
+                  <p className="text-muted-foreground" style={{ whiteSpace: 'pre-line' }}>
+                    {t('contact.hours.schedule')}
                   </p>
                 </CardContent>
               </Card>
@@ -154,31 +151,31 @@ const Contact = () => {
                   className="bg-white text-primary hover:bg-white/90"
                   onClick={openCalendlyBooking}
                 >
-                  Időpont foglalás
+                  {t('contact.booking.button')}
                 </Button>
               </div>
 
               <Card className="shadow-elegant">
                 <CardHeader>
-                  <CardTitle className="text-lg">GYIK - Gyakori kérdések</CardTitle>
+                  <CardTitle className="text-lg">{t('contact.faq.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2">Mennyi idő alatt implementálható egy AI megoldás?</h4>
+                    <h4 className="font-semibold mb-2">{t('contact.faq.implementation.q')}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Általában 2-6 hét, a projekt komplexitásától függően.
+                      {t('contact.faq.implementation.a')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">GDPR kompatibilis a rendszer?</h4>
+                    <h4 className="font-semibold mb-2">{t('contact.faq.gdpr.q')}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Igen, minden megoldásunk 100%-ban GDPR és EU AI Act kompatibilis.
+                      {t('contact.faq.gdpr.a')}
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Milyen támogatást nyújtotok implementáció után?</h4>
+                    <h4 className="font-semibold mb-2">{t('contact.faq.support.q')}</h4>
                     <p className="text-sm text-muted-foreground">
-                      24/7 technikai támogatás, rendszeres frissítések és folyamatos optimalizálás.
+                      {t('contact.faq.support.a')}
                     </p>
                   </div>
                 </CardContent>
