@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Calendar, Clock, ArrowRight, Search, ExternalLink, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { safeOpenExternal } from '@/lib/security';
 
 interface BlogPost {
   title: string;
@@ -768,11 +769,11 @@ const Blog = () => {
                       ? 'Ez egy összefoglaló a legfrissebb technológiai hírekről.' 
                       : 'This is a summary of the latest technology news.'}
                   </p>
-                  {selectedPost.externalLink && (
+                   {selectedPost.externalLink && (
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open(selectedPost.externalLink, '_blank')}
+                      onClick={() => safeOpenExternal(selectedPost.externalLink!)}
                       className="gap-2"
                     >
                       <ExternalLink className="h-4 w-4" />

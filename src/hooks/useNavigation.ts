@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { safeOpenExternal } from '@/lib/security';
 
 export const useNavigation = () => {
   const navigate = useNavigate();
@@ -32,12 +33,12 @@ export const useNavigation = () => {
 
   const openExternalDemo = () => {
     // Placeholder - later can be replaced with actual demo URL
-    window.open('https://calendly.com', '_blank');
+    safeOpenExternal('https://calendly.com');
   };
 
   const openCalendlyBooking = () => {
     // Placeholder - later can be replaced with actual Calendly link
-    window.open('https://calendly.com', '_blank');
+    safeOpenExternal('https://calendly.com');
   };
 
   const openContactForm = () => {
