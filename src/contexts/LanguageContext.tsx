@@ -388,6 +388,60 @@ const translations: Translations = {
   'technology.cta.button': { en: 'Free consultation', hu: 'Ingyenes konzultáció' },
   'technology.cta.demo': { en: 'Request demo', hu: 'Kérjen demót' },
 
+  // Technology Page - Feature lists
+  'technology.privacy.feature1': { 
+    en: 'Every function and process is designed from the ground up with data security and user rights protection in mind, not as an afterthought',
+    hu: 'Minden funkció és folyamat már alapvetően az adatbiztonságot és a felhasználói jogok védelmét szem előtt tartva kerül kialakításra, nem utólagos "foltozással"'
+  },
+  'technology.privacy.feature2': { 
+    en: 'Data minimization, access control, encryption and anonymization are built-in principles',
+    hu: 'Adatminimalizálás, hozzáférés-szabályozás, titkosítás és anonimizálás beépített alapelvek'
+  },
+  'technology.compliance.feature1': { 
+    en: 'Special attention is given to "limited risk" category services (e.g. chatbots), where user notification about AI communication is mandatory',
+    hu: 'Kiemelt figyelmet kapnak a "limited risk" kategóriába tartozó szolgáltatások (pl. chatbotok), ahol kötelező a felhasználó tájékoztatása, hogy AI-val kommunikál'
+  },
+  'technology.compliance.feature2': { 
+    en: 'Regular compliance audits and transparent information for all clients',
+    hu: 'Rendszeres megfelelőségi ellenőrzések (compliance auditok) és átlátható tájékoztatók minden ügyfélnél'
+  },
+  'technology.transparency.feature1': { 
+    en: 'Detailed logging and audit trail for every client interaction, so any decision or operation can be traced and verified afterwards',
+    hu: 'Részletes logging és audit trail minden ügyfélinterakciónál, így bármely döntés vagy művelet utólag visszakereshető és ellenőrizhető'
+  },
+  'technology.transparency.feature2': { 
+    en: 'Proper documentation and audit capability even for external experts',
+    hu: 'Megfelelő dokumentáció és auditálási lehetőség akár külső szakértők számára is'
+  },
+  'technology.audits.feature1': { 
+    en: 'Accredited external experts (e.g. ISO 27001, SOC2 auditors, data security consultants) continuously audit our infrastructure',
+    hu: 'Akkreditált külső szakértők (pl. ISO 27001, SOC2 auditori, adatbiztonsági tanácsadók) folyamatosan auditálják infrastruktúránkat'
+  },
+  'technology.audits.feature2': { 
+    en: 'Transparent reports are prepared on the results, which can be reviewed by partners and clients',
+    hu: 'Az eredményekről transzparens jelentés készül, amelyet a partnerek, ügyfelek is megismerhetnek'
+  },
+  'technology.data.feature1': { 
+    en: 'Data processing only occurs properly, with prior information and consent from users',
+    hu: 'Kizárólag szabályosan, a felhasználók előzetes tájékoztatásával és hozzájárulásával történik adatkezelés'
+  },
+  'technology.data.feature2': { 
+    en: 'Opportunity provided for data requests, deletion, withdrawal and complete transparency',
+    hu: 'Lehetőség biztosított az adatkérésre, törlésre, visszavonásra és teljes átláthatóságra'
+  },
+  'technology.technical.feature1': { 
+    en: 'Access management (RBAC), multi-factor authentication, secure cloud infrastructure',
+    hu: 'Hozzáférés menedzsment (RBAC), többfaktoros hitelesítés, biztonságos felhőinfrastruktúra'
+  },
+  'technology.technical.feature2': { 
+    en: 'Proactive intrusion prevention, real-time monitoring, automatic vulnerability testing',
+    hu: 'Proaktív behatolásvédelem, valós idejű monitoring, automatikus sérülékenységtesztek'
+  },
+  'technology.compliance.text': { 
+    en: 'The Agentize AI platform fully complies with European data protection and AI regulations – guaranteed data security, auditability, enforcement of user rights.',
+    hu: 'Az Agentize AI platform teljes mértékben megfelel az európai adatvédelmi és AI jogszabályoknak – garantált adatbiztonság, auditálhatóság, felhasználói jogok érvényesítése.'
+  },
+
   // About Page - Professional B2B content
   'about.page.title': { en: 'About Us', hu: 'Rólunk' },
   'about.page.subtitle': { 

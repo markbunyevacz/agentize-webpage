@@ -31,8 +31,8 @@ const Technology = () => {
           title={`1. ${t('technology.privacy.title')}`}
           description={t('technology.privacy.desc')}
           features={[
-            'Minden funkció és folyamat már alapvetően az adatbiztonságot és a felhasználói jogok védelmét szem előtt tartva kerül kialakításra, nem utólagos "foltozással"',
-            'Adatminimalizálás, hozzáférés-szabályozás, titkosítás és anonimizálás beépített alapelvek'
+            t('technology.privacy.feature1'),
+            t('technology.privacy.feature2')
           ]}
         />
 
@@ -41,8 +41,8 @@ const Technology = () => {
           title={`2. ${t('technology.compliance.title')}`}
           description={t('technology.compliance.desc')}
           features={[
-            'Kiemelt figyelmet kapnak a "limited risk" kategóriába tartozó szolgáltatások (pl. chatbotok), ahol kötelező a felhasználó tájékoztatása, hogy AI-val kommunikál',
-            'Rendszeres megfelelőségi ellenőrzések (compliance auditok) és átlátható tájékoztatók minden ügyfélnél'
+            t('technology.compliance.feature1'),
+            t('technology.compliance.feature2')
           ]}
         />
 
@@ -51,8 +51,8 @@ const Technology = () => {
           title={`3. ${t('technology.transparency.title')}`}
           description={t('technology.transparency.desc')}
           features={[
-            'Részletes logging és audit trail minden ügyfélinterakciónál, így bármely döntés vagy művelet utólag visszakereshető és ellenőrizhető',
-            'Megfelelő dokumentáció és auditálási lehetőség akár külső szakértők számára is'
+            t('technology.transparency.feature1'),
+            t('technology.transparency.feature2')
           ]}
         />
 
@@ -61,8 +61,8 @@ const Technology = () => {
           title={`4. ${t('technology.audits.title')}`}
           description={t('technology.audits.desc')}
           features={[
-            'Akkreditált külső szakértők (pl. ISO 27001, SOC2 auditori, adatbiztonsági tanácsadók) folyamatosan auditálják infrastruktúránkat',
-            'Az eredményekről transzparens jelentés készül, amelyet a partnerek, ügyfelek is megismerhetnek'
+            t('technology.audits.feature1'),
+            t('technology.audits.feature2')
           ]}
         />
 
@@ -71,8 +71,8 @@ const Technology = () => {
           title={`5. ${t('technology.data.title')}`}
           description={t('technology.data.desc')}
           features={[
-            'Kizárólag szabályosan, a felhasználók előzetes tájékoztatásával és hozzájárulásával történik adatkezelés',
-            'Lehetőség biztosított az adatkérésre, törlésre, visszavonásra és teljes átláthatóságra'
+            t('technology.data.feature1'),
+            t('technology.data.feature2')
           ]}
         />
 
@@ -81,8 +81,8 @@ const Technology = () => {
           title={`6. ${t('technology.technical.title')}`}
           description={t('technology.technical.desc')}
           features={[
-            'Hozzáférés menedzsment (RBAC), többfaktoros hitelesítés, biztonságos felhőinfrastruktúra',
-            'Proaktív behatolásvédelem, valós idejű monitoring, automatikus sérülékenységtesztek'
+            t('technology.technical.feature1'),
+            t('technology.technical.feature2')
           ]}
         />
       </div>
@@ -139,7 +139,7 @@ const Technology = () => {
                   </div>
                 </div>
                 <p className="text-sm opacity-80 leading-relaxed">
-                  Az Agentize AI platform teljes mértékben megfelel az európai adatvédelmi és AI jogszabályoknak – garantált adatbiztonság, auditálhatóság, felhasználói jogok érvényesítése.
+                  {t('technology.compliance.text')}
                 </p>
               </div>
             </div>
