@@ -724,6 +724,7 @@ const Blog = () => {
                   size="sm"
                   onClick={closeContent}
                   className="ml-4"
+                  aria-label="Close article"
                 >
                   ✕
                 </Button>
