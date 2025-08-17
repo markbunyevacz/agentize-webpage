@@ -72,7 +72,8 @@ export default {
 				'gradient-mocha': 'var(--gradient-mocha)',
 				'gradient-ethereal': 'var(--gradient-ethereal)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-subtle': 'var(--gradient-subtle)'
+				'gradient-subtle': 'var(--gradient-subtle)',
+				'gradient-linkedin': 'var(--gradient-linkedin)',
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',

@@ -88,7 +88,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start text-muted-foreground text-sm">
                 <MapPin size={16} className="mr-2 mt-0.5" />
-                Budapest, Magyarország
+                {t('contact.office.address')}
               </div>
             </div>
           </div>

@@ -49,15 +49,6 @@ const Services = () => {
                 ))}
               </ul>
             </div>
-
-            <Button 
-              variant="linkedin" 
-              className="w-full hover-scale"
-              onClick={navigateToSolutions}
-            >
-              {t('common.learnMore')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </CardContent>
         </Card>
 
@@ -91,24 +82,6 @@ const Services = () => {
                 {t('services.prompt.outcome')}
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button 
-                variant="linkedin" 
-                className="flex-1 hover-scale"
-                onClick={openCalendlyBooking}
-              >
-                {t('services.prompt.cta1')}
-              </Button>
-              <Button 
-                variant="outline" 
-                className="flex-1 hover-scale"
-                onClick={navigateToSolutions}
-              >
-                {t('services.prompt.cta2')}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </CardContent>
         </Card>
 
@@ -141,25 +114,6 @@ const Services = () => {
               <p className="text-sm font-medium text-center">
                 {t('services.training.discover')}
               </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button 
-                variant="linkedin" 
-                className="flex-1 hover-scale"
-                onClick={openCalendlyBooking}
-              >
-                {t('services.training.cta1')}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
-                variant="outline" 
-                className="flex-1 hover-scale"
-                onClick={navigateToSolutions}
-              >
-                {t('services.training.cta2')}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
           </CardContent>
         </Card>

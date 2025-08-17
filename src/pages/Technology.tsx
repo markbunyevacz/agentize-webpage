@@ -117,10 +117,6 @@ const Technology = () => {
                 </div>
               </div>
               
-              <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90 hover-scale">
-                {t('technology.xai.cta')}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
             </div>
 
             <div className="text-center lg:text-left">

@@ -64,23 +64,19 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
+          <div className="flex justify-center animate-scale-in">
             <Button 
               variant="linkedin" 
               size="lg" 
               className="animate-glow hover-scale"
-              onClick={openExternalDemo}
+              onClick={() => {
+                openExternalDemo();
+                // Vagy ha mindkettőt szeretnéd:
+                // openCalendlyBooking();
+              }}
             >
-              {t('hero.cta.demo')}
+              {t('hero.cta.demo')} / {t('hero.cta.consult')}
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="glass-effect text-white hover:bg-white/20"
-              onClick={openCalendlyBooking}
-            >
-              {t('hero.cta.consult')}
             </Button>
           </div>
         </div>

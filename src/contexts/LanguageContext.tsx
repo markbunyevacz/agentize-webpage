@@ -49,6 +49,7 @@ const translations: Translations = {
   },
   'hero.cta.demo': { en: 'Try the Demo', hu: 'Próbálja ki a demót' },
   'hero.cta.consult': { en: 'Request Consultation', hu: 'Kérjen konzultációt' },
+  'hero.cta.combined': { en: 'Try Demo & Book Consultation', hu: 'Demó és Konzultáció' },
   'hero.badge': { en: 'Enterprise AI Governance', hu: 'Vállalati AI Irányítás' },
 
   // Main Capabilities - Homepage
@@ -456,8 +457,8 @@ const translations: Translations = {
     hu: 'Értékesítés:'
   },
   'contact.office.address': { 
-    en: 'Budapest, Hungary\n1051 Budapest, Váci utca 47.\n3rd floor',
-    hu: 'Budapest, Magyarország\n1051 Budapest, Váci utca 47.\n3. emelet'
+    en: 'Berlin, Germany',
+    hu: 'Berlin, Németország'
   },
   'contact.hours.schedule': { 
     en: 'Monday - Friday: 9:00 - 18:00\nWeekends: By appointment',
@@ -529,8 +530,8 @@ const translations: Translations = {
     hu: 'Több, mint 15 év összesített tapasztalat AI, vállalati automatizálás és digitális transzformáció területén — áttörő eredményeket nyújtva jövőorientált vállalatok számára.'
   },
   'about.clients': {
-    en: 'Serving enterprise clients across Hungary and Europe with mission-critical AI solutions that drive measurable business impact.',
-    hu: 'Vállalati ügyfelek kiszolgálása Magyarországon és Európában olyan üzletmenet-kritikus AI megoldásokkal, amelyek mérhető üzleti hatást generálnak.'
+    en: 'We deliver mission-critical AI solutions to our enterprise partners worldwide, ensuring tangible results and measurable business impact.',
+    hu: 'Világszerte szállítunk nagyvállalati partnereinknek üzletmenet-kritikus AI megoldásokat, amelyek kézzelfogható eredményeket és mérhető üzleti hatást biztosítanak.'
   },
   'about.expertise': {
     en: 'A team of recognized AI developers, data security & compliance advisors, and process optimization specialists.',
@@ -538,8 +539,8 @@ const translations: Translations = {
   },
   'about.goal.title': { en: 'Our Goal:', hu: 'Célunk:' },
   'about.goal.desc': {
-    en: 'To accelerate the digital transformation of Hungarian and European enterprises by providing secure, scalable AI technologies that sustainably boost competitiveness and drive exponential growth.',
-    hu: 'A magyar és európai vállalatok digitális transzformációjának felgyorsítása biztonságos, skálázható AI technológiákkal, amelyek fenntarthatóan növelik a versenyképességet és exponenciális növekedést generálnak.'
+    en: 'Partnering with enterprises globally to pioneer digital transformation. Our secure, scalable AI technologies are engineered to build lasting competitive advantage and drive exponential growth.',
+    hu: 'Globális partnerség a digitális transzformáció élvonalában. Biztonságos, skálázható AI technológiáinkat a tartós versenyelőny kiépítésére és az exponenciális növekedés elérésére terveztük.'
   },
   'about.join.title': { en: 'Join Us!', hu: 'Csatlakozz hozzánk!' },
   'about.join.desc': { 
@@ -555,6 +556,8 @@ const translations: Translations = {
   },
   'blog.featured': { en: 'Featured Articles', hu: 'Kiemelt cikkek' },
   'blog.all': { en: 'All Articles', hu: 'Minden cikk' },
+  'blog.recent': { en: 'Recent News', hu: 'Friss hírek' },
+  'blog.recent_featured': { en: 'Featured News from the Last Two Weeks', hu: 'Kiemelt hírek az elmúlt két hétből' },
   'blog.search.placeholder': { en: 'Search articles...', hu: 'Keresés a cikkek között...' },
   'blog.newsletter.title': { en: 'Subscribe to our newsletter!', hu: 'Iratkozz fel hírlevelünkre!' },
   'blog.newsletter.desc': { 

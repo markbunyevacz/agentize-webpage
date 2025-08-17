@@ -65,7 +65,7 @@ const Solutions = () => {
           <CardHeader>
             <Target className="h-12 w-12 text-primary mb-4" />
             <CardTitle className="text-2xl">{t('solutions.marketing.title')}</CardTitle>
-            <CardDescription className="text-lg">
+            <CardDescription>
               {t('solutions.marketing.desc')}
             </CardDescription>
           </CardHeader>
@@ -91,7 +91,7 @@ const Solutions = () => {
       </div>
 
       {/* Why Choose Agentize */}
-      <Card className="bg-gradient-linkedin text-white mb-16 shadow-elegant">
+      <Card className="bg-card mb-16 shadow-elegant">
         <CardContent className="p-8 md:p-12">
           <h2 className="text-3xl font-bold mb-8 text-center">{t('why.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -127,15 +127,6 @@ const Solutions = () => {
           {t('why.booking.desc')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            variant="linkedin" 
-            className="hover-scale animate-agentize-pulse"
-            onClick={openCalendlyBooking}
-          >
-            {t('common.freeConsultation')}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
           <Button 
             variant="outline" 
             size="lg" 
